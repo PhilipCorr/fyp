@@ -15,73 +15,67 @@
 \def\studentname{Philip Corr}
 \def\projecttitle{ConvNets for iOS Gesture Recognition Applications}
 \def\ucdstudentnumber{12318581}
-\def\weeklyreportnumber{1}
+\def\weeklyreportnumber{2}
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%
-%%% First Section
+%%%%%%%%%%%%%%%%%%%%%%ss
+%%% First Section  
 
-This short report also serves as a template for preparing your reports using \LaTeX.  
-
-\section{Work Plan}
-
-You should devote some time during the first few weeks of term to prepare a detailed work plan for the duration of your project. This should be reviewed regularly as the project develops. Try and put as much thoughts as possible into this plan as it will help you keeping track of progress and ensure that you meet deadlines. Break down your project into basic tasks/work packages and try to evaluate the amount of work required for each item. You should regularly check progress against this work plan and discuss it from time to time at our weekly meeting.
-
-\section{Git \& Backups}
-
-Set up a git repository for your project on \url{http://git.ucd.ie} and share it with me (user id guenole). Ensure I have sufficient right to pull your repository (reporter rights should be sufficient). This repository should be logically organised with sub-directories for your log-book, reports, bibliography, code, documentation etc... Ensure your commit and push on a daily basis. All project materials should be contained on this repository. Our school will provide regular backups and ensure no data is lost.
-
-\section{First Steps}
+\section{Update}
 
 \begin{itemize}
 
-\item State-of-art research. This should be as thorough as possible. Google for existing and related works, also search for academic papers e.g.~\cite{IEEEwebsite, ACMwebsite,Lecun-pubs}. Very importantly, keep an annotated bibliography of your readings (use \BibTeX\ file for all bibliographic entries~\cite{BibTeX}). Don't hesitate to share your findings at our weekly meetings. At the end of this research, you ought to be an expert in ConvNets!
+\item Set up Xcode and built calculator from stanford module~\cite{PaulHegarty2016}. Very good and Lecturer explains very clearly. I've gone through Basic syntax and MVC so far. This was done in the first 3 videos.
 
-\item Learn about deep learning. I recommend to follow some online modules e.g.~\cite{Ng-Coursera-2016, VincentVanhoucke-Udacity-2016, Nvidia-DL-Course-2016}.
+\item Finished Coursera videos. Went through variance and bias. Also went through problems that can arise and when certain solutions apply.
+Highlighted some issues to be aware of and avoid.
+	- More data isn't always the right answer
+	- Cross validation set allows for more valid testing
+	- When to add more features/neurons to the network
+	
+\item Set up Latex through Texmaker and Texlive
 
-\item Install some deep learning frameworks (Theano, Torch, Caffe \ldots), iOS software development tools  (Xcode 8, iOS SDK, git setup), and reporting tools (LaTeX. All reports to be typeset in \LaTeX. Use TeXShop and MacTeX on MacOS).
+\item Signed risk assessment form
+	
+\end{itemize}
 
-\item Learn about Swift and Apple frameworks for iOS. You'll find an excellent course on iTunesU~\cite{PaulHegarty2016} (our semester 2 UCD module follows a very similar syllabus if you are interested)
+\section{Items for discussion}
 
+\begin{itemize}
 
-\item Download the NMIST dataset~\cite{NMIST-dataset}, implement and reproduce results of LeNet e.g.~\cite{YannLecun-98}. Try implementing model using Torch and Theano. Report on performance, training time\ldots. Experiment GPU acceleration.
+\item Would like to set up app asap and then do further state of the art research as I am collecting data. For this reason I suggest devoting as much of this week as needed to get app up and running and recording some sample data 
 
-\item Building your own dataset (10k+). Start thinking about your experimental setup for building a touch gesture dataset (app UI, what should be stored in datase\ldots). Also think about  biaises that could affect your data.
+\item Is it ok to record meetings electronically in Latex and provide it as supplement to my lab book? What is log-book folder/documentation folder for? Doesn't it have to be hard copy? Will I use bib for ongoing references vs weekly bib for stuff I find during the week? Should I use reference manager?
 
-\item Investigate the possibility to create a pseudo gesture dataset from the NMIST bitmaps (parametrisation of the bitmaps of digits).
+\item Use a cross validation set? Implications on data set to be recorded?
 
-\item Think about how convolutional neural networks should be applied to your touch gesture dataset. How does it differ from NMIST? How can you exploit the time parametrisation of the digit strokes?
+\item Experiment with GPU? Do I need CUDA for this?
+
+\item Discuss timetable? Maybe better to do this after I have a rough outline made?
+
+\item Any advice on where to work when I graduate?
+
+\item Is it possible to do a PHD in few years? What are the differences between doing one now and then?
+
+\item Funding for PHD?
+
+\item Working abroad vs. Ireland?
 
 \end{itemize}
 
-\section{Your Project Description}
+\section{Plan for Next Week}
+In order of priority from top to bottom
 
-\subsection{Background}
+\begin{itemize}
+\item Get app up and running.
 
-My proposed project lies in the field of Convolutional neural networks and deep learning and can be viewed as two sections. The first half is to focus on the different algorithms available and to benchmark their performance on classifying the MNIST database of handwritten digits. The second half of my project is to research and develop a convolutional neural network which can be used to classify digits entered into an iOS device. The digits would be entered by the user through the touch screen by tracing out the digit with their finger.
+\item Make a timetable for the year, more detailed one until christmas?
 
-On completion of the project I hope to have successfully benchmarked different deep learning algorithms and implemented one of them in a fully developed digit classifier application for iOS. I also hope to have obtained a large non-biased dataset of gesture written digits which can be used for further research in this area.
+\item Start into further deep learning resources e.g.~\cite{Ng-Coursera-2016, VincentVanhoucke-Udacity-2016, Nvidia-DL-Course-2016}.
 
-This project would be a great thing to do as the field of deep learning is fast becoming one of the most transformative paradigms across areas such as computer vision. This progress is seen in the fact that Intel is now acquiring Movidius, a company whose visionary solutions are based around machine intelligence and deep learning. Another reason that this project is very worthwhile is that one of the biggest obstacles in the way of developing better machine learning algorithms is the lack of datasets which are big enough to be used for machine learning and that are also non-biased.
+\item Investigate paramaterisation of bitmaps.
 
-My proposed work is original as deep learning neural networks haven't yet been used on an iOS device to handle touch screen gestures and the dataset for these gestures also does not yet exist. On top of this most of the papers that have been published on this topic have focused on machine learning algorithms but have not investigated deep learning algorithms as much. This is because deep learning algorithms have only taken off in recent years due to the fact that they are computationally much more intensive.
-
-\subsection{Technical Description}
-
-This software project will be completed using a variety of relevant technologies. I will use Torch, the scientific computing framework, to create the neural network algorithms and to benchmark them. Torch is based around the fast procedural scripting language Lua and puts GPUs first through its underlying CUDA implementation. The parallel computing this provides will allow more efficient and faster algorithms to be developed. I may also use TensorFlow, an open source library for machine learning written in Python and C++, developed by the Google Brain Team.
-
-Two iOS applications will need to be created, one will be a very simple application used to record the initial touch screen bitmap data. The second will be a more complete application demonstrating the gesture recognising neural network upon completion of the project. The applications will be developed through Swift, an open-source language developed originally by apple for apple products, and Objective-C. The gesture written numbers can be recorded by the iOS device by making a subclass of the UIGestureRecogniser class provided in the UIKit framework. The recorded data will be stored in a database for future use.
-
-Once the initial application is created it will be used to record the touch location bitmap created by users as they trace out the numbers on the screen. It is important to use a large variety of users so as to ensure that the data used to train and test the neural network is as diverse as possible. The collected bitmap dataset will then be used to train the gesture recognising neural network. I will also need to construct a parameterised dataset from the NMIST data which I can then couple with the data recorded from my iOS application to ensure that the network is trained as accurately as possible. This parameterised pseudo touch location bitmap data obtained from the NMIST dataset will also make it easier to obtain a large enough quantity of data required for training the gesture recognition neural network.
-
-Training the network will require segmenting the dataset into both a non-biased training set and a non-biased test set. The training set will then be passed through the neural network to train it. The most common way of implementing this is through back propagation in conjunction with an optimisation method such as gradient decent.
-
-%\subsection{Expected Results}
-%
-%The touch location bitmap dataset obtained from the iOS application will provide a form of parameterisation of digit touch screen curves and therefore additional information to that of the simple bitmap of a digit curve available in the MNIST dataset. One might expect that training the network with this information would result in better classification results.
-%
-%I also expect to have gathered a large dataset of touch patterns for digits suitable for training Convolutional Neural Networks. This dataset will be made up of the data which is recorded from the iOS application and also data obtained from parameterising the NMIST data. I also hope to have created significant bench marks which can be used for future research in the area of machine learning and data science.
-
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
 
