@@ -8,26 +8,42 @@
 
 import Foundation
 
-class CalculatorBrain{
-    
-    private enum Op {
+class CalculatorBrain
+{
+    private enum    Op: CustomStringConvertible
+    {
         case Operand(Double)
         case UnaryOperation(String, (Double) -> Double)
         case BinaryOperation(String, (Double,Double) -> Double)
+        
+        var description: String {
+            get {
+                switch self{
+                case .Operand(let operand):
+                    return "\(operand)"
+                case .UnaryOperation(let symbol, _):
+                    return symbol
+                case .BinaryOperation(let symbol, _):
+                    return symbol
+                }
+            }
+        }
     }
     
-    private var opStack = [Op]()
+    private var opStack = [Op]() // array
     private var knownOps = [String:Op]() //Dictionary
     
     init(){
-        knownOps["×"]=Op.BinaryOperation("×", *)
-        knownOps["÷"]=Op.BinaryOperation("÷"){$1 / $0}
-        knownOps["+"]=Op.BinaryOperation("+", +)
-        knownOps["−"]=Op.BinaryOperation("−"){$1 - $0}
-        knownOps["√"]=Op.UnaryOperation("√",sqrt)
+        func learnOp(op: Op){
+            knownOps[op.description] = op
+        }
+        learnOp(op: Op.BinaryOperation("×", *))
+        learnOp(op: Op.BinaryOperation("×", *))
+        learnOp(op: Op.BinaryOperation("÷"){$1 / $0})
+        learnOp(op: Op.BinaryOperation("+", +))
+        learnOp(op: Op.BinaryOperation("−"){$1 - $0})
+        learnOp(op: Op.UnaryOperation("√",sqrt))
     }
-    
-    //let brain = CalculatorBrain() // calls init with matching args
     
     private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]){ // returns a tuple
         
@@ -55,19 +71,22 @@ class CalculatorBrain{
         return(nil, ops)
     }
     
-    func evaluate() -> Double? { // returns optional in case user enters operation with no operands, need to return nil
-        let (result, _) = evaluate(ops: opStack)
+    func evaluate() -> Double? { // returns optional in case user enters operation with no operands
+        let (result, remainder) = evaluate(ops: opStack)
+        print("\(opStack) = \(result) with \(remainder) left over")
         return result
     }
     
-    func pushOperand(operand: Double){
+    func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        return evaluate()
     }
     
-    func performOperation(symbol: String){
+    func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol]{ // returns optional op, if able to look up op in dictionary
             opStack.append(operation)
         }
+        return evaluate()
     }
     
 }

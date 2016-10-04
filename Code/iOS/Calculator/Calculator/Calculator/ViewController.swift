@@ -15,6 +15,8 @@ class ViewController: UIViewController
 
     var userInMiddleOfNumber = false
     
+    var brain = CalculatorBrain()
+    
     @IBAction func appendDigit(_ sender: UIButton) {
         // let is constant var
         // ! unwraps optional, crashes is nil
@@ -30,43 +32,29 @@ class ViewController: UIViewController
     }
     
     @IBAction func operate(_ sender: UIButton) {
-        let operation = sender.currentTitle!
         if userInMiddleOfNumber{
             enter()
         }
-        switch operation {
-        // closures: passing functions as args so common that can put the function into the arg itself
-            case "×": performOperation { $0 * $1 } // infers return from method, last arg can go outside ()
-            case "÷": performOperation { $1 / $0 }
-            case "+": performOperation { $0 + $1 }
-            case "−": performOperation { $1 - $0 }
-            case "√": performOperation { sqrt($0) }
-            default: break
-        }
-        
-    }
-    
-    func performOperation(operation: (Double, Double) -> Double){
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(),operandStack.removeLast())
-            enter()
+        if let operation = sender.currentTitle {
+            
+            if let result = brain.performOperation(symbol: operation) {
+                displayValue = result
+            }
+            else{
+                displayValue = 0
+            }
         }
     }
     
-    @nonobjc
-    func performOperation(operation: (Double) -> Double){
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    var operandStack = Array<Double>()
     
     @IBAction func enter() {
         userInMiddleOfNumber = false;
-        operandStack.append(displayValue)
-        print("operandStack = \(operandStack)")
+        if let result = brain.pushOperand(operand: displayValue){
+            displayValue = result
+        }
+        else {
+            displayValue = 0
+        }
     }
     
     var displayValue: Double {
