@@ -10,6 +10,8 @@ import UIKit
 
 class MyView: UIView {
     
+    @IBAction func mymethod(_ sender: UIButton) {
+    }
     var points = [CGPoint]()
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
