@@ -38,11 +38,37 @@ class CalculatorBrain
             knownOps[op.description] = op
         }
         learnOp(op: Op.BinaryOperation("×", *))
-        learnOp(op: Op.BinaryOperation("×", *))
         learnOp(op: Op.BinaryOperation("÷"){$1 / $0})
         learnOp(op: Op.BinaryOperation("+", +))
         learnOp(op: Op.BinaryOperation("−"){$1 - $0})
         learnOp(op: Op.UnaryOperation("√",sqrt))
+    }
+    
+    typealias PropertyList = Array<AnyObject>
+    var program: PropertyList { // gauranteed to be prop list
+        get {
+            var returnValue = Array<AnyObject>()
+            for op in opStack {
+                returnValue.append(op.description as AnyObject)
+            }
+            return returnValue
+        }
+        set {
+            //make sure it is array of strings
+            if let opSymbols = newValue as? Array<String>{
+                var newOpStack = [Op]()
+                for opSymbol in opSymbols{
+                    if let op = knownOps[opSymbol]{
+                        newOpStack.append(op)
+                    }
+                    //? here is chained optional, if any fail, return nil
+                    else if let operand = NumberFormatter().number(from: opSymbol)?.doubleValue{
+                        newOpStack.append(.Operand(operand))
+                    }
+                }
+            }
+        }
+        
     }
     
     private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]){ // returns a tuple
