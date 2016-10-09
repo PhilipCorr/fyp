@@ -23,6 +23,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Yc9-7X-T8x" appends="YES" id="40h-sU-njJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="kz4-cN-MEd" appends="YES" id="ulM-HY-Gzm"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -44,8 +45,13 @@
                         <action selector="changeHappiness:" destination="XiH-dA-IwL" id="neG-L5-tfZ"/>
                     </connections>
                 </panGestureRecognizer>
+                <pinchGestureRecognizer id="kz4-cN-MEd">
+                    <connections>
+                        <action selector="changeScale:" destination="XiH-dA-IwL" id="zvh-zE-6nE"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-295.19999999999999" y="152.47376311844079"/>
+            <point key="canvasLocation" x="-154" y="152"/>
         </scene>
     </scenes>
 </document>

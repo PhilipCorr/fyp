@@ -17,6 +17,11 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
         }
     }
     
+    var scale: Int = 1 {
+        didSet{
+            
+        }
+    }
     var happiness: Int = 75 { // 0 = sad, 100 = happy
         didSet{
             happiness = min(max(happiness, 0), 100)
@@ -24,6 +29,14 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
             updateUI()
         }
     }
+    
+    @IBAction func changeScale(_ gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .changed{
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
+    }
+    
     
     @IBAction func changeHappiness(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {

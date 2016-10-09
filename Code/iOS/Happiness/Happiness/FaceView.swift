@@ -35,10 +35,7 @@ class FaceView: UIView {
     weak var dataSource: FaceViewDataSource?
     
     func scale(gesture: UIPinchGestureRecognizer){
-        if gesture.state == .changed{
-            scale *= gesture.scale
-            gesture.scale = 1
-        }
+
     }
     
     private struct Scaling {

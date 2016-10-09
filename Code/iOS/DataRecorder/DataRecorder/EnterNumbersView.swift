@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyView: UIView {
+class EnterNumbersView: UIView {
     
     @IBAction func mymethod(_ sender: UIButton) {
     }

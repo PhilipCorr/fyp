@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EnterNumbersViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
     
