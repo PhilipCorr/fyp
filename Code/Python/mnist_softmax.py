@@ -35,13 +35,13 @@ def main(_):
   mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 
   # Create the model
-  x = tf.placeholder(tf.float32, [None, 784])
-  W = tf.Variable(tf.zeros([784, 10]))
+  x = tf.placeholder(tf.float32, [None, 784]) # none means can be any length. Args: type, shape
+  W = tf.Variable(tf.zeros([784, 10])) # tensor initially full of zeros
   b = tf.Variable(tf.zeros([10]))
   y = tf.matmul(x, W) + b
 
   # Define loss and optimizer
-  y_ = tf.placeholder(tf.float32, [None, 10])
+  y_ = tf.placeholder(tf.float32, [None, 10]) # placeholder for correct labels
 
   # The raw formulation of cross-entropy,
   #
@@ -49,6 +49,7 @@ def main(_):
   #                                 reduction_indices=[1]))
   #
   # can be numerically unstable.
+  # reduction_indices specifies which dimention to sum in, 1 specifies dimention 2
   #
   # So here we use tf.nn.softmax_cross_entropy_with_logits on the raw
   # outputs of 'y', and then average across the batch.

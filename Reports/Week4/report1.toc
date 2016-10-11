@@ -1,3 +1,4 @@
 \contentsline {section}{\numberline {1}Update}{1}{section.1}
 \contentsline {section}{\numberline {2}Items for discussion}{1}{section.2}
 \contentsline {section}{\numberline {3}Plan for Next Week}{1}{section.3}
+\contentsline {section}{\numberline {4}Meeting Notes}{2}{section.4}

@@ -95,7 +95,7 @@ def extract_labels(filename, num_images):
   with gzip.open(filename) as bytestream:
     bytestream.read(8)
     buf = bytestream.read(1 * num_images)
-    labels = numpy.frombuffer(buf, dtype=numpy.uint8).astype(numpy.int64)
+    labels = numpy.frombuffer(buf, dtype=numpy.uint8).astype(numpy.int64) # array of int64
   return labels
 
 
@@ -140,31 +140,26 @@ def main(argv=None):  # pylint: disable=unused-argument
     test_data = extract_data(test_data_filename, 10000)
     test_labels = extract_labels(test_labels_filename, 10000)
 
-    # Generate a validation set.
+    # Generate a validation set (size 5000).
     validation_data = train_data[:VALIDATION_SIZE, ...]
     validation_labels = train_labels[:VALIDATION_SIZE]
     train_data = train_data[VALIDATION_SIZE:, ...]
     train_labels = train_labels[VALIDATION_SIZE:]
-    num_epochs = NUM_EPOCHS
+    num_epochs = NUM_EPOCHS # 10
   train_size = train_labels.shape[0]
 
   # This is where training samples and labels are fed to the graph.
   # These placeholder nodes will be fed a batch of training data at each
   # training step using the {feed_dict} argument to the Run() call below.
-  train_data_node = tf.placeholder(
-      data_type(),
-      shape=(BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS))
+  train_data_node = tf.placeholder( data_type(), shape=(BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS)) # float32, 64 28 28 1
   train_labels_node = tf.placeholder(tf.int64, shape=(BATCH_SIZE,))
-  eval_data = tf.placeholder(
-      data_type(),
-      shape=(EVAL_BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS))
+  eval_data = tf.placeholder( data_type(), shape=(EVAL_BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS))
 
   # The variables below hold all the trainable weights. They are passed an
   # initial value which will be assigned when we call:
   # {tf.initialize_all_variables().run()}
-  conv1_weights = tf.Variable(
-      tf.truncated_normal([5, 5, NUM_CHANNELS, 32],  # 5x5 filter, depth 32.
-                          stddev=0.1,
+  conv1_weights = tf.Variable( tf.truncated_normal([5, 5, NUM_CHANNELS, 32],  # 5x5 filter, depth 32.
+                          stddev=0.1, #small amount of noise for symetry breaking
                           seed=SEED, dtype=data_type()))
   conv1_biases = tf.Variable(tf.zeros([32], dtype=data_type()))
   conv2_weights = tf.Variable(tf.truncated_normal(
@@ -191,7 +186,7 @@ def main(argv=None):  # pylint: disable=unused-argument
     # 2D convolution, with 'SAME' padding (i.e. the output feature map has
     # the same size as the input). Note that {strides} is a 4D array whose
     # shape matches the data layout: [image index, y, x, depth].
-    conv = tf.nn.conv2d(data,
+    conv = tf.nn.conv2d(data, # 4d tensor [batch, in_height, in_width, in_channels]
                         conv1_weights,
                         strides=[1, 1, 1, 1],
                         padding='SAME')
