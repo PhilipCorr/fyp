@@ -8,44 +8,66 @@
 
 import UIKit
 
-class EnterNumbersViewController: UIViewController {
-
-    @IBOutlet weak var myLabel: UILabel!
+class EnterNumbersViewController: UIViewController, EnterNumbersProtocol {
     
-    @IBOutlet var myView: MyView!
+    @IBOutlet var ageLabel: UILabel!
+    var age: Int = 99 {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI()
+    {
+        self.ageLabel?.text = "\(age)"
+        self.enterNumbersView?.setNeedsDisplay()
+    }
+    
+    var points = [CGPoint]() {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    @IBOutlet var enterNumbersView: EnterNumbersView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        myLabel.text = "1234"
+        self.enterNumbersView.delegate =  self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
-            myView.points = [CGPoint]()
-            myView.setNeedsDisplay()
-            // print("start of stroke")
+            self.points = [CGPoint]()
+            print("start of stroke")
         case .ended:
-            // print("end of stroke")
-            // print("\(myView.points)")
-            ()
+            print("end of stroke")
+            // print("\(self.points)")
+            self.age = self.points.count
         case .changed:
-            self.myView.points.append(gesture.location(in: self.view))
-            self.myView.setNeedsDisplay()
+            self.points.append(gesture.location(in: self.view))
+            self.enterNumbersView.setNeedsDisplay()
         default:
             ()
         }
     }
-
-    @IBAction func changeNumber(_ sender: UITapGestureRecognizer) {
-        myLabel.text = "5678"
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        if let dvc = subsequentVC as? DetailsEntryViewController {
+            dvc.touchesCount = self.points.count
+        }
     }
+    
 }
 

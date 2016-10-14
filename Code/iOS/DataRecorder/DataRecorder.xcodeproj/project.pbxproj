@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		3F1AD3941DA1BE4D008025EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1AD3931DA1BE4D008025EA /* Default-568h@2x.png */; };
 		3F27AEFC1DAAB424008BA2F6 /* DetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27AEFB1DAAB424008BA2F6 /* DetailsEntryViewController.swift */; };
+		3F27AEFE1DAAF9AA008BA2F6 /* EnterNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27AEFD1DAAF9AA008BA2F6 /* EnterNumbersViewController.swift */; };
+		3F27AF001DAD033B008BA2F6 /* EnterNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27AEFF1DAD033B008BA2F6 /* EnterNumbersView.swift */; };
 		E5887A451D9A93D50051D080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5887A441D9A93D50051D080 /* AppDelegate.swift */; };
 		E5887A4A1D9A93D50051D080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5887A481D9A93D50051D080 /* Main.storyboard */; };
 		E5887A4C1D9A93D50051D080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5887A4B1D9A93D50051D080 /* Assets.xcassets */; };
 		E5887A4F1D9A93D50051D080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5887A4D1D9A93D50051D080 /* LaunchScreen.storyboard */; };
-		E5887A571D9A96D20051D080 /* EnterNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5887A561D9A96D20051D080 /* EnterNumbersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F1AD3931DA1BE4D008025EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3F27AEFB1DAAB424008BA2F6 /* DetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsEntryViewController.swift; sourceTree = "<group>"; };
+		3F27AEFD1DAAF9AA008BA2F6 /* EnterNumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterNumbersViewController.swift; sourceTree = "<group>"; };
+		3F27AEFF1DAD033B008BA2F6 /* EnterNumbersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterNumbersView.swift; sourceTree = "<group>"; };
 		E5887A411D9A93D50051D080 /* DataRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5887A441D9A93D50051D080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5887A491D9A93D50051D080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5887A4B1D9A93D50051D080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5887A4E1D9A93D50051D080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5887A501D9A93D50051D080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5887A561D9A96D20051D080 /* EnterNumbersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterNumbersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F27AF011DAD0AFA008BA2F6 /* EnterNumbersMVC */ = {
+			isa = PBXGroup;
+			children = (
+				3F27AEFD1DAAF9AA008BA2F6 /* EnterNumbersViewController.swift */,
+				3F27AEFF1DAD033B008BA2F6 /* EnterNumbersView.swift */,
+			);
+			name = EnterNumbersMVC;
+			sourceTree = "<group>";
+		};
 		E5887A381D9A93D50051D080 = {
 			isa = PBXGroup;
 			children = (
@@ -60,9 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				E5887A441D9A93D50051D080 /* AppDelegate.swift */,
-				E5887A561D9A96D20051D080 /* EnterNumbersView.swift */,
 				E5887A481D9A93D50051D080 /* Main.storyboard */,
 				3F27AEFB1DAAB424008BA2F6 /* DetailsEntryViewController.swift */,
+				3F27AF011DAD0AFA008BA2F6 /* EnterNumbersMVC */,
 				E5887A4B1D9A93D50051D080 /* Assets.xcassets */,
 				E5887A4D1D9A93D50051D080 /* LaunchScreen.storyboard */,
 				E5887A501D9A93D50051D080 /* Info.plist */,
@@ -143,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5887A571D9A96D20051D080 /* EnterNumbersView.swift in Sources */,
 				E5887A451D9A93D50051D080 /* AppDelegate.swift in Sources */,
+				3F27AEFE1DAAF9AA008BA2F6 /* EnterNumbersViewController.swift in Sources */,
+				3F27AF001DAD033B008BA2F6 /* EnterNumbersView.swift in Sources */,
 				3F27AEFC1DAAB424008BA2F6 /* DetailsEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
