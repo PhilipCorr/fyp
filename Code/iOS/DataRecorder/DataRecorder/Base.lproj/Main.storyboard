@@ -33,41 +33,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BiM-fw-0C5">
-                                <date key="date" timeIntervalSinceReferenceDate="497726669.30937397">
-                                    <!--2016-10-09 17:24:29 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-3187251279">
-                                    <!--1900-01-01 12:25:21 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="-63205200">
-                                    <!--1998-12-31 11:00:00 +0000-->
-                                </date>
-                            </datePicker>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jJp-gw-QVY">
                                 <segments>
                                     <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
                             </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="19" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jT-9W-Plc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="kn3-gg-H4z"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1fa-BS-YeV" firstAttribute="top" secondItem="OK3-fh-8Hx" secondAttribute="bottom" constant="55" id="1Yu-oU-DFU"/>
-                            <constraint firstItem="BiM-fw-0C5" firstAttribute="top" secondItem="Z5q-a3-VfC" secondAttribute="bottom" constant="8" symbolic="YES" id="7CJ-Ss-zi0"/>
+                            <constraint firstItem="8jT-9W-Plc" firstAttribute="centerX" secondItem="Z5q-a3-VfC" secondAttribute="centerX" id="B8B-oE-HOQ"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="top" secondItem="JCk-oR-QSy" secondAttribute="bottom" id="DsW-z8-NLI"/>
-                            <constraint firstItem="jJp-gw-QVY" firstAttribute="top" secondItem="BiM-fw-0C5" secondAttribute="bottom" constant="8" id="H0x-TL-QgO"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="3wh-2f-7bf" secondAttribute="centerX" id="JTS-66-Tvm"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="jJp-gw-QVY" secondAttribute="centerX" id="JZw-1r-UiS"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="leading" secondItem="3wh-2f-7bf" secondAttribute="leadingMargin" constant="-16" id="JzG-hc-a01"/>
-                            <constraint firstItem="Z5q-a3-VfC" firstAttribute="leading" secondItem="BiM-fw-0C5" secondAttribute="leading" id="SXc-Za-fZ4"/>
+                            <constraint firstAttribute="bottom" secondItem="jJp-gw-QVY" secondAttribute="bottom" constant="278" id="fQq-bY-p8w"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="OK3-fh-8Hx" secondAttribute="centerX" id="og9-Gl-sPi"/>
-                            <constraint firstItem="Z5q-a3-VfC" firstAttribute="trailing" secondItem="BiM-fw-0C5" secondAttribute="trailing" id="sC6-qy-vIJ"/>
+                            <constraint firstItem="8jT-9W-Plc" firstAttribute="top" secondItem="JCk-oR-QSy" secondAttribute="bottom" constant="60" id="vbu-rY-3fe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dsk-Et-PGf"/>
                     <connections>
-                        <outlet property="datePicker" destination="BiM-fw-0C5" id="zb5-kn-rpG"/>
+                        <outlet property="enterYear" destination="8jT-9W-Plc" id="wS6-ey-hFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBh-Td-YjD" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -54,7 +54,7 @@ class EnterNumbersViewController: UIViewController, EnterNumbersProtocol {
         case .ended:
             print("end of stroke")
             // print("\(self.points)")
-            self.age = self.points.count
+            // self.age = self.points.count
         case .changed:
             self.points.append(gesture.location(in: self.view))
             self.enterNumbersView.setNeedsDisplay()

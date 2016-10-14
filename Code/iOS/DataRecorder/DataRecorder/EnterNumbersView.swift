@@ -19,11 +19,11 @@ class EnterNumbersView: UIView {
     @IBAction func mymethod(_ sender: UIButton) {
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first  {
-            // print("\(touch.location(in: self))")
-        }
-    }
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first  {
+//            // print("\(touch.location(in: self))")
+//        }
+//    }
     
     override func draw(_ rect: CGRect) {
         // Drawing code

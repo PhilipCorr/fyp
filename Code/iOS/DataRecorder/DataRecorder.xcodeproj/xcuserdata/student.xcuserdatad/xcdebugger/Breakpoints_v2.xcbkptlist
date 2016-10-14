@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DataRecorder/DetailsEntryViewController.swift"
-            timestampString = "497888465.638381"
+            timestampString = "498130047.020202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "unwindToDetailsVC(segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DataRecorder/DetailsEntryViewController.swift"
-            timestampString = "497888631.788463"
+            timestampString = "498130047.020202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "unwindToDetailsVC(segue:)"
             landmarkType = "7">
          </BreakpointContent>

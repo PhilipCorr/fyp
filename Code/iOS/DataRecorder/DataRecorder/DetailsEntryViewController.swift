@@ -8,9 +8,17 @@
 
 import UIKit
 
-class DetailsEntryViewController: UIViewController {
+class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet var enterYear: UITextField!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     @IBOutlet var datePicker: UIDatePicker!
+    
     var touchesCount = 0 {
         didSet {
             print("\(touchesCount)")
@@ -21,6 +29,7 @@ class DetailsEntryViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.enterYear.delegate = self;
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,8 +45,8 @@ class DetailsEntryViewController: UIViewController {
         
         if let dvc = segue.destination as? EnterNumbersViewController {
             
-            let calendar = NSCalendar.current
-            dvc.age = calendar.component(.year, from: self.datePicker.date as Date)
+            //let calendar = NSCalendar.current
+            dvc.age = Int(self.enterYear.text!)!
         }
     }
     
