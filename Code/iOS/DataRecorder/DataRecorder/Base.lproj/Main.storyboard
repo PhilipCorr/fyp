@@ -33,12 +33,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jJp-gw-QVY">
-                                <segments>
-                                    <segment title="Male"/>
-                                    <segment title="Female"/>
-                                </segments>
-                            </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="19" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jT-9W-Plc">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="kn3-gg-H4z"/>
@@ -47,6 +41,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jJp-gw-QVY">
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,7 +56,7 @@
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="3wh-2f-7bf" secondAttribute="centerX" id="JTS-66-Tvm"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="jJp-gw-QVY" secondAttribute="centerX" id="JZw-1r-UiS"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="leading" secondItem="3wh-2f-7bf" secondAttribute="leadingMargin" constant="-16" id="JzG-hc-a01"/>
-                            <constraint firstAttribute="bottom" secondItem="jJp-gw-QVY" secondAttribute="bottom" constant="278" id="fQq-bY-p8w"/>
+                            <constraint firstAttribute="bottom" secondItem="jJp-gw-QVY" secondAttribute="bottom" constant="442" id="fQq-bY-p8w"/>
                             <constraint firstItem="Z5q-a3-VfC" firstAttribute="centerX" secondItem="OK3-fh-8Hx" secondAttribute="centerX" id="og9-Gl-sPi"/>
                             <constraint firstItem="8jT-9W-Plc" firstAttribute="top" secondItem="JCk-oR-QSy" secondAttribute="bottom" constant="60" id="vbu-rY-3fe"/>
                         </constraints>
