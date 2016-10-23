@@ -17,7 +17,7 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
         }
     }
     
-    var scale: Int = 1 {
+    var scale: CGFloat = 1 {
         didSet{
             
         }
