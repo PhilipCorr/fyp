@@ -142,9 +142,9 @@ def main(argv=None):  # pylint: disable=unused-argument
 
     # Generate a validation set (size 5000).
     validation_data = train_data[:VALIDATION_SIZE, ...]
-    validation_labels = train_labels[:VALIDATION_SIZE]
+    validation_labels = train_labels[:VALIDATION_SIZE] # from start up to validation
     train_data = train_data[VALIDATION_SIZE:, ...]
-    train_labels = train_labels[VALIDATION_SIZE:]
+    train_labels = train_labels[VALIDATION_SIZE:] # from validation to the end
     num_epochs = NUM_EPOCHS # 10
   train_size = train_labels.shape[0]
 
@@ -223,11 +223,12 @@ def main(argv=None):  # pylint: disable=unused-argument
     return tf.matmul(hidden, fc2_weights) + fc2_biases
 
   # Training computation: logits + cross-entropy loss.
-  logits = model(train_data_node, True)
+  logits = model(train_data_node, True) # logits don't add to 1, not probalilites
   loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
       logits, train_labels_node))
 
   # L2 regularization for the fully connected parameters.
+  # Computes half the L2 norm of a tensor without the sqrt.
   regularizers = (tf.nn.l2_loss(fc1_weights) + tf.nn.l2_loss(fc1_biases) +
                   tf.nn.l2_loss(fc2_weights) + tf.nn.l2_loss(fc2_biases))
   # Add the regularization term to the loss.
@@ -283,11 +284,11 @@ def main(argv=None):  # pylint: disable=unused-argument
     tf.initialize_all_variables().run()
     print('Initialized!')
     # Loop through training steps.
-    for step in xrange(int(num_epochs * train_size) // BATCH_SIZE):
+    for step in xrange(int(num_epochs * train_size) // BATCH_SIZE): #(10*55000)//64 - integer devision
       # Compute the offset of the current minibatch in the data.
       # Note that we could use better randomization across epochs.
-      offset = (step * BATCH_SIZE) % (train_size - BATCH_SIZE)
-      batch_data = train_data[offset:(offset + BATCH_SIZE), ...]
+      offset = (step * BATCH_SIZE) % (train_size - BATCH_SIZE)      # (1*64) % (55000 - 64)
+      batch_data = train_data[offset:(offset + BATCH_SIZE), ...]    # continue from offset up to offset+size, all in other dimensions
       batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
       # This dictionary maps the batch data (as a numpy array) to the
       # node in the graph it should be fed to.
@@ -297,7 +298,7 @@ def main(argv=None):  # pylint: disable=unused-argument
       _, l, lr, predictions = sess.run(
           [optimizer, loss, learning_rate, train_prediction],
           feed_dict=feed_dict)
-      if step % EVAL_FREQUENCY == 0:
+      if step % EVAL_FREQUENCY == 0: # Do every 100 steps
         elapsed_time = time.time() - start_time
         start_time = time.time()
         print('Step %d (epoch %.2f), %.1f ms' %
