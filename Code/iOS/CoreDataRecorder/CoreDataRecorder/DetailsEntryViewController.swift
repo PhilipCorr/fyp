@@ -17,6 +17,15 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func flag(country:String) -> String {
+        let base : UInt32 = 127397
+        var s = ""
+        for v in country.unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
+    }
+    
     var touchesCount = 0 {
         didSet {
             print("\(touchesCount)")
@@ -28,6 +37,29 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
         self.enterYear.delegate = self;
+        currentCountry.text = flag(country: "IE")
+        irishFlag.text = flag(country: "IE")
+        germanFlag.text = flag(country: "DE")
+        frenchFlag.text = flag(country: "FR")
+        americanFlag.text = flag(country: "US")
+        chineseFlag.text = flag(country: "CN")
+        indianFlag.text = flag(country: "IN")
+
+    }
+    
+    
+    @IBOutlet var flags: UICollectionView!
+    
+    @IBOutlet var currentCountry: UILabel!
+    @IBOutlet var irishFlag: UILabel!
+    @IBOutlet var germanFlag: UILabel!
+    @IBOutlet var frenchFlag: UILabel!
+    @IBOutlet var americanFlag: UILabel!
+    @IBOutlet var chineseFlag: UILabel!
+    @IBOutlet var indianFlag: UILabel!
+    
+    @IBAction func changecountry(_ sender: UITapGestureRecognizer) {
+        currentCountry.text = flag(country: "DE")
     }
     
     override func didReceiveMemoryWarning() {
