@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     
@@ -50,22 +51,33 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     }
     
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let stroke = Stroke(context: context)
+        let count = 0
+        
+       // stroke.addToTouches(touch)
+        
         switch gesture.state {
         case .began:
             self.points = [CGPoint]()
             print("start of stroke")
         case .ended:
             print("end of stroke")
-            // print("\(self.points)")
         // self.age = self.points.count
         case .changed:
             self.points.append(gesture.location(in: self.view))
+            let touch = Touch(context: context)
+            touch.x = Double(gesture.location(in: self.view).x)
+            touch.y = Double(gesture.location(in: self.view).y)
+            touch.index = count + 1
+            touch.t = 1234
+            stroke.addToTouches(touch)
             self.NumbersEntryView.setNeedsDisplay()
         default:
             ()
         }
-
     }
+
     
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         if let dvc = subsequentVC as? DetailsEntryViewController {

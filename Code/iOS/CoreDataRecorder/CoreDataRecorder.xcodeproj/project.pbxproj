@@ -15,6 +15,12 @@
 		3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */; };
 		3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */; };
 		3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */; };
+		3F52FAF81DB8C6E20004C267 /* Touch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */; };
+		3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */; };
+		3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */; };
+		3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */; };
+		3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FA1DBBFD6800726921 /* CoreData.framework */; };
+		3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsEntryViewController.swift; sourceTree = "<group>"; };
 		3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryViewController.swift; path = ../NumbersEntryViewController.swift; sourceTree = "<group>"; };
 		3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryView.swift; path = ../NumbersEntryView.swift; sourceTree = "<group>"; };
+		3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Touch+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Touch+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stroke+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FA2C8FA1DBBFD6800726921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */,
+				3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +58,13 @@
 		3F52FAC91DB666C10004C267 = {
 			isa = PBXGroup;
 			children = (
+				3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */,
+				3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */,
+				3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */,
+				3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */,
 				3F52FAD41DB666C10004C267 /* CoreDataRecorder */,
 				3F52FAD31DB666C10004C267 /* Products */,
+				3FA2C8F91DBBFD6800726921 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +90,15 @@
 				3F52FAE11DB666C20004C267 /* LaunchScreen.storyboard */,
 			);
 			path = CoreDataRecorder;
+			sourceTree = "<group>";
+		};
+		3FA2C8F91DBBFD6800726921 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */,
+				3FA2C8FA1DBBFD6800726921 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
+				3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */,
 				3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */,
 				3F52FADE1DB666C10004C267 /* CoreDataRecorder.xcdatamodeld in Sources */,
+				3F52FAF81DB8C6E20004C267 /* Touch+CoreDataClass.swift in Sources */,
+				3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */,
 				3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */,
 				3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */,
 			);
