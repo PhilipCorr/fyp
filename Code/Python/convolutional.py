@@ -33,6 +33,9 @@ from six.moves import urllib
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
+#sys.path.append(os.path.abspath("/home/phil/Repos/data/mnist_to_xy"))
+#from mnist_to_python import *
+
 SOURCE_URL = 'http://yann.lecun.com/exdb/mnist/'
 WORK_DIRECTORY = 'data'
 IMAGE_SIZE = 28
@@ -45,7 +48,6 @@ BATCH_SIZE = 64
 NUM_EPOCHS = 10
 EVAL_BATCH_SIZE = 64
 EVAL_FREQUENCY = 100  # Number of steps between evaluations.
-
 
 tf.app.flags.DEFINE_boolean("self_test", False, "True if running a self test.")
 tf.app.flags.DEFINE_boolean('use_fp16', False,
@@ -60,7 +62,6 @@ def data_type():
   else:
     return tf.float32
 
-
 def maybe_download(filename):
   """Download the data from Yann's website, unless it's already here."""
   if not tf.gfile.Exists(WORK_DIRECTORY):
@@ -69,7 +70,7 @@ def maybe_download(filename):
   if not tf.gfile.Exists(filepath):
     filepath, _ = urllib.request.urlretrieve(SOURCE_URL + filename, filepath)
     with tf.gfile.GFile(filepath) as f:
-      size = f.Size()
+      size = f.size()
     print('Successfully downloaded', filename, size, 'bytes.')
   return filepath
 
@@ -153,7 +154,10 @@ def main(argv=None):  # pylint: disable=unused-argument
   # training step using the {feed_dict} argument to the Run() call below.
   train_data_node = tf.placeholder( data_type(), shape=(BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS)) # float32, 64 28 28 1
   train_labels_node = tf.placeholder(tf.int64, shape=(BATCH_SIZE,))
-  eval_data = tf.placeholder( data_type(), shape=(EVAL_BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS))
+  with tf.name_scope('input'):
+    eval_data = tf.placeholder( data_type(), shape=(EVAL_BATCH_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS), name ='image-input')
+    tf.image_summary('input', eval_data, EVAL_BATCH_SIZE)
+
 
   # The variables below hold all the trainable weights. They are passed an
   # initial value which will be assigned when we call:
@@ -277,7 +281,6 @@ def main(argv=None):  # pylint: disable=unused-argument
         predictions[begin:, :] = batch_predictions[begin - size:, :]
     return predictions
 
-  # Create a local session to run the training.
   start_time = time.time()
   with tf.Session() as sess:
     # Run all the initializers to prepare the trainable parameters.
@@ -308,10 +311,13 @@ def main(argv=None):  # pylint: disable=unused-argument
         print('Minibatch error: %.1f%%' % error_rate(predictions, batch_labels))
         print('Validation error: %.1f%%' % error_rate(
             eval_in_batches(validation_data, sess), validation_labels))
+        print('My prediction is: %d' % predictions[1,0])
+
         sys.stdout.flush()
     # Finally print the result!
     test_error = error_rate(eval_in_batches(test_data, sess), test_labels)
     print('Test error: %.1f%%' % test_error)
+    
     if FLAGS.self_test:
       print('test_error', test_error)
       assert test_error == 0.0, 'expected 0.0 test_error, got %.2f' % (
