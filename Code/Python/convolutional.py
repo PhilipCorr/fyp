@@ -120,60 +120,6 @@ def error_rate(predictions, labels):
       numpy.sum(numpy.argmax(predictions, 1) == labels) /
       predictions.shape[0])
 
-# def nn_layer(input_tensor, input_dim, output_dim, layer_name, act=tf.nn.relu):
-#   """Reusable code for making a simple neural net layer.
-#     It does a matrix multiply, bias add, and then uses relu to nonlinearize.
-#     It also sets up name scoping so that the resultant graph is easy to read,
-#     and adds a number of summary ops.
-#     """
-#     # Adding a name scope ensures logical grouping of the layers in the graph.
-#     with tf.name_scope(layer_name):
-#       # This Variable will hold the state of the weights for the layer
-#       with tf.name_scope('weights'):
-#         weights = weight_variable([input_dim, output_dim])
-#         variable_summaries(weights, layer_name + '/weights')
-#       with tf.name_scope('biases'):
-#         biases = bias_variable([output_dim])
-#         variable_summaries(biases, layer_name + '/biases')
-#       with tf.name_scope('Wx_plus_b'):
-#         preactivate = tf.matmul(input_tensor, weights) + biases
-#         tf.histogram_summary(layer_name + '/pre_activations', preactivate)
-#       activations = act(preactivate, name='activation')
-#       tf.histogram_summary(layer_name + '/activations', activations)
-#       return activations
-
-
-#   hidden1 = nn_layer(x, 784, 500, 'layer1')
-
-
-
-  # The variables below hold all the trainable weights. They are passed an
-  # initial value which will be assigned when we call:
-  # {tf.initialize_all_variables().run()}
-  # conv1_weights = tf.Variable( tf.truncated_normal([5, 5, NUM_CHANNELS, 32],  # 5x5 filter, depth 32.
-  #                         stddev=0.1, #small amount of noise for symetry breaking
-  #                         seed=SEED, dtype=data_type()))
-  # conv1_biases = tf.Variable(tf.zeros([32], dtype=data_type()))
-  # conv2_weights = tf.Variable(tf.truncated_normal(
-  #     [5, 5, 32, 64], stddev=0.1,
-  #     seed=SEED, dtype=data_type()))
-  # conv2_biases = tf.Variable(tf.constant(0.1, shape=[64], dtype=data_type()))
-  # fc1_weights = tf.Variable(  # fully connected, depth 512.
-  #     tf.truncated_normal([IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512],
-  #                         stddev=0.1,
-  #                         seed=SEED,
-  #                         dtype=data_type()))
-  # fc1_biases = tf.Variable(tf.constant(0.1, shape=[512], dtype=data_type()))
-  # fc2_weights = tf.Variable(tf.truncated_normal([512, NUM_LABELS],
-  #                                               stddev=0.1,
-  #                                               seed=SEED,
-  #                                               dtype=data_type()))
-  # fc2_biases = tf.Variable(tf.constant(
-  #     0.1, shape=[NUM_LABELS], dtype=data_type()))
-
-
-
-
 
 
 
@@ -241,52 +187,78 @@ def main(argv=None):  # pylint: disable=unused-argument
     return tf.Variable(initial)
 
 
-  # The variables below hold all the trainable weights. They are passed an
-  # initial value which will be assigned when we call:
-  # {tf.initialize_all_variables().run()}
-  conv1_weights = weight_variable(5, 5, 1, 32)
-  conv1_biases = bias_variable_zero(32)
-  conv2_weights = weight_variable(5, 5, 32, 64)
-  conv2_biases = bias_variable_const(64)
-  fc1_weights = weight_variable_fc(IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512) # fully connected, depth 512.
-  fc1_biases = bias_variable_const(512)
-  fc2_weights = weight_variable_fc(512, NUM_LABELS)
-  fc2_biases = bias_variable_const(NUM_LABELS)
+  def variable_summaries(var, name):
+    """Attach a lot of summaries to a Tensor."""
+    with tf.name_scope('summaries'):
+      mean = tf.reduce_mean(var)
+      tf.scalar_summary('mean/' + name, mean)
+      with tf.name_scope('stddev'):
+        stddev = tf.sqrt(tf.reduce_mean(tf.square(var - mean)))
+      tf.scalar_summary('stddev/' + name, stddev)
+      tf.scalar_summary('max/' + name, tf.reduce_max(var))
+      tf.scalar_summary('min/' + name, tf.reduce_min(var))
+      tf.histogram_summary(name, var)
+
+  # Adding a name scope ensures logical grouping of the layers in the graph.
+  with tf.name_scope('layers'):
+    # The variables below hold all the trainable weights. They are passed an
+    # initial value which will be assigned when we call:
+    # {tf.initialize_all_variables().run()}
+    with tf.name_scope('weights'):
+      conv1_weights = weight_variable(5, 5, 1, 32)
+      variable_summaries(conv1_weights, 'conv1/weights')
+      conv2_weights = weight_variable(5, 5, 32, 64)
+      variable_summaries(conv2_weights, 'conv2/weights')
+      fc1_weights = weight_variable_fc(IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512) # fully connected, depth 512.
+      variable_summaries(fc1_weights, 'fc1/weights')
+      fc2_weights = weight_variable_fc(512, NUM_LABELS)
+      variable_summaries(fc2_weights, 'fc2/weights')
+
+    with tf.name_scope('biases'):
+      conv1_biases = bias_variable_zero(32)
+      variable_summaries(conv1_biases, 'conv1/biases')
+      conv2_biases = bias_variable_const(64)
+      variable_summaries(conv2_biases, 'conv2/biases')
+      fc1_biases = bias_variable_const(512)
+      variable_summaries(fc1_biases, 'fc1/biases')
+      fc2_biases = bias_variable_const(NUM_LABELS)
+      variable_summaries(fc2_biases, 'fc2/biases')
   
 
   # We will replicate the model structure for the training subgraph, as well
   # as the evaluation subgraphs, while sharing the trainable parameters.
   def model(data, train=False):
-    """The Model definition."""
-    # 2D convolution, with 'SAME' padding (i.e. the output feature map has
-    # the same size as the input). Note that {strides} is a 4D array whose
-    # shape matches the data layout: [image index, y, x, depth].
-    conv = tf.nn.conv2d(data, # 4d tensor [batch, in_height, in_width, in_channels]
-                        conv1_weights,
-                        strides=[1, 1, 1, 1],
-                        padding='SAME')
-    # Bias and rectified linear non-linearity.
-    relu = tf.nn.relu(tf.nn.bias_add(conv, conv1_biases))
-    # Max pooling. The kernel size spec {ksize} also follows the layout of
-    # the data. Here we have a pooling window of 2, and a stride of 2.
-    pool = tf.nn.max_pool(relu,
-                          ksize=[1, 2, 2, 1],
-                          strides=[1, 2, 2, 1],
+
+    """The Model definition.
+    2D convolution, with 'SAME' padding (i.e. the output feature map has
+    the same size as the input). Note that {strides} is a 4D array whose
+    shape matches the data layout: [image index, y, x, depth]."""
+    def nn_layer(data, weights, biases, name):
+      """Reusable code for making a simple neural net layer.
+      It sets up name scoping so that the resultant graph is easy to read,
+      and adds a number of summary ops."""
+      conv = tf.nn.conv2d(data, # 4d tensor [batch, in_height, in_width, in_channels]
+                          weights,
+                          strides=[1, 1, 1, 1],
                           padding='SAME')
-    conv = tf.nn.conv2d(pool,
-                        conv2_weights,
-                        strides=[1, 1, 1, 1],
-                        padding='SAME')
-    relu = tf.nn.relu(tf.nn.bias_add(conv, conv2_biases))
-    pool = tf.nn.max_pool(relu,
-                          ksize=[1, 2, 2, 1],
-                          strides=[1, 2, 2, 1],
-                          padding='SAME')
+      # Bias and rectified linear non-linearity.
+      relu = tf.nn.relu(tf.nn.bias_add(conv, biases))
+      # Max pooling. The kernel size spec {ksize} also follows the layout of
+      # the data. Here we have a pooling window of 2, and a stride of 2.
+      pool = tf.nn.max_pool(relu,
+                            ksize=[1, 2, 2, 1],
+                            strides=[1, 2, 2, 1],
+                            padding='SAME')
+      return pool
+
+    layer1 = nn_layer(data, conv1_weights, conv1_biases, 'layer1')
+    layer2 = nn_layer(layer1, conv2_weights, conv2_biases, 'layer2')
+
     # Reshape the feature map cuboid into a 2D matrix to feed it to the
     # fully connected layers.
-    pool_shape = pool.get_shape().as_list()
+    pool_shape = layer2.get_shape().as_list()
     reshape = tf.reshape(
-        pool,
+        layer2,
         [pool_shape[0], pool_shape[1] * pool_shape[2] * pool_shape[3]])
     # Fully connected layer. Note that the '+' operation automatically
     # broadcasts the biases.
@@ -299,6 +271,7 @@ def main(argv=None):  # pylint: disable=unused-argument
 
   # Training computation: logits + cross-entropy loss.
   logits = model(train_data_node, True) # logits don't add to 1, not probalilites
+
   loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
       logits, train_labels_node))
 
