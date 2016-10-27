@@ -120,6 +120,62 @@ def error_rate(predictions, labels):
       numpy.sum(numpy.argmax(predictions, 1) == labels) /
       predictions.shape[0])
 
+# def nn_layer(input_tensor, input_dim, output_dim, layer_name, act=tf.nn.relu):
+#   """Reusable code for making a simple neural net layer.
+#     It does a matrix multiply, bias add, and then uses relu to nonlinearize.
+#     It also sets up name scoping so that the resultant graph is easy to read,
+#     and adds a number of summary ops.
+#     """
+#     # Adding a name scope ensures logical grouping of the layers in the graph.
+#     with tf.name_scope(layer_name):
+#       # This Variable will hold the state of the weights for the layer
+#       with tf.name_scope('weights'):
+#         weights = weight_variable([input_dim, output_dim])
+#         variable_summaries(weights, layer_name + '/weights')
+#       with tf.name_scope('biases'):
+#         biases = bias_variable([output_dim])
+#         variable_summaries(biases, layer_name + '/biases')
+#       with tf.name_scope('Wx_plus_b'):
+#         preactivate = tf.matmul(input_tensor, weights) + biases
+#         tf.histogram_summary(layer_name + '/pre_activations', preactivate)
+#       activations = act(preactivate, name='activation')
+#       tf.histogram_summary(layer_name + '/activations', activations)
+#       return activations
+
+
+#   hidden1 = nn_layer(x, 784, 500, 'layer1')
+
+
+
+  # The variables below hold all the trainable weights. They are passed an
+  # initial value which will be assigned when we call:
+  # {tf.initialize_all_variables().run()}
+  # conv1_weights = tf.Variable( tf.truncated_normal([5, 5, NUM_CHANNELS, 32],  # 5x5 filter, depth 32.
+  #                         stddev=0.1, #small amount of noise for symetry breaking
+  #                         seed=SEED, dtype=data_type()))
+  # conv1_biases = tf.Variable(tf.zeros([32], dtype=data_type()))
+  # conv2_weights = tf.Variable(tf.truncated_normal(
+  #     [5, 5, 32, 64], stddev=0.1,
+  #     seed=SEED, dtype=data_type()))
+  # conv2_biases = tf.Variable(tf.constant(0.1, shape=[64], dtype=data_type()))
+  # fc1_weights = tf.Variable(  # fully connected, depth 512.
+  #     tf.truncated_normal([IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512],
+  #                         stddev=0.1,
+  #                         seed=SEED,
+  #                         dtype=data_type()))
+  # fc1_biases = tf.Variable(tf.constant(0.1, shape=[512], dtype=data_type()))
+  # fc2_weights = tf.Variable(tf.truncated_normal([512, NUM_LABELS],
+  #                                               stddev=0.1,
+  #                                               seed=SEED,
+  #                                               dtype=data_type()))
+  # fc2_biases = tf.Variable(tf.constant(
+  #     0.1, shape=[NUM_LABELS], dtype=data_type()))
+
+
+
+
+
+
 
 def main(argv=None):  # pylint: disable=unused-argument
   if FLAGS.self_test:
@@ -159,29 +215,44 @@ def main(argv=None):  # pylint: disable=unused-argument
     tf.image_summary('input', eval_data, EVAL_BATCH_SIZE)
 
 
+  # We can't initialize these variables to 0 - the network will get stuck.
+  def weight_variable(height, width, channels_in, channels_out):
+    """Create a weight variable with appropriate initialization."""
+    initial = tf.truncated_normal([height, width, channels_in, channels_out],  # 5x5 filter, depth 32.
+                        stddev=0.1, #small amount of noise for symetry breaking
+                        seed=SEED, dtype=data_type())
+    return tf.Variable(initial)
+ 
+  def weight_variable_fc(channels_in, channels_out):
+    """Create a weight variable with appropriate initialization."""
+    initial = tf.truncated_normal([channels_in, channels_out],  # 5x5 filter, depth 32.
+                          stddev=0.1, #small amount of noise for symetry breaking
+                          seed=SEED, dtype=data_type())
+    return tf.Variable(initial)
+
+  def bias_variable_const(shape):
+    """Create a bias variable with appropriate initialization."""
+    initial = tf.constant(0.1, shape=[shape], dtype=data_type())
+    return tf.Variable(initial)
+
+  def bias_variable_zero(initial_size):
+    """Create a bias variable with appropriate initialization."""
+    initial = tf.zeros([initial_size], dtype=data_type())
+    return tf.Variable(initial)
+
+
   # The variables below hold all the trainable weights. They are passed an
   # initial value which will be assigned when we call:
   # {tf.initialize_all_variables().run()}
-  conv1_weights = tf.Variable( tf.truncated_normal([5, 5, NUM_CHANNELS, 32],  # 5x5 filter, depth 32.
-                          stddev=0.1, #small amount of noise for symetry breaking
-                          seed=SEED, dtype=data_type()))
-  conv1_biases = tf.Variable(tf.zeros([32], dtype=data_type()))
-  conv2_weights = tf.Variable(tf.truncated_normal(
-      [5, 5, 32, 64], stddev=0.1,
-      seed=SEED, dtype=data_type()))
-  conv2_biases = tf.Variable(tf.constant(0.1, shape=[64], dtype=data_type()))
-  fc1_weights = tf.Variable(  # fully connected, depth 512.
-      tf.truncated_normal([IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512],
-                          stddev=0.1,
-                          seed=SEED,
-                          dtype=data_type()))
-  fc1_biases = tf.Variable(tf.constant(0.1, shape=[512], dtype=data_type()))
-  fc2_weights = tf.Variable(tf.truncated_normal([512, NUM_LABELS],
-                                                stddev=0.1,
-                                                seed=SEED,
-                                                dtype=data_type()))
-  fc2_biases = tf.Variable(tf.constant(
-      0.1, shape=[NUM_LABELS], dtype=data_type()))
+  conv1_weights = weight_variable(5, 5, 1, 32)
+  conv1_biases = bias_variable_zero(32)
+  conv2_weights = weight_variable(5, 5, 32, 64)
+  conv2_biases = bias_variable_const(64)
+  fc1_weights = weight_variable_fc(IMAGE_SIZE // 4 * IMAGE_SIZE // 4 * 64, 512) # fully connected, depth 512.
+  fc1_biases = bias_variable_const(512)
+  fc2_weights = weight_variable_fc(512, NUM_LABELS)
+  fc2_biases = bias_variable_const(NUM_LABELS)
+  
 
   # We will replicate the model structure for the training subgraph, as well
   # as the evaluation subgraphs, while sharing the trainable parameters.
