@@ -51,8 +51,12 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     }
     
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let stroke = Stroke(context: context)
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = DatabaseController.persistentContainer.viewContext
+        //let stroke = Stroke(context: context)
+        let touchClassName:String = String(describing: Touch.self)
+        let strokeClassName:String = String(describing: Stroke.self)
+        let stroke = NSEntityDescription.insertNewObject(forEntityName: strokeClassName, into: context) as! Stroke
         let count = 0
         
        // stroke.addToTouches(touch)
@@ -63,10 +67,23 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
             print("start of stroke")
         case .ended:
             print("end of stroke")
-        // self.age = self.points.count
+            DatabaseController.saveContext()
+            let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
+            do{
+                let searchResults = try context.fetch(fetchRequest)
+                print("Number of results: \(searchResults.count)")
+                for result in searchResults as [Touch]{
+                    print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
+                }
+            }
+            catch{
+                print("Error: \(error).self")
+            }
+                // self.age = self.points.count
         case .changed:
             self.points.append(gesture.location(in: self.view))
-            let touch = Touch(context: context)
+            let touch:Touch = NSEntityDescription.insertNewObject(forEntityName: touchClassName, into: context) as! Touch
+            //let touch = Touch(context: context)
             touch.x = Double(gesture.location(in: self.view).x)
             touch.y = Double(gesture.location(in: self.view).y)
             touch.index = count + 1

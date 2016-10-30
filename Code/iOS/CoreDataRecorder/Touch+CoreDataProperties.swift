@@ -20,6 +20,6 @@ extension Touch {
     @NSManaged public var t: Double
     @NSManaged public var index: Int32
     @NSManaged public var f: Double
-    @NSManaged public var stroke: Stroke?
+    @NSManaged public var stroke: NSSet?
 
 }
