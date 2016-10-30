@@ -29,9 +29,12 @@ import sys
 import time
 
 import numpy
+import argparse
 from six.moves import urllib
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+
 
 #sys.path.append(os.path.abspath("/home/phil/Repos/data/mnist_to_xy"))
 #from mnist_to_python import *
@@ -49,10 +52,7 @@ NUM_EPOCHS = 10
 EVAL_BATCH_SIZE = 64
 EVAL_FREQUENCY = 100  # Number of steps between evaluations.
 
-tf.app.flags.DEFINE_boolean("self_test", False, "True if running a self test.")
-tf.app.flags.DEFINE_boolean('use_fp16', False,
-                            "Use half floats instead of full floats if True.")
-FLAGS = tf.app.flags.FLAGS
+
 
 
 def data_type():
@@ -124,6 +124,16 @@ def error_rate(predictions, labels):
 
 
 def main(argv=None):  # pylint: disable=unused-argument
+  if tf.gfile.Exists(FLAGS.summaries_dir):
+    tf.gfile.DeleteRecursively(FLAGS.summaries_dir)
+  tf.gfile.MakeDirs(FLAGS.summaries_dir)
+
+  # Import data
+  mnist = input_data.read_data_sets(FLAGS.data_dir,
+                                    one_hot=True,
+                                    fake_data=FLAGS.fake_data)
+  sess = tf.InteractiveSession()
+
   if FLAGS.self_test:
     print('Running self-test.')
     train_data, train_labels = fake_data(256)
@@ -263,6 +273,7 @@ def main(argv=None):  # pylint: disable=unused-argument
     # Fully connected layer. Note that the '+' operation automatically
     # broadcasts the biases.
     hidden = tf.nn.relu(tf.matmul(reshape, fc1_weights) + fc1_biases)
+    tf.histogram_summary('fc1/activations', hidden)
     # Add a 50% dropout during training only. Dropout also scales
     # activations such that no rescaling is needed at evaluation time.
     if train:
@@ -272,13 +283,21 @@ def main(argv=None):  # pylint: disable=unused-argument
   # Training computation: logits + cross-entropy loss.
   logits = model(train_data_node, True) # logits don't add to 1, not probalilites
 
-  loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
-      logits, train_labels_node))
+  with tf.name_scope('cross_entropy'):
+    diff = tf.nn.sparse_softmax_cross_entropy_with_logits(
+        logits, train_labels_node)
+    with tf.name_scope('total'):
+      loss = tf.reduce_mean(diff)
+      tf.scalar_summary('cross entropy', loss) # cross entropy vs loss?
 
   # L2 regularization for the fully connected parameters.
   # Computes half the L2 norm of a tensor without the sqrt.
-  regularizers = (tf.nn.l2_loss(fc1_weights) + tf.nn.l2_loss(fc1_biases) +
-                  tf.nn.l2_loss(fc2_weights) + tf.nn.l2_loss(fc2_biases))
+  with tf.name_scope('regularizers'):
+    regularizers = (tf.nn.l2_loss(fc1_weights) + tf.nn.l2_loss(fc1_biases) +
+                   tf.nn.l2_loss(fc2_weights) + tf.nn.l2_loss(fc2_biases))
+    tf.scalar_summary('regularizers', regularizers)
+
+
   # Add the regularization term to the loss.
   loss += 5e-4 * regularizers
 
@@ -298,15 +317,20 @@ def main(argv=None):  # pylint: disable=unused-argument
                                                        global_step=batch)
 
   # Predictions for the current training minibatch.
-  train_prediction = tf.nn.softmax(logits)
+  with tf.name_scope('training_prediction'):
+    train_prediction = tf.nn.softmax(logits)
+    tf.scalar_summary('training_prediction', train_prediction)
 
   # Predictions for the test and validation, which we'll compute less often.
-  eval_prediction = tf.nn.softmax(model(eval_data))
+  with tf.name_scope('test_prediction'):
+    eval_prediction = tf.nn.softmax(model(eval_data))
+    tf.scalar_summary('test_prediction', eval_prediction)
 
   # Small utility function to evaluate a dataset by feeding batches of data to
   # {eval_data} and pulling the results from {eval_predictions}.
   # Saves memory and enables this to run on smaller GPUs.
   def eval_in_batches(data, sess):
+    print('Test Point 2')
     """Get all predictions for a dataset by running it in small batches."""
     size = data.shape[0]
     if size < EVAL_BATCH_SIZE:
@@ -325,39 +349,79 @@ def main(argv=None):  # pylint: disable=unused-argument
         predictions[begin:, :] = batch_predictions[begin - size:, :]
     return predictions
 
+  # Merge all the summaries and write them out to /tmp/mnist_logs (by default)
+  merged = tf.merge_all_summaries()
+  train_writer = tf.train.SummaryWriter(FLAGS.summaries_dir + '/train',
+                                        sess.graph)
+  test_writer = tf.train.SummaryWriter(FLAGS.summaries_dir + '/test')
+
   start_time = time.time()
+  print('Test Point 1')
   with tf.Session() as sess:
     # Run all the initializers to prepare the trainable parameters.
     tf.initialize_all_variables().run()
     print('Initialized!')
     # Loop through training steps.
-    for step in xrange(int(num_epochs * train_size) // BATCH_SIZE): #(10*55000)//64 - integer devision
+
+  def feed_dict(train):
+    print('Entered feed_dict')
+    """Make a TensorFlow feed_dict: maps data onto Tensor placeholders."""
+    if train or FLAGS.fake_data:
+      xs, ys = mnist.train.next_batch(100, fake_data=FLAGS.fake_data)
+      k = FLAGS.dropout
+    else:
+      xs, ys = mnist.test.images, mnist.test.labels
+      k = 1.0
+    return {x: xs, y_: ys, keep_prob: k}
+
+    """Make a TensorFlow feed_dict: maps data onto Tensor placeholders."""
+    #for step in xrange(int(num_epochs * train_size) // BATCH_SIZE):  
       # Compute the offset of the current minibatch in the data.
       # Note that we could use better randomization across epochs.
-      offset = (step * BATCH_SIZE) % (train_size - BATCH_SIZE)      # (1*64) % (55000 - 64)
-      batch_data = train_data[offset:(offset + BATCH_SIZE), ...]    # continue from offset up to offset+size, all in other dimensions
-      batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
-      # This dictionary maps the batch data (as a numpy array) to the
-      # node in the graph it should be fed to.
-      feed_dict = {train_data_node: batch_data,
-                   train_labels_node: batch_labels}
-      # Run the graph and fetch some of the nodes.
-      _, l, lr, predictions = sess.run(
-          [optimizer, loss, learning_rate, train_prediction],
-          feed_dict=feed_dict)
-      if step % EVAL_FREQUENCY == 0: # Do every 100 steps
+      # offset = (step * BATCH_SIZE) % (train_size - BATCH_SIZE)      # (1*64) % (55000 - 64)
+      # batch_data = train_data[offset:(offset + BATCH_SIZE), ...]    # continue from offset up to offset+size, all in other dimensions
+      # batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
+      # # This dictionary maps the batch data (as a numpy array) to the
+      # # node in the graph it should be fed to.
+      # feed_dict = {train_data_node: batch_data,
+      #                train_labels_node: batch_labels}
+
+  for i in range(FLAGS.max_steps):
+    if i % 10 == 0:  # Record summaries and test-set accuracy
+      summary, acc = sess.run([merged, eval_prediction], feed_dict=feed_dict(False))
+      test_writer.add_summary(summary, i)
+      print('Accuracy at step %s: %s' % (i, acc))
+
+    else:
+      if step % EVAL_FREQUENCY == 0: # Record execution stats every 100 steps
+        run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+        run_metadata = tf.RunMetadata()
+        summary, _ = sess.run([merged, train_step],
+                            feed_dict=feed_dict(True),
+                            options=run_options,
+                            run_metadata=run_metadata)
+        train_writer.add_run_metadata(run_metadata, 'step%03d' % i)
+        train_writer.add_summary(summary, i)
+        print('Adding run metadata for', i)
+        print('My prediction is: %d' % predictions[1,0])
+    
         elapsed_time = time.time() - start_time
         start_time = time.time()
         print('Step %d (epoch %.2f), %.1f ms' %
               (step, float(step) * BATCH_SIZE / train_size,
-               1000 * elapsed_time / EVAL_FREQUENCY))
+              1000 * elapsed_time / EVAL_FREQUENCY))
         print('Minibatch loss: %.3f, learning rate: %.6f' % (l, lr))
         print('Minibatch error: %.1f%%' % error_rate(predictions, batch_labels))
         print('Validation error: %.1f%%' % error_rate(
-            eval_in_batches(validation_data, sess), validation_labels))
+              eval_in_batches(validation_data, sess), validation_labels))
         print('My prediction is: %d' % predictions[1,0])
-
         sys.stdout.flush()
+      else:
+        # Run the graph and fetch some of the nodes.
+        _, l, lr, predictions = sess.run(
+        [optimizer, loss, learning_rate, train_prediction],
+        feed_dict=feed_dict)
+
     # Finally print the result!
     test_error = error_rate(eval_in_batches(test_data, sess), test_labels)
     print('Test error: %.1f%%' % test_error)
@@ -369,4 +433,31 @@ def main(argv=None):  # pylint: disable=unused-argument
 
 
 if __name__ == '__main__':
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--fake_data', nargs='?', const=True, type=bool,
+                      default=False,
+                      help='If true, uses fake data for unit testing.')
+  parser.add_argument('--max_steps', type=int, default=1000,
+                      help='Number of steps to run trainer.')
+  parser.add_argument('--learning_rate', type=float, default=0.001,
+                      help='Initial learning rate')
+  parser.add_argument('--dropout', type=float, default=0.9,
+                      help='Keep probability for training dropout.')
+  parser.add_argument('--data_dir', type=str, default='/tmp/data',
+                      help='Directory for storing data')
+  parser.add_argument('--summaries_dir', type=str, default='/tmp/mnist_logs',
+                      help='Summaries directory')
+  parser.add_argument('self_test', nargs='?', const=True, type=bool,
+                      default=False,
+                      help='True if running a self test.')  
+  parser.add_argument('use_fp16', nargs='?', const=True, type=bool,
+                      default=False,
+                      help='Use half floats instead of full floats if True.')  
+  FLAGS = parser.parse_args()
   tf.app.run()
+
+
+# tf.app.flags.DEFINE_boolean("self_test", False, "True if running a self test.")
+# tf.app.flags.DEFINE_boolean('use_fp16', False,
+#                             "Use half floats instead of full floats if True.")
+# FLAGS = tf.app.flags.FLAGS
