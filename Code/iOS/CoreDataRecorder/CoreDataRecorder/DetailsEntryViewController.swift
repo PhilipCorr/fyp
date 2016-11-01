@@ -58,7 +58,7 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var chineseFlag: UILabel!
     @IBOutlet var indianFlag: UILabel!
     
-    @IBAction func changecountry(_ sender: UITapGestureRecognizer) {
+    @IBAction func changeCountry(_ sender: UIButton) {
         currentCountry.text = flag(country: "DE")
     }
     

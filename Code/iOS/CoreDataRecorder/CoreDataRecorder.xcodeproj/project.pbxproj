@@ -22,6 +22,8 @@
 		3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */; };
 		3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FA1DBBFD6800726921 /* CoreData.framework */; };
 		3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */; };
+		3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931CE1DC75635009D3952 /* CollectionViewController.swift */; };
+		3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataProperties.swift"; path = "../Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FA2C8FA1DBBFD6800726921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3FD931CE1DC75635009D3952 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
+		3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */,
 				3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */,
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
+				3FD931CE1DC75635009D3952 /* CollectionViewController.swift */,
+				3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */,
 				3F2BF31E1DC69BE80067E4B6 /* Models */,
 				3F52FAD91DB666C10004C267 /* Main.storyboard */,
 				3F52FADF1DB666C20004C267 /* Assets.xcassets */,
@@ -186,6 +192,7 @@
 			files = (
 				3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */,
 				3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */,
+				3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
 				3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */,
 				3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */,
@@ -194,6 +201,7 @@
 				3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */,
 				3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */,
 				3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */,
+				3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
