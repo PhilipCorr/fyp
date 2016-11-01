@@ -194,8 +194,12 @@
                             <outlet property="delegate" destination="5aE-6A-DoH" id="e9a-Tz-xwF"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="BZD-dm-zBR" kind="unwind" identifier="unwindfromCollectionView" unwindAction="unwindfromCollectionViewWithSegue:" id="82z-qZ-gwC"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwe-ef-gjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BZD-dm-zBR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2836" y="579.76011994002999"/>
         </scene>

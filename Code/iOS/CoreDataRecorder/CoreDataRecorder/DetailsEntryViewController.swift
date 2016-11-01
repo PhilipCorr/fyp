@@ -80,9 +80,11 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func unwindToDetailsVC(segue: UIStoryboardSegue) {
-        if let svc = segue.source as? NumbersEntryViewController {
-            self.touchesCount = svc.points.count
+    @IBAction func unwindfromCollectionView(segue: UIStoryboardSegue) {
+        if let svc = segue.source as? CollectionViewController {
+            //self.touchesCount = svc.points.count
+            //print "Country clicked was: \(svc.index)"
+            self.currentCountry.text = flag(country: "DE")
         }
         
     }

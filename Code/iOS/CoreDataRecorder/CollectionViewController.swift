@@ -76,6 +76,8 @@ class CollectionViewController: UICollectionViewController{
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Cell \(indexPath.row) selected")
+        self.performSegue(withIdentifier: "unwindfromCollectionView", sender: self)
+        
     }
 
     // MARK: UICollectionViewDelegate
