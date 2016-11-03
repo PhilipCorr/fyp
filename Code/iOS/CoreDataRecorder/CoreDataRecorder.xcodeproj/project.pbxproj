@@ -22,8 +22,11 @@
 		3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */; };
 		3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FA1DBBFD6800726921 /* CoreData.framework */; };
 		3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */; };
+		3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */; };
+		3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */; };
 		3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931CE1DC75635009D3952 /* CollectionViewController.swift */; };
 		3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */; };
+		3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +47,11 @@
 		3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataProperties.swift"; path = "../Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FA2C8FA1DBBFD6800726921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionViewController.swift; sourceTree = "<group>"; };
+		3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		3FD931CE1DC75635009D3952 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
 		3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +100,14 @@
 			children = (
 				3F52FAD51DB666C10004C267 /* AppDelegate.swift */,
 				3F2BF31C1DC697E60067E4B6 /* DatabaseController.swift */,
+				3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */,
 				3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */,
 				3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */,
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
 				3FD931CE1DC75635009D3952 /* CollectionViewController.swift */,
 				3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */,
+				3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */,
+				3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */,
 				3F2BF31E1DC69BE80067E4B6 /* Models */,
 				3F52FAD91DB666C10004C267 /* Main.storyboard */,
 				3F52FADF1DB666C20004C267 /* Assets.xcassets */,
@@ -150,6 +159,7 @@
 				TargetAttributes = {
 					3F52FAD11DB666C10004C267 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 842L4E68Q9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -190,9 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */,
 				3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */,
 				3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */,
+				3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */,
 				3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */,
+				3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
 				3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */,
 				3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */,
@@ -324,11 +337,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 842L4E68Q9;
 				INFOPLIST_FILE = CoreDataRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ucd.12318581.CoreDataRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -336,11 +351,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 842L4E68Q9;
 				INFOPLIST_FILE = CoreDataRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ucd.12318581.CoreDataRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -12,10 +12,23 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var enterYear: UITextField!
     
+    @IBOutlet var nextButton: UIButton!
+
+    @IBOutlet var currentCountry: UIButton!
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+    
+//    func textField(_ textField: enterYear, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let text: NSString = (textField.text ?? "") as NSString
+//        let resultString = text.replacingCharacters(in: range, with: string)
+//        
+//        return true
+//    }
+
     
     func flag(country:String) -> String {
         let base : UInt32 = 127397
@@ -26,40 +39,16 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         return String(s)
     }
     
-    var touchesCount = 0 {
-        didSet {
-            print("\(touchesCount)")
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         self.enterYear.delegate = self;
-        currentCountry.text = flag(country: "IE")
-        irishFlag.text = flag(country: "IE")
-        germanFlag.text = flag(country: "DE")
-        frenchFlag.text = flag(country: "FR")
-        americanFlag.text = flag(country: "US")
-        chineseFlag.text = flag(country: "CN")
-        indianFlag.text = flag(country: "IN")
-
-    }
-    
-    
-    @IBOutlet var flags: UICollectionView!
-    
-    @IBOutlet var currentCountry: UILabel!
-    @IBOutlet var irishFlag: UILabel!
-    @IBOutlet var germanFlag: UILabel!
-    @IBOutlet var frenchFlag: UILabel!
-    @IBOutlet var americanFlag: UILabel!
-    @IBOutlet var chineseFlag: UILabel!
-    @IBOutlet var indianFlag: UILabel!
-    
-    @IBAction func changeCountry(_ sender: UIButton) {
-        currentCountry.text = flag(country: "DE")
+        enterYear.keyboardType = UIKeyboardType.numberPad
+        currentCountry.setTitle(flag(country: "IE"), for: .normal)
+        enterYear.addTarget(self, action: "textFieldDidChange:", for: UIControlEvents.editingChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,24 +56,30 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidChange(textField: UITextField) {
+        if (enterYear.text?.characters.count)! >= 2{
+            enterYear.resignFirstResponder()
+        }
+    }
+    
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let dvc = segue.destination as? NumbersEntryViewController {
+        //if let dvc = segue.destination as? NumbersEntryViewController {
             
             //let calendar = NSCalendar.current
-            dvc.age = Int(self.enterYear.text!)!
-        }
-    }
+            //dvc.age = Int(self.enterYear.text!)!
+        //}
+    //}
     
     @IBAction func unwindfromCollectionView(segue: UIStoryboardSegue) {
         if let svc = segue.source as? CollectionViewController {
             //self.touchesCount = svc.points.count
-            //print "Country clicked was: \(svc.index)"
-            self.currentCountry.text = flag(country: "DE")
+            currentCountry.setTitle(flag(country: svc.dataToSend), for: .normal)
+
         }
         
     }

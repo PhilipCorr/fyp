@@ -10,7 +10,6 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var cellLabel: UILabel!
-    
+    @IBOutlet var cellValue: UILabel!
     
 }

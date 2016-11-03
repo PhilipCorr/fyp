@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 class CollectionViewController: UICollectionViewController{
     
     let data:[String] = ["IE","DE","FR","ES","US","CN","IN","PL","PT","NO","IT","TR","RU","NL","LU","BE","DK","SE","FI","GR"]
+    var dataToSend = "IE"
     
     
     override func viewDidLoad() {
@@ -66,19 +67,18 @@ class CollectionViewController: UICollectionViewController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
-    
-        // Configure the cell
-        // cell.backgroundColor = UIColor.RandomColor()
-        cell.cellLabel.text = flag(country: data[indexPath.item])
+        cell.cellValue.text = flag(country: data[indexPath.item])
+
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Cell \(indexPath.row) selected")
+        dataToSend = data[indexPath.item]
         self.performSegue(withIdentifier: "unwindfromCollectionView", sender: self)
         
     }
+    
 
     // MARK: UICollectionViewDelegate
 
