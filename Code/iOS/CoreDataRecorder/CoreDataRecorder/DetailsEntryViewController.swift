@@ -16,7 +16,6 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var currentCountry: UIButton!
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -48,33 +47,34 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         self.enterYear.delegate = self;
         enterYear.keyboardType = UIKeyboardType.numberPad
         currentCountry.setTitle(flag(country: "IE"), for: .normal)
-        enterYear.addTarget(self, action: "textFieldDidChange:", for: UIControlEvents.editingChanged)
+        self.enterYear.becomeFirstResponder()
     }
+    
+    @IBAction func enterYearChanged(_ sender: UITextField) {
+        if (enterYear.text?.characters.count)! >= 2{
+            enterYear.resignFirstResponder()
+        }
+    }
+
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidChange(textField: UITextField) {
-        if (enterYear.text?.characters.count)! >= 2{
-            enterYear.resignFirstResponder()
-        }
-    }
-    
-    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        //if let dvc = segue.destination as? NumbersEntryViewController {
-            
-            //let calendar = NSCalendar.current
-            //dvc.age = Int(self.enterYear.text!)!
-        //}
-    //}
-    
+        if let dvc = segue.destination as? NumbersEntryViewController {
+
+            dvc.language = currentCountry.title(for: .normal)!
+        }
+    }
+
     @IBAction func unwindfromCollectionView(segue: UIStoryboardSegue) {
         if let svc = segue.source as? CollectionViewController {
             //self.touchesCount = svc.points.count

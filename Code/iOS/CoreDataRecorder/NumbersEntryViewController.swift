@@ -8,10 +8,22 @@
 
 import UIKit
 import CoreData
+import AVFoundation
+import GameKit
 
 class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     
     let context = DatabaseController.persistentContainer.viewContext
+    
+    var language = "String"
+    
+    var numbersToSpeak = [Int]()
+    
+    var usedNumbers = [Int]()
+    
+    let synthesizer = AVSpeechSynthesizer()
+    
+    var utterance = AVSpeechUtterance(string: "Please enter the following numbers")
     
     @IBOutlet var NumbersEntryView: NumbersEntryView!
     
@@ -30,6 +42,29 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
             updateUI()
         }
     }
+    
+    @IBAction func redo(_ sender: UIButton) {
+        points = [CGPoint]()
+        updateUI()
+        synthesizer.speak(utterance)
+    }
+    
+    
+    func randomNumbers(range: Range<Int>) -> Array<Int> {
+        let min = range.lowerBound
+        let max = range.upperBound
+        
+        var unshuffledNumbers = [Int]()
+        
+        for _ in 1...4{
+            unshuffledNumbers.append(contentsOf: Array(min..<max))
+        }
+        
+        let shuffledNumbers = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: unshuffledNumbers)
+        return shuffledNumbers as! Array<Int>
+        
+    }
+    
     
     @IBAction func nextNumber(_ sender: UIButton) {
         
@@ -55,15 +90,21 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
         if(count == 40){
             complete = true
             self.performSegue(withIdentifier: "completionSegue", sender: self)
-            count -= 1
+            utterance = AVSpeechUtterance(string: "Thank you")
+            synthesizer.speak(utterance)
         }
         
+        if (count < 40){
         points = [CGPoint]()
         updateUI()
         
+        utterance = AVSpeechUtterance(string: "\(numbersToSpeak[count])")
+        synthesizer.speak(utterance)
+        
         count += 1
         progression.text = "\(count)/40"
-        
+            
+        }
     }
     
     
@@ -78,6 +119,14 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.NumbersEntryView.delegate =  self
+        
+//        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+
+        synthesizer.speak(utterance)
+        numbersToSpeak = randomNumbers(range: 0..<10)
+        utterance = AVSpeechUtterance(string: "\(numbersToSpeak[0])")
+        synthesizer.speak(utterance)
+        
     }
     
     override func didReceiveMemoryWarning() {
