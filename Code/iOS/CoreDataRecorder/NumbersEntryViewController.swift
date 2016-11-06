@@ -15,7 +15,9 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     
     let context = DatabaseController.persistentContainer.viewContext
     
-    var language = "String"
+    var language = "string"
+    var age = "23"
+    var gender = "male"
     
     var numbersToSpeak = [Int]()
     
@@ -89,7 +91,7 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
         
         if(count == 40){
             complete = true
-            self.performSegue(withIdentifier: "completionSegue", sender: self)
+            self.performSegue(withIdentifier: "summarySegue", sender: self)
             utterance = AVSpeechUtterance(string: "Thank you")
             synthesizer.speak(utterance)
         }
@@ -160,6 +162,19 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
             self.NumbersEntryView.setNeedsDisplay()
         default:
             ()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if let dvc = segue.destination as? SummaryViewController {
+            
+            dvc.language = language
+            dvc.age = age
+            dvc.gender = gender
+            
         }
     }
 

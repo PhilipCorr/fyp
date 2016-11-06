@@ -16,6 +16,8 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var currentCountry: UIButton!
     
+    @IBOutlet var gender: UISegmentedControl!
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -72,6 +74,9 @@ class DetailsEntryViewController: UIViewController, UITextFieldDelegate {
         if let dvc = segue.destination as? NumbersEntryViewController {
 
             dvc.language = currentCountry.title(for: .normal)!
+            dvc.age = enterYear.text!
+            dvc.gender = gender.titleForSegment(at: gender.selectedSegmentIndex)!
+            
         }
     }
 

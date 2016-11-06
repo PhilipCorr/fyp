@@ -20,6 +20,9 @@
 		3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */; };
 		3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */; };
 		3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */; };
+		3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */; };
+		3F792C1E1DCE413200348DB2 /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */; };
+		3F792C201DCE432C00348DB2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */; };
 		3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FA1DBBFD6800726921 /* CoreData.framework */; };
 		3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */; };
 		3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */; };
@@ -45,6 +48,9 @@
 		3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Touch+CoreDataProperties.swift"; path = "../Touch+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataClass.swift"; path = "../Stroke+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataProperties.swift"; path = "../Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = ../SummaryTableViewController.swift; sourceTree = "<group>"; };
+		3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		3FA2C8FA1DBBFD6800726921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
 				3FD931CE1DC75635009D3952 /* CollectionViewController.swift */,
 				3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */,
+				3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */,
+				3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */,
+				3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */,
 				3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */,
 				3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */,
 				3F2BF31E1DC69BE80067E4B6 /* Models */,
@@ -200,11 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F792C1E1DCE413200348DB2 /* SummaryTableViewController.swift in Sources */,
 				3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */,
 				3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */,
 				3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */,
+				3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */,
 				3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */,
 				3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */,
+				3F792C201DCE432C00348DB2 /* SummaryViewController.swift in Sources */,
 				3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
 				3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */,
