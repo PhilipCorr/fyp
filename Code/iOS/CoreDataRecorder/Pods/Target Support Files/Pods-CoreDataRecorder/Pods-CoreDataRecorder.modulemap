@@ -1,0 +1,6 @@
+framework module Pods_CoreDataRecorder {
+  umbrella header "Pods-CoreDataRecorder-umbrella.h"
+
+  export *
+  module * { export * }
+}

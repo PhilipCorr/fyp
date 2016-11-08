@@ -1,5 +1,5 @@
 //
-//  Stroke+CoreDataClass.swift
+//  Person+CoreDataClass.swift
 //  CoreDataRecorder
 //
 //  Created by Student on 07/11/2016.
@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class Stroke: NSManagedObject {
+public class Person: NSManagedObject {
 
 }

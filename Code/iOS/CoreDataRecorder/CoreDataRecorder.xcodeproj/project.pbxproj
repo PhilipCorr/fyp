@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2376FE3BE9034DA4D49A87EE /* Pods_CoreDataRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FDF1398E521EE82CCAC363 /* Pods_CoreDataRecorder.framework */; };
 		3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BF31C1DC697E60067E4B6 /* DatabaseController.swift */; };
 		3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAD51DB666C10004C267 /* AppDelegate.swift */; };
 		3F52FADB1DB666C10004C267 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F52FAD91DB666C10004C267 /* Main.storyboard */; };
@@ -16,10 +17,6 @@
 		3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */; };
 		3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */; };
 		3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */; };
-		3F52FAF81DB8C6E20004C267 /* Touch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */; };
-		3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */; };
-		3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */; };
-		3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */; };
 		3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */; };
 		3F792C1E1DCE413200348DB2 /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */; };
 		3F792C201DCE432C00348DB2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */; };
@@ -30,9 +27,19 @@
 		3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931CE1DC75635009D3952 /* CollectionViewController.swift */; };
 		3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */; };
 		3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */; };
+		3FFF4B3C1DD0C7C200C0B785 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B3B1DD0C7C200C0B785 /* ProgressButton.swift */; };
+		3FFF4B511DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B491DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift */; };
+		3FFF4B521DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4A1DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift */; };
+		3FFF4B531DD0EEDD00C0B785 /* Touch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4B1DD0EEDD00C0B785 /* Touch+CoreDataClass.swift */; };
+		3FFF4B541DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4C1DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift */; };
+		3FFF4B551DD0EEDD00C0B785 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4D1DD0EEDD00C0B785 /* Character+CoreDataClass.swift */; };
+		3FFF4B561DD0EEDD00C0B785 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4E1DD0EEDD00C0B785 /* Character+CoreDataProperties.swift */; };
+		3FFF4B571DD0EEDD00C0B785 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B4F1DD0EEDD00C0B785 /* Person+CoreDataClass.swift */; };
+		3FFF4B581DD0EEDD00C0B785 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF4B501DD0EEDD00C0B785 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21FDF1398E521EE82CCAC363 /* Pods_CoreDataRecorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataRecorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2BF31C1DC697E60067E4B6 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		3F52FAD21DB666C10004C267 /* CoreDataRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F52FAD51DB666C10004C267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,10 +51,6 @@
 		3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsEntryViewController.swift; sourceTree = "<group>"; };
 		3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryViewController.swift; path = ../NumbersEntryViewController.swift; sourceTree = "<group>"; };
 		3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryView.swift; path = ../NumbersEntryView.swift; sourceTree = "<group>"; };
-		3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Touch+CoreDataClass.swift"; path = "../Touch+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Touch+CoreDataProperties.swift"; path = "../Touch+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataClass.swift"; path = "../Stroke+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataProperties.swift"; path = "../Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = ../SummaryTableViewController.swift; sourceTree = "<group>"; };
 		3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +61,17 @@
 		3FD931CE1DC75635009D3952 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
 		3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeViewController.swift; sourceTree = "<group>"; };
+		3FFF4B3B1DD0C7C200C0B785 /* ProgressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
+		3FFF4B491DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataClass.swift"; path = "../Stroke+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3FFF4B4A1DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stroke+CoreDataProperties.swift"; path = "../Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FFF4B4B1DD0EEDD00C0B785 /* Touch+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Touch+CoreDataClass.swift"; path = "../Touch+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3FFF4B4C1DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Touch+CoreDataProperties.swift"; path = "../Touch+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FFF4B4D1DD0EEDD00C0B785 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CoreDataClass.swift"; path = "../Character+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3FFF4B4E1DD0EEDD00C0B785 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Character+CoreDataProperties.swift"; path = "../Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FFF4B4F1DD0EEDD00C0B785 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataClass.swift"; path = "../Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3FFF4B501DD0EEDD00C0B785 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "../Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8FCD3CC671AF3CE004BC8BA0 /* Pods-CoreDataRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataRecorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataRecorder/Pods-CoreDataRecorder.debug.xcconfig"; sourceTree = "<group>"; };
+		99A96ED7C22DD0B5D55CCDAD /* Pods-CoreDataRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataRecorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataRecorder/Pods-CoreDataRecorder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,7 @@
 			files = (
 				3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */,
 				3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */,
+				2376FE3BE9034DA4D49A87EE /* Pods_CoreDataRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +91,14 @@
 		3F2BF31E1DC69BE80067E4B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F52FAF41DB8C6E20004C267 /* Touch+CoreDataClass.swift */,
-				3F52FAF51DB8C6E20004C267 /* Touch+CoreDataProperties.swift */,
-				3F52FAF61DB8C6E20004C267 /* Stroke+CoreDataClass.swift */,
-				3F52FAF71DB8C6E20004C267 /* Stroke+CoreDataProperties.swift */,
+				3FFF4B491DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift */,
+				3FFF4B4A1DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift */,
+				3FFF4B4B1DD0EEDD00C0B785 /* Touch+CoreDataClass.swift */,
+				3FFF4B4C1DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift */,
+				3FFF4B4D1DD0EEDD00C0B785 /* Character+CoreDataClass.swift */,
+				3FFF4B4E1DD0EEDD00C0B785 /* Character+CoreDataProperties.swift */,
+				3FFF4B4F1DD0EEDD00C0B785 /* Person+CoreDataClass.swift */,
+				3FFF4B501DD0EEDD00C0B785 /* Person+CoreDataProperties.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -90,6 +109,7 @@
 				3F52FAD41DB666C10004C267 /* CoreDataRecorder */,
 				3F52FAD31DB666C10004C267 /* Products */,
 				3FA2C8F91DBBFD6800726921 /* Frameworks */,
+				BABAD6980D865F4403A8D809 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +135,7 @@
 				3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */,
 				3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */,
 				3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */,
+				3FFF4B3B1DD0C7C200C0B785 /* ProgressButton.swift */,
 				3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */,
 				3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */,
 				3F2BF31E1DC69BE80067E4B6 /* Models */,
@@ -132,8 +153,18 @@
 			children = (
 				3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */,
 				3FA2C8FA1DBBFD6800726921 /* CoreData.framework */,
+				21FDF1398E521EE82CCAC363 /* Pods_CoreDataRecorder.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BABAD6980D865F4403A8D809 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FCD3CC671AF3CE004BC8BA0 /* Pods-CoreDataRecorder.debug.xcconfig */,
+				99A96ED7C22DD0B5D55CCDAD /* Pods-CoreDataRecorder.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F52FAE71DB666C20004C267 /* Build configuration list for PBXNativeTarget "CoreDataRecorder" */;
 			buildPhases = (
+				0A512B604162F46FB910D7BB /* [CP] Check Pods Manifest.lock */,
 				3F52FACE1DB666C10004C267 /* Sources */,
 				3F52FACF1DB666C10004C267 /* Frameworks */,
 				3F52FAD01DB666C10004C267 /* Resources */,
+				2C49AC72BB4CA233B05D3482 /* [CP] Embed Pods Frameworks */,
+				455D2FB5731727A6F8F0925B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,26 +238,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A512B604162F46FB910D7BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2C49AC72BB4CA233B05D3482 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataRecorder/Pods-CoreDataRecorder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		455D2FB5731727A6F8F0925B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataRecorder/Pods-CoreDataRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F52FACE1DB666C10004C267 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3F792C1E1DCE413200348DB2 /* SummaryTableViewController.swift in Sources */,
+				3FFF4B541DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift in Sources */,
+				3FFF4B511DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift in Sources */,
 				3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */,
 				3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */,
-				3F52FAFB1DB8C6E20004C267 /* Stroke+CoreDataProperties.swift in Sources */,
+				3FFF4B3C1DD0C7C200C0B785 /* ProgressButton.swift in Sources */,
 				3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */,
 				3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */,
 				3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */,
+				3FFF4B551DD0EEDD00C0B785 /* Character+CoreDataClass.swift in Sources */,
 				3F792C201DCE432C00348DB2 /* SummaryViewController.swift in Sources */,
+				3FFF4B531DD0EEDD00C0B785 /* Touch+CoreDataClass.swift in Sources */,
+				3FFF4B571DD0EEDD00C0B785 /* Person+CoreDataClass.swift in Sources */,
 				3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */,
+				3FFF4B581DD0EEDD00C0B785 /* Person+CoreDataProperties.swift in Sources */,
+				3FFF4B521DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift in Sources */,
+				3FFF4B561DD0EEDD00C0B785 /* Character+CoreDataProperties.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
-				3F52FAFA1DB8C6E20004C267 /* Stroke+CoreDataClass.swift in Sources */,
 				3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */,
 				3F52FADE1DB666C10004C267 /* CoreDataRecorder.xcdatamodeld in Sources */,
-				3F52FAF81DB8C6E20004C267 /* Touch+CoreDataClass.swift in Sources */,
-				3F52FAF91DB8C6E20004C267 /* Touch+CoreDataProperties.swift in Sources */,
 				3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */,
 				3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */,
 				3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */,
@@ -347,6 +434,7 @@
 		};
 		3F52FAE81DB666C20004C267 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FCD3CC671AF3CE004BC8BA0 /* Pods-CoreDataRecorder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842L4E68Q9;
@@ -361,6 +449,7 @@
 		};
 		3F52FAE91DB666C20004C267 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A96ED7C22DD0B5D55CCDAD /* Pods-CoreDataRecorder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842L4E68Q9;
