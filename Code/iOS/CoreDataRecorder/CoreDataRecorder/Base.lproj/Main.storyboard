@@ -36,9 +36,6 @@
                                 <frame key="frameInset" minX="85" minY="354" width="205" height="192"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                 <state key="normal" title="IE"/>
-                                <connections>
-                                    <segue destination="5aE-6A-DoH" kind="show" id="a8t-oy-iXF"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-Rf-cgL">
                                 <frame key="frameInset" minY="607" width="375" height="60"/>
@@ -51,7 +48,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fnc-2l-CBH" kind="show" identifier="Language" id="GAw-ud-fsC"/>
+                                    <segue destination="bTX-Cx-NfU" kind="show" id="ZIV-bd-IVB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTv-rT-c5v">
@@ -84,7 +81,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iv-YI-17O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4292" y="121.88905547226388"/>
+            <point key="canvasLocation" x="3262" y="132"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yXn-tc-R7R">
+            <objects>
+                <viewController id="bTX-Cx-NfU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YvI-Vs-W3X"/>
+                        <viewControllerLayoutGuide type="bottom" id="rry-PI-5U3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rcf-oa-mBh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-Ud-WqG">
+                                <frame key="frameInset" minX="16" minY="378" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.37681307661327257" green="1" blue="0.68749098582096535" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="L"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-x5-BM2">
+                                <frame key="frameInset" minX="85" minY="124" width="205" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <state key="normal" title="IE"/>
+                                <connections>
+                                    <segue destination="5aE-6A-DoH" kind="show" id="7Qt-KA-Uoz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUH-gn-9IT">
+                                <frame key="frameInset" minY="599" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eUt-8U-NUI"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fnc-2l-CBH" kind="show" id="86g-Ta-fgL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NC-LJ-385">
+                                <frame key="frameInset" minX="209" minY="378" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.32643009562060543" blue="0.26204958247790555" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="R"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDM-Ud-NJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4169" y="132"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="VYN-zE-KD3">
@@ -367,7 +421,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cR6-A1-1Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3202" y="122"/>
+            <point key="canvasLocation" x="2412" y="132"/>
         </scene>
     </scenes>
     <resources>
