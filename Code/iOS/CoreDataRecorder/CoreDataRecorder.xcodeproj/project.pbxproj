@@ -24,6 +24,8 @@
 		3FA2C8FD1DBBFF5400726921 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */; };
 		3FC936241DCB4F1400B6DD8D /* CompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */; };
 		3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */; };
+		3FCF43D51DD4D505007781BB /* FirstDetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */; };
+		3FCF43D71DD4D51D007781BB /* SecondDetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */; };
 		3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931CE1DC75635009D3952 /* CollectionViewController.swift */; };
 		3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */; };
 		3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */; };
@@ -58,6 +60,8 @@
 		3FA2C8FC1DBBFF5300726921 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3FC936231DCB4F1400B6DD8D /* CompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionViewController.swift; sourceTree = "<group>"; };
 		3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
+		3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstDetailsEntryViewController.swift; sourceTree = "<group>"; };
+		3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondDetailsEntryViewController.swift; sourceTree = "<group>"; };
 		3FD931CE1DC75635009D3952 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
 		3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				3F52FAD51DB666C10004C267 /* AppDelegate.swift */,
 				3F2BF31C1DC697E60067E4B6 /* DatabaseController.swift */,
 				3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */,
+				3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */,
+				3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */,
 				3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */,
 				3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */,
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
@@ -306,10 +312,12 @@
 				3FFF4B571DD0EEDD00C0B785 /* Person+CoreDataClass.swift in Sources */,
 				3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */,
 				3FFF4B581DD0EEDD00C0B785 /* Person+CoreDataProperties.swift in Sources */,
+				3FCF43D51DD4D505007781BB /* FirstDetailsEntryViewController.swift in Sources */,
 				3FFF4B521DD0EEDD00C0B785 /* Stroke+CoreDataProperties.swift in Sources */,
 				3FFF4B561DD0EEDD00C0B785 /* Character+CoreDataProperties.swift in Sources */,
 				3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */,
 				3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */,
+				3FCF43D71DD4D51D007781BB /* SecondDetailsEntryViewController.swift in Sources */,
 				3F52FADE1DB666C10004C267 /* CoreDataRecorder.xcdatamodeld in Sources */,
 				3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */,
 				3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */,
@@ -357,6 +365,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -407,6 +416,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -436,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8FCD3CC671AF3CE004BC8BA0 /* Pods-CoreDataRecorder.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842L4E68Q9;
 				INFOPLIST_FILE = CoreDataRecorder/Info.plist;
@@ -451,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99A96ED7C22DD0B5D55CCDAD /* Pods-CoreDataRecorder.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842L4E68Q9;
 				INFOPLIST_FILE = CoreDataRecorder/Info.plist;

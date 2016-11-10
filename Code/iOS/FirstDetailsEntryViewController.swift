@@ -23,12 +23,12 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
     @IBAction func changeGender(_ sender: UIButton) {
         switch sender {
         case male:
-            self.female.alpha = 0.25
+            self.female.alpha = 0.5
             self.male.alpha = 1
             gender = "male"
             break
         case female:
-            self.male.alpha = 0.25
+            self.male.alpha = 0.5
             self.female.alpha = 1
             gender = "female"
             break
@@ -46,10 +46,9 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+
         enterYear.keyboardType = UIKeyboardType.numberPad
         self.enterYear.becomeFirstResponder()
-        self.female.alpha = 0.25
     }
     
     @IBAction func enterYearChanged(_ sender: UITextField) {
@@ -57,7 +56,7 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
             enterYear.resignFirstResponder()
         }
     }
-    
+
     
     
     
@@ -67,19 +66,19 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
         if let dvc = segue.destination as? NumbersEntryViewController {
-            
+
             dvc.age = enterYear.text!
             dvc.gender = gender
             
         }
     }
-    
-    
+
+
     
 }
 
@@ -89,7 +88,7 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
 ////        setBackgroundImage(imageWithColor(color: UIColor.clear), for: .selected, barMetrics: .default)
 ////        setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
 //    }
-//
+//    
 //    // create a 1x1 image with this color
 //    private func imageWithColor(color: UIColor) -> UIImage {
 //        let rect = CGRect(0.0, 0.0, 100.0, 100.0)
