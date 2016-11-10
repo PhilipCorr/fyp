@@ -13,9 +13,7 @@ class SecondDetailsEntryViewController: UIViewController {
     
     
     @IBOutlet var currentCountry: UIButton!
-
     @IBOutlet var leftButton: UIButton!
-    
     @IBOutlet var rightButton: UIButton!
     
     var age = "10"
