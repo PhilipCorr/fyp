@@ -13,10 +13,12 @@ class SummaryViewController: UIViewController {
     var language = "string"
     var age = "23"
     var gender = "female"
+    var rightHanded = true
     
     @IBOutlet var NVal: UILabel!
     @IBOutlet var GVal: UILabel!
     @IBOutlet var AVal: UILabel!
+    @IBOutlet var HVal: UILabel!
     
     func flag(country:String) -> String {
         let base : UInt32 = 127397
@@ -34,6 +36,13 @@ class SummaryViewController: UIViewController {
         NVal.text = language
         GVal.text = gender
         AVal.text = age
+        if rightHanded{
+            HVal.text = "Right Handed"
+        }
+        else{
+            HVal.text = "Left Handed"
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -18,6 +18,7 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     var language = "string"
     var age = "23"
     var gender = "male"
+    var rightHanded = true
     
     var numbersToSpeak = [Int]()
     
@@ -174,6 +175,7 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
             dvc.language = language
             dvc.age = age
             dvc.gender = gender
+            dvc.rightHanded = rightHanded
             
         }
     }
