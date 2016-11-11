@@ -22,6 +22,8 @@ class DrawViewController: UIViewController, NumbersEntryProtocol {
         }
     }
     
+    var pointsInStroke = [Int]()
+    
     func updateUI()
     {
         self.view?.setNeedsDisplay()
@@ -39,25 +41,28 @@ class DrawViewController: UIViewController, NumbersEntryProtocol {
         //let stroke = Stroke(context: context)
         let touchClassName:String = String(describing: Touch.self)
         let strokeClassName:String = String(describing: Stroke.self)
+        let characterClassName:String = String(describing: Character.self)
+        let touch:Touch = NSEntityDescription.insertNewObject(forEntityName: touchClassName, into: context) as! Touch
         let stroke = NSEntityDescription.insertNewObject(forEntityName: strokeClassName, into: context) as! Stroke
-        let count = 0
+        let character = NSEntityDescription.insertNewObject(forEntityName: characterClassName, into: context) as! Character
+        let numPoints = 0
         
         switch gesture.state {
         case .began:
-            //self.points = [CGPoint]()
             print("start of stroke")
         case .changed:
             points.append(gesture.location(in: self.view))
-            let touch:Touch = NSEntityDescription.insertNewObject(forEntityName: touchClassName, into: context) as! Touch
-            //let touch = Touch(context: context)
             touch.x = Double(gesture.location(in: self.view).x)
             touch.y = Double(gesture.location(in: self.view).y)
-            touch.index = count + 1
+            touch.index = numPoints + 1
             touch.t = 1234
             stroke.addToTouches(touch)
             self.view.setNeedsDisplay()
         case .ended:
+            points.append(CGPoint(x: -1, y: -1))
+            pointsInStroke.append(numPoints)
             print("end of stroke")
+            character.addToStrokes(stroke)
             DatabaseController.saveContext()
             let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
             do{

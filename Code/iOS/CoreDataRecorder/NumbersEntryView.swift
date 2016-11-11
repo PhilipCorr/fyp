@@ -29,18 +29,27 @@ class NumbersEntryView: UIView {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
-        
-        if let points = delegate?.points {
+        var startPoint = 1
+        if let points = delegate?.points{
             UIColor.black.setStroke()
-            if points.count > 0  {
+            if points.count > 0 {
                 let path  = UIBezierPath.init()
                 path.lineCapStyle = .round
                 path.lineWidth = 8
                 path.move(to: points[0])
-                for dest in points[1..<points.count] {
-                    path.addLine(to: dest)
+                for dest in points[startPoint..<points.count] {
+                    startPoint += 1
+                    if dest.x != -1 {
+                        path.addLine(to: dest)
+                        path.stroke()
+                    }
+                    else {
+                        if startPoint >= points.count {
+                            break
+                        }
+                        path.move(to: points[startPoint])
+                    }
                 }
-                path.stroke()
                 print("\(path)")
             }
         }
