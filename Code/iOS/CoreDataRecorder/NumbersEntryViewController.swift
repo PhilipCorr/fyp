@@ -11,9 +11,7 @@ import CoreData
 import AVFoundation
 import GameKit
 
-class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
-    
-    let context = DatabaseController.persistentContainer.viewContext
+class NumbersEntryViewController: UIViewController {
     
     var language = "string"
     var age = "23"
@@ -27,28 +25,20 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     let synthesizer = AVSpeechSynthesizer()
     
     var utterance = AVSpeechUtterance(string: "Please enter the following numbers")
+    let context = DatabaseController.persistentContainer.viewContext
     
-    @IBOutlet var NumbersEntryView: NumbersEntryView!
+    //  declared to be an implicitly unwrapped optional
+    //  because it doesn't make sense to give it a non-nil initial value.
+    private var embeddedViewController: DrawViewController!
     
     @IBOutlet var progression: UILabel!
     
     var count = 1
     var complete = false
     
-    func updateUI()
-    {
-        self.NumbersEntryView?.setNeedsDisplay()
-    }
-    
-    var points = [CGPoint]() {
-        didSet {
-            updateUI()
-        }
-    }
-    
     @IBAction func redo(_ sender: UIButton) {
-        points = [CGPoint]()
-        updateUI()
+        self.embeddedViewController.points = [CGPoint]()
+        self.embeddedViewController.updateUI()
         synthesizer.speak(utterance)
     }
     
@@ -72,22 +62,9 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     @IBAction func nextNumber(_ sender: UIButton) {
         
         if complete {
-         points = [CGPoint]()
-         updateUI()
+         self.embeddedViewController.points = [CGPoint]()
+         self.embeddedViewController.updateUI()
          return
-        }
-        
-        DatabaseController.saveContext()
-        let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
-        do{
-            let searchResults = try context.fetch(fetchRequest)
-            print("Number of results: \(searchResults.count)")
-            for result in searchResults as [Touch]{
-                print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
-            }
-        }
-        catch{
-            print("Error: \(error).self")
         }
         
         if(count == 40){
@@ -98,8 +75,8 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
         }
         
         if (count < 40){
-        points = [CGPoint]()
-        updateUI()
+        self.embeddedViewController.points = [CGPoint]()
+        self.embeddedViewController.updateUI()
         
         utterance = AVSpeechUtterance(string: "\(numbersToSpeak[count])")
         synthesizer.speak(utterance)
@@ -110,18 +87,15 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
         }
     }
     
-    
-   // @IBOutlet var NumbersEntryView: NumbersEntryView!
-    
     override func viewWillAppear(_ animated: Bool) {
-        updateUI()
+        self.embeddedViewController.updateUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.NumbersEntryView.delegate =  self
+        
         
 //        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
 
@@ -138,47 +112,32 @@ class NumbersEntryViewController: UIViewController, NumbersEntryProtocol {
     }
     
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
-        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        //let stroke = Stroke(context: context)
-        let touchClassName:String = String(describing: Touch.self)
-        let strokeClassName:String = String(describing: Stroke.self)
-        let stroke = NSEntityDescription.insertNewObject(forEntityName: strokeClassName, into: context) as! Stroke
-        let count = 0
-        
-        switch gesture.state {
-        case .began:
-            //self.points = [CGPoint]()
-            print("start of stroke")
-        case .ended:
-            print("end of stroke")
-        case .changed:
-            self.points.append(gesture.location(in: self.view))
-            let touch:Touch = NSEntityDescription.insertNewObject(forEntityName: touchClassName, into: context) as! Touch
-            //let touch = Touch(context: context)
-            touch.x = Double(gesture.location(in: self.view).x)
-            touch.y = Double(gesture.location(in: self.view).y)
-            touch.index = count + 1
-            touch.t = 1234
-            stroke.addToTouches(touch)
-            self.NumbersEntryView.setNeedsDisplay()
-        default:
-            ()
-        }
-    }
+            }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
         if let dvc = segue.destination as? SummaryViewController {
-            
             dvc.language = language
             dvc.age = age
             dvc.gender = gender
             dvc.rightHanded = rightHanded
-            
+        }
+        
+        if let evc = segue.destination as? DrawViewController{
+            self.embeddedViewController = evc
         }
     }
+    
+    
+    //  Now in other methods you can reference `embeddedViewController`.
+    //  For example:
+//    override func viewDidAppear(animated: Bool) {
+//        self.embeddedViewController.points
+//    }
+    
+    
 
 //    func prepare(for segue: "completionSegue", sender: AnyObject?) {
 //        if segue.identifier == "completionSegue" {

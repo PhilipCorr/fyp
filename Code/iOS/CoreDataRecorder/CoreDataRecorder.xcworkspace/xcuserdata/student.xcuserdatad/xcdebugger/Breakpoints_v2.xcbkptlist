@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CoreDataRecorder/SecondDetailsEntryViewController.swift"
-            timestampString = "500493551.002448"
+            timestampString = "500500289.734312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "changeHand(_:)"
             landmarkType = "7">
          </BreakpointContent>

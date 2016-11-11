@@ -26,6 +26,7 @@
 		3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */; };
 		3FCF43D51DD4D505007781BB /* FirstDetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */; };
 		3FCF43D71DD4D51D007781BB /* SecondDetailsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */; };
+		3FCF43DB1DD50F37007781BB /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF43DA1DD50F37007781BB /* DrawViewController.swift */; };
 		3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931CE1DC75635009D3952 /* CollectionViewController.swift */; };
 		3FD931D31DC7743A009D3952 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */; };
 		3FEC9A331DCA72CA00AF72A9 /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */; };
@@ -62,6 +63,7 @@
 		3FC936251DCB4F3F00B6DD8D /* CompletionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstDetailsEntryViewController.swift; sourceTree = "<group>"; };
 		3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondDetailsEntryViewController.swift; sourceTree = "<group>"; };
+		3FCF43DA1DD50F37007781BB /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		3FD931CE1DC75635009D3952 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
 		3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3FEC9A321DCA72CA00AF72A9 /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				3FCF43D41DD4D505007781BB /* FirstDetailsEntryViewController.swift */,
 				3FCF43D61DD4D51D007781BB /* SecondDetailsEntryViewController.swift */,
 				3F52FAEC1DB6686E0004C267 /* DetailsEntryViewController.swift */,
+				3FCF43DA1DD50F37007781BB /* DrawViewController.swift */,
 				3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */,
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
 				3FD931CE1DC75635009D3952 /* CollectionViewController.swift */,
@@ -301,6 +304,7 @@
 				3FFF4B541DD0EEDD00C0B785 /* Touch+CoreDataProperties.swift in Sources */,
 				3FFF4B511DD0EEDD00C0B785 /* Stroke+CoreDataClass.swift in Sources */,
 				3FC936261DCB4F3F00B6DD8D /* CompletionView.swift in Sources */,
+				3FCF43DB1DD50F37007781BB /* DrawViewController.swift in Sources */,
 				3F2BF31D1DC697E60067E4B6 /* DatabaseController.swift in Sources */,
 				3FFF4B3C1DD0C7C200C0B785 /* ProgressButton.swift in Sources */,
 				3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */,

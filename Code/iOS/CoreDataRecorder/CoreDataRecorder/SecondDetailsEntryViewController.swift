@@ -13,24 +13,23 @@ class SecondDetailsEntryViewController: UIViewController {
     
     
     @IBOutlet var currentCountry: UIButton!
-    @IBOutlet var leftButton: UIButton!
-    @IBOutlet var rightButton: UIButton!
+    @IBOutlet var leftHand: UIButton!
+    @IBOutlet var rightHand: UIButton!
     
     var age = "10"
     var gender = "male"
     var rightHanded = true
     
-    
     @IBAction func changeHand(_ sender: UIButton) {
         switch sender {
-        case leftButton:
-            self.rightButton.alpha = 0.25
-            self.leftButton.alpha = 1
+        case leftHand:
+            self.rightHand.alpha = 0.25
+            self.leftHand.alpha = 1
             rightHanded = false
             break
-        case rightButton:
-            self.leftButton.alpha = 0.25
-            self.rightButton.alpha = 1
+        case rightHand:
+            self.leftHand.alpha = 0.25
+            self.rightHand.alpha = 1
             rightHanded = true
             break
         default:
@@ -43,6 +42,8 @@ class SecondDetailsEntryViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         currentCountry.setTitle(flag(country: "IE"), for: .normal)
+        self.rightHand.alpha = 0.25
+
         
     }
     

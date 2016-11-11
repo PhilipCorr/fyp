@@ -37,10 +37,10 @@ class SummaryViewController: UIViewController {
         GVal.text = gender
         AVal.text = age
         if rightHanded{
-            HVal.text = "Right Handed"
+            HVal.text = "Right"
         }
         else{
-            HVal.text = "Left Handed"
+            HVal.text = "Left"
         }
         
     }
