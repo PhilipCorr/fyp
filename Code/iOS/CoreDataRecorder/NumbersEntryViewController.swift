@@ -24,14 +24,12 @@ class NumbersEntryViewController: UIViewController {
     
     let synthesizer = AVSpeechSynthesizer()
     
-    var utterance = AVSpeechUtterance(string: "Please enter the following numbers")
+    var utterance = AVSpeechUtterance(string: "Please draw the following numbers using your index finger")
     let context = DatabaseController.persistentContainer.viewContext
     
     //  declared to be an implicitly unwrapped optional
     //  because it doesn't make sense to give it a non-nil initial value.
     private var embeddedViewController: DrawViewController!
-    
-    @IBOutlet var progression: UILabel!
     
     var count = 1
     var complete = false
@@ -49,7 +47,7 @@ class NumbersEntryViewController: UIViewController {
         
         var unshuffledNumbers = [Int]()
         
-        for _ in 1...4{
+        for _ in 1...8{
             unshuffledNumbers.append(contentsOf: Array(min..<max))
         }
         
@@ -59,7 +57,9 @@ class NumbersEntryViewController: UIViewController {
     }
     
     
-    @IBAction func nextNumber(_ sender: UIButton) {
+    @IBAction func nextNumber(_ sender: ProgressButton) {
+        
+        sender.increment();
         
         if complete {
          self.embeddedViewController.points = [CGPoint]()
@@ -67,14 +67,22 @@ class NumbersEntryViewController: UIViewController {
          return
         }
         
-        if(count == 40){
+        if(count == 80){
             complete = true
+            DatabaseController.saveContext()
             self.performSegue(withIdentifier: "summarySegue", sender: self)
             utterance = AVSpeechUtterance(string: "Thank you")
             synthesizer.speak(utterance)
         }
         
-        if (count < 40){
+        if(count == 40){
+            self.performSegue(withIdentifier: "changeHandSegue", sender: self)
+            utterance = AVSpeechUtterance(string: "Please switch to your thumb")
+            synthesizer.speak(utterance)
+        
+        }
+        
+        if count < 80 , count != 40{
         self.embeddedViewController.points = [CGPoint]()
         self.embeddedViewController.updateUI()
         
@@ -82,8 +90,6 @@ class NumbersEntryViewController: UIViewController {
         synthesizer.speak(utterance)
         
         count += 1
-        progression.text = "\(count)/40"
-            
         }
     }
     
@@ -94,9 +100,6 @@ class NumbersEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
 //        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
 
         synthesizer.speak(utterance)
@@ -130,6 +133,15 @@ class NumbersEntryViewController: UIViewController {
         }
     }
     
+    func unwindfromChangeFingerView(segue: UIStoryboardSegue) {
+        if let svc = segue.source as? ChangeToThumbViewController {
+            //self.touchesCount = svc.points.count
+            count = svc.count
+            
+        }
+        
+    }
+    
     
     //  Now in other methods you can reference `embeddedViewController`.
     //  For example:
@@ -147,11 +159,6 @@ class NumbersEntryViewController: UIViewController {
 //        }
 //    }
     
-//    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-//        if let dvc = subsequentVC as? DetailsEntryViewController {
-//            dvc.touchesCount = self.points.count
-//        }
-//    }
-    
+
 }
 

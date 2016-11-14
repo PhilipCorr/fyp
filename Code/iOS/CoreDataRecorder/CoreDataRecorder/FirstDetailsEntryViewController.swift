@@ -42,18 +42,32 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    private func addDoneButtonTo(textField: UITextField) {
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(didTapDone))
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        textField.inputAccessoryView = keyboardToolbar
+    }
+    
+    func didTapDone(sender: AnyObject?) {
+        enterYear.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         enterYear.keyboardType = UIKeyboardType.numberPad
+        addDoneButtonTo(textField: enterYear)
         self.enterYear.becomeFirstResponder()
         self.female.alpha = 0.25
     }
     
     @IBAction func enterYearChanged(_ sender: UITextField) {
-        if (enterYear.text?.characters.count)! >= 2{
+        if (enterYear.text?.characters.count)! == 2{
             enterYear.resignFirstResponder()
         }
     }
@@ -71,7 +85,7 @@ class FirstDetailsEntryViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let dvc = segue.destination as? NumbersEntryViewController {
+        if let dvc = segue.destination as? SecondDetailsEntryViewController {
             
             dvc.age = enterYear.text!
             dvc.gender = gender

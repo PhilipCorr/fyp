@@ -18,6 +18,7 @@
 		3F52FAF11DB668C20004C267 /* NumbersEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */; };
 		3F52FAF31DB668EE0004C267 /* NumbersEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */; };
 		3F567EC51DCF92ED00242224 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */; };
+		3F5ED4A81DD92D07003830D7 /* ChangeToThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5ED4A71DD92D07003830D7 /* ChangeToThumbViewController.swift */; };
 		3F792C1E1DCE413200348DB2 /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */; };
 		3F792C201DCE432C00348DB2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */; };
 		3FA2C8FB1DBBFD6800726921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA2C8FA1DBBFD6800726921 /* CoreData.framework */; };
@@ -55,6 +56,7 @@
 		3F52FAF01DB668C20004C267 /* NumbersEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryViewController.swift; path = ../NumbersEntryViewController.swift; sourceTree = "<group>"; };
 		3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumbersEntryView.swift; path = ../NumbersEntryView.swift; sourceTree = "<group>"; };
 		3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		3F5ED4A71DD92D07003830D7 /* ChangeToThumbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeToThumbViewController.swift; sourceTree = "<group>"; };
 		3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = ../SummaryTableViewController.swift; sourceTree = "<group>"; };
 		3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		3FA2C8FA1DBBFD6800726921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,7 @@
 				3F52FAF21DB668EE0004C267 /* NumbersEntryView.swift */,
 				3FD931CE1DC75635009D3952 /* CollectionViewController.swift */,
 				3FD931D21DC7743A009D3952 /* CollectionViewCell.swift */,
+				3F5ED4A71DD92D07003830D7 /* ChangeToThumbViewController.swift */,
 				3F792C1F1DCE432C00348DB2 /* SummaryViewController.swift */,
 				3F792C1D1DCE413200348DB2 /* SummaryTableViewController.swift */,
 				3F567EC41DCF92ED00242224 /* SummaryTableViewCell.swift */,
@@ -324,6 +327,7 @@
 				3FCF43D71DD4D51D007781BB /* SecondDetailsEntryViewController.swift in Sources */,
 				3F52FADE1DB666C10004C267 /* CoreDataRecorder.xcdatamodeld in Sources */,
 				3F52FAD61DB666C10004C267 /* AppDelegate.swift in Sources */,
+				3F5ED4A81DD92D07003830D7 /* ChangeToThumbViewController.swift in Sources */,
 				3F52FAED1DB6686E0004C267 /* DetailsEntryViewController.swift in Sources */,
 				3FD931CF1DC75635009D3952 /* CollectionViewController.swift in Sources */,
 			);

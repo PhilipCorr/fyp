@@ -64,17 +64,17 @@ class DrawViewController: UIViewController, NumbersEntryProtocol {
             print("end of stroke")
             character.addToStrokes(stroke)
             DatabaseController.saveContext()
-            let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
-            do{
-                let searchResults = try context.fetch(fetchRequest)
-                print("Number of results: \(searchResults.count)")
-                for result in searchResults as [Touch]{
-                    print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
-                }
-            }
-            catch{
-                print("Error: \(error).self")
-            }
+//            let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
+//            do{
+//                let searchResults = try context.fetch(fetchRequest)
+//                print("Number of results: \(searchResults.count)")
+//                for result in searchResults as [Touch]{
+//                    print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
+//                }
+//            }
+//            catch{
+//                print("Error: \(error).self")
+//            }
         default:
             ()
         }

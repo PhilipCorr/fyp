@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class SummaryViewController: UIViewController {
+    
+    let context = DatabaseController.persistentContainer.viewContext
 
     var language = "string"
     var age = "23"
@@ -19,6 +22,7 @@ class SummaryViewController: UIViewController {
     @IBOutlet var GVal: UILabel!
     @IBOutlet var AVal: UILabel!
     @IBOutlet var HVal: UILabel!
+    @IBOutlet var DBVal: UILabel!
     
     func flag(country:String) -> String {
         let base : UInt32 = 127397
@@ -42,6 +46,19 @@ class SummaryViewController: UIViewController {
         else{
             HVal.text = "Left"
         }
+        
+//        let fetchRequest:NSFetchRequest<Person> = Person.fetchRequest()
+//        do{
+//            let searchResults = try context.fetch(fetchRequest)
+//            print("Number of People currently in database: \(searchResults.count)")
+//            for result in searchResults as [Person]{
+//                print("x is \(result.), y is \(result.y) at time t=\(result.t)")
+//            }
+//        }
+//        catch{
+//            print("Error: \(error).self")
+//        }
+
         
     }
 
