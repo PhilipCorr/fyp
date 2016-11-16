@@ -51,17 +51,14 @@ class SummaryTableViewController: UITableViewController {
         cell.TVal.text = "1 second"
         cell.index.text = "\(indexPath.item + 1)"
         
-//        let fetchRequest:NSFetchRequest<Person> = Person.fetchRequest()
-//        do{
-//            let searchResults = try context.fetch(fetchRequest)
-//            print("Number of People currently in database: \(searchResults.count)")
-//            for result in searchResults as [Touch]{
-//                print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
-//            }
-//        }
-//        catch{
-//            print("Error: \(error).self")
-//        }
+        let fetchRequest:NSFetchRequest<Stroke> = Stroke.fetchRequest()
+        do{
+            let searchResults = try context.fetch(fetchRequest)
+            cell.TVal.text = "\(searchResults[indexPath.item].t)"
+        }
+        catch{
+            print("Error: \(error).self")
+        }
         
         
         return cell

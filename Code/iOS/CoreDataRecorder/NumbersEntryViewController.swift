@@ -58,8 +58,11 @@ class NumbersEntryViewController: UIViewController {
     
     
     @IBAction func nextNumber(_ sender: ProgressButton) {
-        
         sender.increment();
+        let character = Character(context: DatabaseController.persistentContainer.viewContext)
+        character.t = embeddedViewController.charTime.reduce(0, +)
+        embeddedViewController.charTime = [CFAbsoluteTime]()
+        DatabaseController.saveContext()
         
         if complete {
          self.embeddedViewController.points = [CGPoint]()
@@ -76,6 +79,7 @@ class NumbersEntryViewController: UIViewController {
         }
         
         if(count == 40){
+            sender.progress = 0
             self.performSegue(withIdentifier: "changeHandSegue", sender: self)
             utterance = AVSpeechUtterance(string: "Please switch to your thumb")
             synthesizer.speak(utterance)
@@ -133,15 +137,18 @@ class NumbersEntryViewController: UIViewController {
         }
     }
     
-    func unwindfromChangeFingerView(segue: UIStoryboardSegue) {
+    @IBAction func unwindfromChangeFingerView(segue: UIStoryboardSegue) {
         if let svc = segue.source as? ChangeToThumbViewController {
             //self.touchesCount = svc.points.count
             count = svc.count
-            
+            self.embeddedViewController.points = [CGPoint]()
+            self.embeddedViewController.updateUI()
+            utterance = AVSpeechUtterance(string: "Please draw the following numbers using your Thumb")
+            synthesizer.speak(utterance)
+            utterance = AVSpeechUtterance(string: "\(numbersToSpeak[40])")
+            synthesizer.speak(utterance)
         }
-        
     }
-    
     
     //  Now in other methods you can reference `embeddedViewController`.
     //  For example:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4r7-WX-rcU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b8J-BM-ESy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First Details Entry View Controller-->
+        <!--Subject Step1VC-->
         <scene sceneID="2m6-wD-iml">
             <objects>
-                <viewController id="Mkc-sd-wbC" customClass="FirstDetailsEntryViewController" customModule="CoreDataRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mkc-sd-wbC" customClass="SubjectStep1VC" customModule="CoreDataRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yp9-Tf-PqA"/>
                         <viewControllerLayoutGuide type="bottom" id="rAp-AH-J55"/>
@@ -89,12 +89,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iv-YI-17O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3262" y="132"/>
+            <point key="canvasLocation" x="3703" y="132"/>
         </scene>
-        <!--Second Details Entry View Controller-->
+        <!--Subject Step2VC-->
         <scene sceneID="yXn-tc-R7R">
             <objects>
-                <viewController id="bTX-Cx-NfU" customClass="SecondDetailsEntryViewController" customModule="CoreDataRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bTX-Cx-NfU" customClass="SubjectStep2VC" customModule="CoreDataRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YvI-Vs-W3X"/>
                         <viewControllerLayoutGuide type="bottom" id="rry-PI-5U3"/>
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDM-Ud-NJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4168.8000000000002" y="131.78410794602701"/>
+            <point key="canvasLocation" x="4436" y="132"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="VYN-zE-KD3">
@@ -217,7 +217,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwe-ef-gjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BZD-dm-zBR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5300.5" y="579.5"/>
+            <point key="canvasLocation" x="5212" y="493"/>
         </scene>
         <!--Change To Thumb View Controller-->
         <scene sceneID="E9K-ta-w4e">
@@ -240,20 +240,17 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeConfirmed:" destination="nVy-eL-vWn" eventType="touchUpInside" id="zxM-2S-ncm"/>
+                                    <segue destination="njS-ho-jga" kind="unwind" identifier="changeFingerSegue" unwindAction="unwindfromChangeFingerViewWithSegue:" id="6dz-1w-xpc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="njS-ho-jga" kind="unwind" identifier="changeFingerSegue" unwindAction="unwindfromCollectionViewWithSegue:" id="bXV-Xh-6Bb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xS-bF-2AW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="njS-ho-jga" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6151" y="236"/>
+            <point key="canvasLocation" x="6116" y="242"/>
         </scene>
         <!--Numbers Entry View Controller-->
         <scene sceneID="jvA-VI-faX">
@@ -344,7 +341,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5300" y="-522.18890554722645"/>
+            <point key="canvasLocation" x="5212" y="-522"/>
         </scene>
         <!--Draw View Controller-->
         <scene sceneID="6ys-Eb-p3E">
@@ -374,7 +371,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6093.6000000000004" y="-1275.1124437781111"/>
+            <point key="canvasLocation" x="6116" y="-1153"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="IyP-MB-WUF">
@@ -490,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J0-QY-VTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6151.1999999999998" y="-522.18890554722645"/>
+            <point key="canvasLocation" x="6116" y="-522"/>
         </scene>
         <!--Summary Table View Controller-->
         <scene sceneID="gqt-gz-cxv">
@@ -547,23 +544,86 @@
             </objects>
             <point key="canvasLocation" x="7035.5" y="-522.5"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eVl-n7-akj">
+        <!--View Controller-->
+        <scene sceneID="g8p-r2-vYS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4r7-WX-rcU" sceneMemberID="viewController">
+                <viewController id="Y3q-HF-InA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mdc-bP-eqe"/>
+                        <viewControllerLayoutGuide type="bottom" id="1j8-ty-Dad"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="00W-6z-zy4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent Form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNo-rb-DGl">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="G6y-F3-bKs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qk-PJ-fAM">
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Eiw-7w-5sN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="I agree to participate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Mkc-sd-wbC" kind="show" id="Zia-o7-9Fp"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KUY-Ky-qML">
+                                <frame key="frameInset" minX="16" minY="92" width="343" height="464"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">The aim of this study is to train a neural network to recognise a user from the way they draw a number on an iPhone screen. In order to achieve this I will record between 250 and 500 participants entering the numbers 0 to 9 four times using their index finger and then another four times using their thumb. I will also be recording your age to the nearest year, sex, native language and whether you are right or left handed. These details are required to ensure that my data set is not biased towards a subsection of the population.  You will not be identifiable through the recorded data and hence, you will remain anonymous. 
+
+I will use this data set to train a neural network, which will learn how the general population enters numbers into an iPhone. The trained network will then be able to identify which number a user draws on the iPhone screen even though the way the user enters the number is unique every time. The dataset will be open source and stored on a database online. This is to facilitate further research in the area of machine learning and may include commercial use in the future. No extra information will be stored in the database and for the same reasons as those mentioned above, you will not be identifiable from the online dataset. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9qk-PJ-fAM" secondAttribute="trailing" id="4er-yd-gCc"/>
+                            <constraint firstItem="rNo-rb-DGl" firstAttribute="top" secondItem="mdc-bP-eqe" secondAttribute="bottom" id="JbO-9N-IKy"/>
+                            <constraint firstItem="rNo-rb-DGl" firstAttribute="centerX" secondItem="KUY-Ky-qML" secondAttribute="centerX" id="bm2-dQ-H4m"/>
+                            <constraint firstItem="KUY-Ky-qML" firstAttribute="centerX" secondItem="9qk-PJ-fAM" secondAttribute="centerX" id="cZm-TX-7yK"/>
+                            <constraint firstItem="9qk-PJ-fAM" firstAttribute="leading" secondItem="00W-6z-zy4" secondAttribute="leading" id="lm3-Vd-U4q"/>
+                            <constraint firstItem="KUY-Ky-qML" firstAttribute="top" secondItem="rNo-rb-DGl" secondAttribute="bottom" constant="16" id="oG7-ZP-zaW"/>
+                            <constraint firstItem="9qk-PJ-fAM" firstAttribute="bottom" secondItem="1j8-ty-Dad" secondAttribute="top" id="oWz-jI-VeE"/>
+                            <constraint firstItem="9qk-PJ-fAM" firstAttribute="top" secondItem="KUY-Ky-qML" secondAttribute="bottom" constant="9" id="qqa-Fu-RXM"/>
+                            <constraint firstItem="KUY-Ky-qML" firstAttribute="leading" secondItem="00W-6z-zy4" secondAttribute="leadingMargin" id="u09-Qv-rT0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RqN-UT-Y30"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z38-aE-6XY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="132"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="grl-Wa-x5d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8J-BM-ESy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xr6-MP-zWU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rHx-Gw-rp7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Mkc-sd-wbC" kind="relationship" relationship="rootViewController" id="1wL-jr-PBO"/>
+                        <segue destination="Y3q-HF-InA" kind="relationship" relationship="rootViewController" id="gwX-EQ-twq"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cR6-A1-1Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Suu-Ny-dll" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2412" y="132"/>
+            <point key="canvasLocation" x="2244" y="131.78410794602701"/>
         </scene>
     </scenes>
     <resources>

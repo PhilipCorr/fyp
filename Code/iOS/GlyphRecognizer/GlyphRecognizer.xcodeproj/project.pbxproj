@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FA0345A1DDB3243000676BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA034591DDB3243000676BF /* AppDelegate.swift */; };
+		3FA0345C1DDB3243000676BF /* ConsentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0345B1DDB3243000676BF /* ConsentVC.swift */; };
+		3FA0345F1DDB3243000676BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0345D1DDB3243000676BF /* Main.storyboard */; };
+		3FA034641DDB3243000676BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA034631DDB3243000676BF /* Assets.xcassets */; };
+		3FA034671DDB3243000676BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA034651DDB3243000676BF /* LaunchScreen.storyboard */; };
+		3FB2FDE71DDB554A0056297E /* CountryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2FDE61DDB554A0056297E /* CountryCVC.swift */; };
+		3FB2FDEB1DDB5C890056297E /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */; };
+		3FD10B651DDB3DD20069B8C7 /* SubjectStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */; };
+		3FD10B881DDB42120069B8C7 /* GlyphRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B611DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodeld */; };
+		3FD10B8A1DDB433E0069B8C7 /* SubjectStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */; };
+		3FD10B901DDB4FDD0069B8C7 /* GlyphEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */; };
+		E53F2B3A1DDBD2CB0014378B /* SwapFingerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F2B391DDBD2CB0014378B /* SwapFingerVC.swift */; };
+		E53F2B3C1DDBD62F0014378B /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F2B3B1DDBD62F0014378B /* SummaryVC.swift */; };
+		E5E39D101DDB854F00336A30 /* GlyphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E39D0F1DDB854F00336A30 /* GlyphView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3FA034561DDB3243000676BF /* GlyphRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlyphRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA034591DDB3243000676BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FA0345B1DDB3243000676BF /* ConsentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentVC.swift; sourceTree = "<group>"; };
+		3FA0345E1DDB3243000676BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3FA034631DDB3243000676BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FA034661DDB3243000676BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3FA034681DDB3243000676BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FB2FDE61DDB554A0056297E /* CountryCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCVC.swift; sourceTree = "<group>"; };
+		3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
+		3FD10B621DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GlyphRecognizer.xcdatamodel; sourceTree = "<group>"; };
+		3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectStep1VC.swift; sourceTree = "<group>"; };
+		3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectStep2VC.swift; sourceTree = "<group>"; };
+		3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyphEntryVC.swift; sourceTree = "<group>"; };
+		E53F2B391DDBD2CB0014378B /* SwapFingerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapFingerVC.swift; sourceTree = "<group>"; };
+		E53F2B3B1DDBD62F0014378B /* SummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		E5E39D0F1DDB854F00336A30 /* GlyphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyphView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FA034531DDB3243000676BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FA0344D1DDB3243000676BF = {
+			isa = PBXGroup;
+			children = (
+				3FA0347E1DDB34E9000676BF /* CoreData */,
+				3FA034581DDB3243000676BF /* GlyphRecognizer */,
+				3FA034571DDB3243000676BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FA034571DDB3243000676BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FA034561DDB3243000676BF /* GlyphRecognizer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FA034581DDB3243000676BF /* GlyphRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				3FA034591DDB3243000676BF /* AppDelegate.swift */,
+				3FA0345B1DDB3243000676BF /* ConsentVC.swift */,
+				3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */,
+				3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */,
+				3FB2FDE61DDB554A0056297E /* CountryCVC.swift */,
+				3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */,
+				3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */,
+				E5E39D0F1DDB854F00336A30 /* GlyphView.swift */,
+				E53F2B391DDBD2CB0014378B /* SwapFingerVC.swift */,
+				E53F2B3B1DDBD62F0014378B /* SummaryVC.swift */,
+				3FA0345D1DDB3243000676BF /* Main.storyboard */,
+				3FA034631DDB3243000676BF /* Assets.xcassets */,
+				3FA034651DDB3243000676BF /* LaunchScreen.storyboard */,
+				3FA034681DDB3243000676BF /* Info.plist */,
+			);
+			path = GlyphRecognizer;
+			sourceTree = "<group>";
+		};
+		3FA0347E1DDB34E9000676BF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3FD10B611DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FA034551DDB3243000676BF /* GlyphRecognizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FA0346B1DDB3243000676BF /* Build configuration list for PBXNativeTarget "GlyphRecognizer" */;
+			buildPhases = (
+				3FA034521DDB3243000676BF /* Sources */,
+				3FA034531DDB3243000676BF /* Frameworks */,
+				3FA034541DDB3243000676BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GlyphRecognizer;
+			productName = GlyphRecognizer;
+			productReference = 3FA034561DDB3243000676BF /* GlyphRecognizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FA0344E1DDB3243000676BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = UCD;
+				TargetAttributes = {
+					3FA034551DDB3243000676BF = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 842L4E68Q9;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3FA034511DDB3243000676BF /* Build configuration list for PBXProject "GlyphRecognizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FA0344D1DDB3243000676BF;
+			productRefGroup = 3FA034571DDB3243000676BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FA034551DDB3243000676BF /* GlyphRecognizer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FA034541DDB3243000676BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA034671DDB3243000676BF /* LaunchScreen.storyboard in Resources */,
+				3FA034641DDB3243000676BF /* Assets.xcassets in Resources */,
+				3FA0345F1DDB3243000676BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FA034521DDB3243000676BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD10B881DDB42120069B8C7 /* GlyphRecognizer.xcdatamodeld in Sources */,
+				3FA0345C1DDB3243000676BF /* ConsentVC.swift in Sources */,
+				3FD10B901DDB4FDD0069B8C7 /* GlyphEntryVC.swift in Sources */,
+				3FD10B8A1DDB433E0069B8C7 /* SubjectStep2VC.swift in Sources */,
+				3FD10B651DDB3DD20069B8C7 /* SubjectStep1VC.swift in Sources */,
+				E53F2B3C1DDBD62F0014378B /* SummaryVC.swift in Sources */,
+				3FB2FDEB1DDB5C890056297E /* ProgressButton.swift in Sources */,
+				E53F2B3A1DDBD2CB0014378B /* SwapFingerVC.swift in Sources */,
+				3FB2FDE71DDB554A0056297E /* CountryCVC.swift in Sources */,
+				3FA0345A1DDB3243000676BF /* AppDelegate.swift in Sources */,
+				E5E39D101DDB854F00336A30 /* GlyphView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3FA0345D1DDB3243000676BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FA0345E1DDB3243000676BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3FA034651DDB3243000676BF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FA034661DDB3243000676BF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FA034691DDB3243000676BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FA0346A1DDB3243000676BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FA0346C1DDB3243000676BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 842L4E68Q9;
+				INFOPLIST_FILE = GlyphRecognizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucd.12318581.GlyphRecognizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3FA0346D1DDB3243000676BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 842L4E68Q9;
+				INFOPLIST_FILE = GlyphRecognizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucd.12318581.GlyphRecognizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FA034511DDB3243000676BF /* Build configuration list for PBXProject "GlyphRecognizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA034691DDB3243000676BF /* Debug */,
+				3FA0346A1DDB3243000676BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FA0346B1DDB3243000676BF /* Build configuration list for PBXNativeTarget "GlyphRecognizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA0346C1DDB3243000676BF /* Debug */,
+				3FA0346D1DDB3243000676BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3FD10B611DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FD10B621DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodel */,
+			);
+			currentVersion = 3FD10B621DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodel */;
+			name = GlyphRecognizer.xcdatamodeld;
+			path = GlyphRecognizer/GlyphRecognizer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3FA0344E1DDB3243000676BF /* Project object */;
+}

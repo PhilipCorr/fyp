@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tKx-TG-z0Z">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Subject Step1VC-->
+        <scene sceneID="BdW-qs-dvw">
+            <objects>
+                <viewController id="e6D-Np-mep" customClass="SubjectStep1VC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vn8-QJ-fd4"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0O-hz-DWN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R8Q-tx-WHp" customClass="DetailsEntryView" customModule="GlyphRecognizer" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AGE" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-o5-85P">
+                                <rect key="frame" x="137" y="94" width="101" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="O2p-CL-XXI"/>
+                                    <constraint firstAttribute="height" constant="68" id="rGK-lt-dXl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="enterYearChanged:" destination="e6D-Np-mep" eventType="editingChanged" id="2pl-K1-RCu"/>
+                                    <outlet property="delegate" destination="e6D-Np-mep" id="jNR-ei-O5o"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-5f-gGl">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="fw5-Z3-g8u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Hc7-oZ-KxS" kind="show" id="INp-LM-osk">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4ci-ia-dud">
+                                <rect key="frame" x="0.0" y="252.5" width="375" height="196.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-MU-svO">
+                                        <rect key="frame" x="18" y="18" width="160.5" height="160.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="c3z-MU-svO" secondAttribute="height" multiplier="1:1" id="HBc-iu-dB7"/>
+                                        </constraints>
+                                        <state key="normal" image="mars"/>
+                                        <connections>
+                                            <action selector="changeGender:" destination="e6D-Np-mep" eventType="touchUpInside" id="79g-cd-V9j"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-eJ-msw">
+                                        <rect key="frame" x="196.5" y="18" width="160.5" height="160.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mJw-eJ-msw" secondAttribute="height" multiplier="1:1" id="gFn-nJ-VXO"/>
+                                        </constraints>
+                                        <state key="normal" image="venus"/>
+                                        <connections>
+                                            <action selector="changeGender:" destination="e6D-Np-mep" eventType="touchUpInside" id="tNm-Jw-nO7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="18" left="18" bottom="18" right="18"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4ci-ia-dud" firstAttribute="width" secondItem="R8Q-tx-WHp" secondAttribute="width" id="3IH-xE-UjF"/>
+                            <constraint firstItem="0mt-o5-85P" firstAttribute="top" secondItem="Vn8-QJ-fd4" secondAttribute="bottom" constant="30" id="8qd-s0-Oh7"/>
+                            <constraint firstItem="3tY-5f-gGl" firstAttribute="centerX" secondItem="R8Q-tx-WHp" secondAttribute="centerX" id="Ugc-j9-dcN"/>
+                            <constraint firstItem="4ci-ia-dud" firstAttribute="centerX" secondItem="R8Q-tx-WHp" secondAttribute="centerX" id="Xny-ZV-bwK"/>
+                            <constraint firstItem="3tY-5f-gGl" firstAttribute="top" secondItem="4ci-ia-dud" secondAttribute="bottom" constant="138" id="dFC-9r-flm"/>
+                            <constraint firstItem="3tY-5f-gGl" firstAttribute="width" secondItem="R8Q-tx-WHp" secondAttribute="width" id="eML-lN-qFc"/>
+                            <constraint firstItem="0mt-o5-85P" firstAttribute="centerX" secondItem="R8Q-tx-WHp" secondAttribute="centerX" id="lBM-TE-Wbv"/>
+                            <constraint firstItem="A0O-hz-DWN" firstAttribute="top" secondItem="3tY-5f-gGl" secondAttribute="bottom" id="lHD-JE-QrV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fxy-Gc-ptO"/>
+                    <connections>
+                        <outlet property="femaleButton" destination="mJw-eJ-msw" id="W7A-uJ-d88"/>
+                        <outlet property="maleButton" destination="c3z-MU-svO" id="qPy-Xh-l4x"/>
+                        <outlet property="nextButton" destination="3tY-5f-gGl" id="HQd-4u-lfp"/>
+                        <outlet property="yearTextField" destination="0mt-o5-85P" id="fk8-wJ-lDy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yM1-yK-Qw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3701.5999999999999" y="131.78410794602701"/>
+        </scene>
+        <!--Subject Step2VC-->
+        <scene sceneID="MzK-cO-7eU">
+            <objects>
+                <viewController id="Hc7-oZ-KxS" customClass="SubjectStep2VC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uQI-Qm-Jbh"/>
+                        <viewControllerLayoutGuide type="bottom" id="KSD-vA-SvD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4hh-bF-gn3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNG-0e-1QD">
+                                <rect key="frame" x="33" y="72" width="309" height="280"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <state key="normal" title="IE"/>
+                                <connections>
+                                    <segue destination="mfG-92-krL" kind="show" id="jj7-EL-XIB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF0-en-MaF">
+                                <rect key="frame" x="16" y="360" width="170" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="nWx-pZ-6Ue"/>
+                                    <constraint firstAttribute="height" constant="170" id="vN2-IE-KDt"/>
+                                </constraints>
+                                <state key="normal" image="left-hand"/>
+                                <connections>
+                                    <action selector="changeHand:" destination="Hc7-oZ-KxS" eventType="touchUpInside" id="haH-vS-pcT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCP-69-F58">
+                                <rect key="frame" x="189" y="360" width="170" height="170"/>
+                                <state key="normal" image="right-hand"/>
+                                <connections>
+                                    <action selector="changeHand:" destination="Hc7-oZ-KxS" eventType="touchUpInside" id="g9M-ZI-48e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIZ-Nh-OSY">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="iy9-4C-DZ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ac7-aL-wNW" kind="show" id="axZ-9b-3VP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oF0-en-MaF" firstAttribute="leading" secondItem="4hh-bF-gn3" secondAttribute="leadingMargin" id="1Pf-BW-dRt"/>
+                            <constraint firstItem="KNG-0e-1QD" firstAttribute="top" secondItem="uQI-Qm-Jbh" secondAttribute="bottom" constant="8" symbolic="YES" id="6uK-Eq-1s8"/>
+                            <constraint firstItem="oF0-en-MaF" firstAttribute="top" secondItem="CCP-69-F58" secondAttribute="top" id="8vi-02-QGi"/>
+                            <constraint firstItem="oF0-en-MaF" firstAttribute="top" secondItem="KNG-0e-1QD" secondAttribute="bottom" constant="8" symbolic="YES" id="Hgr-MF-0IJ"/>
+                            <constraint firstItem="oF0-en-MaF" firstAttribute="bottom" secondItem="CCP-69-F58" secondAttribute="bottom" id="POC-2n-55H"/>
+                            <constraint firstAttribute="trailing" secondItem="dIZ-Nh-OSY" secondAttribute="trailing" id="Yvj-ed-qI4"/>
+                            <constraint firstItem="KNG-0e-1QD" firstAttribute="leading" secondItem="4hh-bF-gn3" secondAttribute="leadingMargin" constant="17" id="Yya-cP-H4k"/>
+                            <constraint firstItem="CCP-69-F58" firstAttribute="trailing" secondItem="4hh-bF-gn3" secondAttribute="trailingMargin" id="e6o-o7-JGU"/>
+                            <constraint firstItem="CCP-69-F58" firstAttribute="leading" secondItem="oF0-en-MaF" secondAttribute="trailing" constant="3" id="k9V-tu-c6D"/>
+                            <constraint firstItem="dIZ-Nh-OSY" firstAttribute="bottom" secondItem="KSD-vA-SvD" secondAttribute="top" id="kUV-QE-gzG"/>
+                            <constraint firstItem="dIZ-Nh-OSY" firstAttribute="leading" secondItem="4hh-bF-gn3" secondAttribute="leading" id="lNm-V4-750"/>
+                            <constraint firstItem="KNG-0e-1QD" firstAttribute="centerX" secondItem="dIZ-Nh-OSY" secondAttribute="centerX" id="odP-su-tYa"/>
+                            <constraint firstItem="dIZ-Nh-OSY" firstAttribute="top" secondItem="oF0-en-MaF" secondAttribute="bottom" constant="57" id="sII-bx-mWq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countryButton" destination="KNG-0e-1QD" id="lhW-Zz-JKi"/>
+                        <outlet property="leftHandButton" destination="oF0-en-MaF" id="kYI-I6-twZ"/>
+                        <outlet property="rightHandButton" destination="CCP-69-F58" id="H4a-Lu-UOc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSI-2Q-bPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4436" y="132"/>
+        </scene>
+        <!--Consent Form-->
+        <scene sceneID="BUL-ob-eeM">
+            <objects>
+                <viewController id="Zqa-hL-Njm" customClass="ConsentVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gHT-8h-v2C"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ogf-wE-gph"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hen-Md-dpX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50e-KQ-T3w">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4oR-u0-3TM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="I agree to participate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="e6D-Np-mep" kind="show" identifier="" id="0to-Fs-7Nh">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-ym-HOW">
+                                <rect key="frame" x="16" y="72" width="343" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">The aim of this study is to train a neural network to recognise a user from the way they draw a number on an iPhone screen. In order to achieve this I will record between 250 and 500 participants entering the numbers 0 to 9 four times using their index finger and then another four times using their thumb. I will also be recording your age to the nearest year, sex, native language and whether you are right or left handed. These details are required to ensure that my data set is not biased towards a subsection of the population.  You will not be identifiable through the recorded data and hence, you will remain anonymous. 
+
+I will use this data set to train a neural network, which will learn how the general population enters numbers into an iPhone. The trained network will then be able to identify which number a user draws on the iPhone screen even though the way the user enters the number is unique every time. The dataset will be open source and stored on a database online. This is to facilitate further research in the area of machine learning and may include commercial use in the future. No extra information will be stored in the database and for the same reasons as those mentioned above, you will not be identifiable from the online dataset. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="gV8-ym-HOW" secondAttribute="leading" id="5tw-0n-Gn6"/>
+                            <constraint firstItem="gV8-ym-HOW" firstAttribute="top" secondItem="gHT-8h-v2C" secondAttribute="bottom" constant="8" symbolic="YES" id="Nyf-Vc-Pqb"/>
+                            <constraint firstItem="gV8-ym-HOW" firstAttribute="centerX" secondItem="50e-KQ-T3w" secondAttribute="centerX" id="QFe-wk-hkP"/>
+                            <constraint firstItem="50e-KQ-T3w" firstAttribute="top" secondItem="gV8-ym-HOW" secondAttribute="bottom" constant="8" symbolic="YES" id="QzP-Gv-NEl"/>
+                            <constraint firstItem="50e-KQ-T3w" firstAttribute="bottom" secondItem="Ogf-wE-gph" secondAttribute="top" id="WoH-qt-LRf"/>
+                            <constraint firstItem="50e-KQ-T3w" firstAttribute="leading" secondItem="hen-Md-dpX" secondAttribute="leading" id="b9c-I9-eCy"/>
+                            <constraint firstAttribute="trailing" secondItem="50e-KQ-T3w" secondAttribute="trailing" id="iY7-5t-FQC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Consent Form" id="bEa-r5-vde"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u09-wu-jxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2952.8000000000002" y="131.78410794602701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ScZ-WK-JXk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tKx-TG-z0Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rvL-BI-8Sj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zqa-hL-Njm" kind="relationship" relationship="rootViewController" id="zEx-wR-oom"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lso-uY-xDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="131.78410794602701"/>
+        </scene>
+        <!--Glyph EntryVC-->
+        <scene sceneID="M5j-Xu-B23">
+            <objects>
+                <viewController id="ac7-aL-wNW" customClass="GlyphEntryVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Qh-C1-bm5"/>
+                        <viewControllerLayoutGuide type="bottom" id="aBZ-bX-EP1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xhv-KC-g7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-6h-EUa">
+                                <rect key="frame" x="325" y="626.5" width="34" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhB-Nc-KpU">
+                                <rect key="frame" x="0.0" y="64" width="378" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Qif-Xg-9tA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Repeat">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="redo:" destination="ac7-aL-wNW" eventType="touchUpInside" id="e7o-b2-Abc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-3X-wQs" customClass="ProgressButton" customModule="GlyphRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.7917668269" green="0.7917668269" blue="0.7917668269" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0Jd-kd-hgG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next Digit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="step">
+                                        <integer key="value" value="39"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextNumber:" destination="ac7-aL-wNW" eventType="touchUpInside" id="816-nW-3lC"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00w-BU-fy6" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="375" height="443"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="qDd-LH-ONU" appends="YES" id="DR8-p6-v1J"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="GhB-Nc-KpU" firstAttribute="leading" secondItem="gTM-3X-wQs" secondAttribute="leading" id="1ha-na-6v0"/>
+                            <constraint firstItem="gTM-3X-wQs" firstAttribute="top" secondItem="00w-BU-fy6" secondAttribute="bottom" id="AdR-Xk-UWg"/>
+                            <constraint firstAttribute="trailing" secondItem="gTM-3X-wQs" secondAttribute="trailing" id="Jxy-v9-Ove"/>
+                            <constraint firstItem="00w-BU-fy6" firstAttribute="width" secondItem="xhv-KC-g7Z" secondAttribute="width" id="Ucs-sd-fgY"/>
+                            <constraint firstItem="00w-BU-fy6" firstAttribute="centerX" secondItem="xhv-KC-g7Z" secondAttribute="centerX" id="drJ-v4-2h4"/>
+                            <constraint firstItem="GhB-Nc-KpU" firstAttribute="leading" secondItem="xhv-KC-g7Z" secondAttribute="leading" id="ety-Bf-3Yt"/>
+                            <constraint firstItem="00w-BU-fy6" firstAttribute="top" secondItem="GhB-Nc-KpU" secondAttribute="bottom" id="gif-ld-4Gj"/>
+                            <constraint firstAttribute="bottom" secondItem="bPW-6h-EUa" secondAttribute="bottom" constant="20" symbolic="YES" id="mOu-sm-0O9"/>
+                            <constraint firstItem="gTM-3X-wQs" firstAttribute="bottom" secondItem="aBZ-bX-EP1" secondAttribute="top" id="ng5-vO-fqE"/>
+                            <constraint firstItem="GhB-Nc-KpU" firstAttribute="top" secondItem="9Qh-C1-bm5" secondAttribute="bottom" id="sQY-VE-EqC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GhB-Nc-KpU" secondAttribute="trailing" constant="-19" id="yKe-6y-kXq"/>
+                            <constraint firstItem="bPW-6h-EUa" firstAttribute="trailing" secondItem="xhv-KC-g7Z" secondAttribute="trailingMargin" id="yWc-aY-dIe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="glyphView" destination="00w-BU-fy6" id="wAv-0c-CA4"/>
+                        <segue destination="xjN-Fx-aWb" kind="show" identifier="Show SwapFinger VC" id="D7k-sp-eIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pRO-yL-fAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="qDd-LH-ONU">
+                    <connections>
+                        <action selector="handlePan:" destination="00w-BU-fy6" id="Ge1-LQ-Yn4"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="5242" y="132"/>
+        </scene>
+        <!--Swap FingerVC-->
+        <scene sceneID="xPk-dv-B25">
+            <objects>
+                <viewController id="xjN-Fx-aWb" customClass="SwapFingerVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6qu-Kh-1Qa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kbx-u2-qfU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bng-kr-x7Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QU-gG-i0c">
+                                <rect key="frame" x="16" y="293" width="343" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="I've Changed To Thumb">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="o9D-3m-OkC" kind="show" id="CMs-ys-93q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="SwappedButton" destination="1QU-gG-i0c" id="tiJ-59-fu0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UKW-LZ-3kI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6141.6000000000004" y="131.78410794602701"/>
+        </scene>
+        <!--CountryCVC-->
+        <scene sceneID="ggk-Yd-fbv">
+            <objects>
+                <collectionViewController id="mfG-92-krL" customClass="CountryCVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tb7-ZL-xhM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lm7-se-Juh">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CountryCell" id="FrD-5P-lFA" customClass="CountryCell" customModule="GlyphRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQN-PG-p1i">
+                                            <rect key="frame" x="8" y="8" width="88" height="88"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="countryLabel" destination="XQN-PG-p1i" id="dbj-cE-PWD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mfG-92-krL" id="1Qr-lI-rKv"/>
+                            <outlet property="delegate" destination="mfG-92-krL" id="EZf-6h-Zbm"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="o9w-mC-UsP" kind="unwind" identifier="Unwind Country CVC" unwindAction="unwindfromCountryCVCWithSegue:" id="dGH-EW-E4J"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9c-Ld-A0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="o9w-mC-UsP" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4436" y="897"/>
+        </scene>
+        <!--Glyph EntryVC-->
+        <scene sceneID="hcG-t5-Pi4">
+            <objects>
+                <viewController id="o9D-3m-OkC" customClass="GlyphEntryVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jMk-W6-lma"/>
+                        <viewControllerLayoutGuide type="bottom" id="giC-EH-Hk7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GHW-GX-rKU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-GK-pBd">
+                                <rect key="frame" x="325" y="626.5" width="34" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-WB-BEp">
+                                <rect key="frame" x="0.0" y="64" width="378" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="sSM-Lg-qgV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Repeat">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="redo:" destination="o9D-3m-OkC" eventType="touchUpInside" id="FeM-t8-scv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O07-Nh-49Y" customClass="ProgressButton" customModule="GlyphRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.7917668269" green="0.7917668269" blue="0.7917668269" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="z3j-5y-rPT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next Digit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="step">
+                                        <integer key="value" value="39"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextNumber:" destination="o9D-3m-OkC" eventType="touchUpInside" id="AeR-2h-a7T"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W28-cI-CAO" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="375" height="443"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zy4-Nh-kPy" appends="YES" id="w33-19-Jh9"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="4n2-GK-pBd" firstAttribute="trailing" secondItem="GHW-GX-rKU" secondAttribute="trailingMargin" id="0UW-Ou-TVL"/>
+                            <constraint firstItem="W28-cI-CAO" firstAttribute="top" secondItem="9qE-WB-BEp" secondAttribute="bottom" id="0rV-Ze-1Ll"/>
+                            <constraint firstAttribute="bottom" secondItem="4n2-GK-pBd" secondAttribute="bottom" constant="20" symbolic="YES" id="5gY-sM-x0x"/>
+                            <constraint firstItem="W28-cI-CAO" firstAttribute="centerX" secondItem="GHW-GX-rKU" secondAttribute="centerX" id="MjU-GO-sx3"/>
+                            <constraint firstItem="O07-Nh-49Y" firstAttribute="bottom" secondItem="giC-EH-Hk7" secondAttribute="top" id="Oxb-C8-tpU"/>
+                            <constraint firstItem="9qE-WB-BEp" firstAttribute="leading" secondItem="O07-Nh-49Y" secondAttribute="leading" id="PBh-nh-B0D"/>
+                            <constraint firstItem="W28-cI-CAO" firstAttribute="width" secondItem="GHW-GX-rKU" secondAttribute="width" id="RXu-37-mIP"/>
+                            <constraint firstItem="9qE-WB-BEp" firstAttribute="top" secondItem="jMk-W6-lma" secondAttribute="bottom" id="SIf-ku-n0D"/>
+                            <constraint firstItem="O07-Nh-49Y" firstAttribute="top" secondItem="W28-cI-CAO" secondAttribute="bottom" id="TVY-4E-CXQ"/>
+                            <constraint firstItem="9qE-WB-BEp" firstAttribute="leading" secondItem="GHW-GX-rKU" secondAttribute="leading" id="kUF-pC-MlS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9qE-WB-BEp" secondAttribute="trailing" constant="-19" id="oOo-Ul-1PJ"/>
+                            <constraint firstAttribute="trailing" secondItem="O07-Nh-49Y" secondAttribute="trailing" id="vwA-wB-8H0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="glyphView" destination="W28-cI-CAO" id="0lY-Sf-6ST"/>
+                        <segue destination="XKV-mZ-BWO" kind="show" identifier="Show Summary VC" id="4Hj-Du-60M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpZ-fT-TOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zy4-Nh-kPy">
+                    <connections>
+                        <action selector="handlePan:" destination="W28-cI-CAO" id="u07-56-VSR"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="7110" y="132"/>
+        </scene>
+        <!--SummaryVC-->
+        <scene sceneID="cfM-TD-4vN">
+            <objects>
+                <viewController id="XKV-mZ-BWO" customClass="SummaryVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sMd-rq-w2a"/>
+                        <viewControllerLayoutGuide type="bottom" id="UZn-AI-iaY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JRb-E2-2PI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-uI-T3Z">
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="Nfv-r3-17p">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GlyphCell" id="j7D-we-QQI" customClass="GlyphCell" customModule="GlyphRecognizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83Y-jy-wre" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="83Y-jy-wre" firstAttribute="width" secondItem="j7D-we-QQI" secondAttribute="width" id="Fyq-qS-Kfy"/>
+                                            <constraint firstItem="83Y-jy-wre" firstAttribute="centerY" secondItem="j7D-we-QQI" secondAttribute="centerY" id="T89-Da-8Go"/>
+                                            <constraint firstItem="83Y-jy-wre" firstAttribute="centerX" secondItem="j7D-we-QQI" secondAttribute="centerX" id="giM-mh-6yY"/>
+                                            <constraint firstItem="83Y-jy-wre" firstAttribute="height" secondItem="j7D-we-QQI" secondAttribute="height" id="twr-53-uQE"/>
+                                        </constraints>
+                                        <size key="customSize" width="80" height="80"/>
+                                        <connections>
+                                            <outlet property="glyphView" destination="83Y-jy-wre" id="qOu-0K-qP5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XKV-mZ-BWO" id="pRC-6k-vbo"/>
+                                    <outlet property="delegate" destination="XKV-mZ-BWO" id="5dQ-xT-sFy"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4Q-i4-ST0">
+                                <rect key="frame" x="16" y="72" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-gR-uff">
+                                <rect key="frame" x="16" y="101" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="ageLabel" destination="V4Q-i4-ST0" id="ZEK-j3-dYZ"/>
+                        <outlet property="countryLabel" destination="zWb-gR-uff" id="Egv-8o-SK4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M2c-iE-sKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8120.8000000000002" y="131.78410794602701"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="left-hand" width="300" height="364"/>
+        <image name="mars" width="300" height="300"/>
+        <image name="right-hand" width="300" height="364"/>
+        <image name="venus" width="300" height="300"/>
+    </resources>
+</document>

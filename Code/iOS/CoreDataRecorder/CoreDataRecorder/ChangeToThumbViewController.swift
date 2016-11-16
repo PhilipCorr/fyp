@@ -10,11 +10,11 @@ import UIKit
 
 class ChangeToThumbViewController: UIViewController {
     
-    var count = 40
+    var count = 41
     
-    @IBAction func changeConfirmed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "changeFingerSegue", sender: self);
-    }
+//    @IBAction func changeConfirmed(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "changeFingerSegue", sender: self);
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

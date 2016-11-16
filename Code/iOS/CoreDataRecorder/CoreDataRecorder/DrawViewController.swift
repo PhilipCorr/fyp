@@ -8,11 +8,15 @@
 
 import UIKit
 import CoreData
+import CoreFoundation
 
 class DrawViewController: UIViewController, NumbersEntryProtocol {
     
     let context = DatabaseController.persistentContainer.viewContext
-    
+    let date = Date()
+    let calendar = Calendar.current
+    var charTime = [CFAbsoluteTime]()
+    var stroke: Stroke?
     
     @IBOutlet var NumbersEntryView: NumbersEntryView!
     
@@ -39,50 +43,54 @@ class DrawViewController: UIViewController, NumbersEntryProtocol {
     @IBAction func handlepan(_ gesture: UIPanGestureRecognizer) {
         //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         //let stroke = Stroke(context: context)
-        let touchClassName:String = String(describing: Touch.self)
-        let strokeClassName:String = String(describing: Stroke.self)
-        let characterClassName:String = String(describing: Character.self)
-        let touch:Touch = NSEntityDescription.insertNewObject(forEntityName: touchClassName, into: context) as! Touch
-        let stroke = NSEntityDescription.insertNewObject(forEntityName: strokeClassName, into: context) as! Stroke
-        let character = NSEntityDescription.insertNewObject(forEntityName: characterClassName, into: context) as! Character
         let numPoints = 0
+        var startTime = 0.0
+        let timer = Timer()
         
         switch gesture.state {
         case .began:
             print("start of stroke")
+            startTime = timer.start()
+            stroke =  Stroke(context: DatabaseController.persistentContainer.viewContext)
         case .changed:
-            points.append(gesture.location(in: self.view))
-            touch.x = Double(gesture.location(in: self.view).x)
-            touch.y = Double(gesture.location(in: self.view).y)
-            touch.index = numPoints + 1
-            touch.t = 1234
-            stroke.addToTouches(touch)
-            self.view.setNeedsDisplay()
+            if let stroke =  self.stroke {
+                let touch = Touch(context: DatabaseController.persistentContainer.viewContext)
+                points.append(gesture.location(in: self.view))
+                touch.x = Double(gesture.location(in: self.view).x)
+                touch.y = Double(gesture.location(in: self.view).y)
+                touch.index = numPoints + 1
+                touch.t = CFAbsoluteTimeGetCurrent()
+                stroke.addToTouches(touch)
+                self.view.setNeedsDisplay()
+            }
         case .ended:
-            points.append(CGPoint(x: -1, y: -1))
-            pointsInStroke.append(numPoints)
-            print("end of stroke")
-            character.addToStrokes(stroke)
-            DatabaseController.saveContext()
-//            let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
-//            do{
-//                let searchResults = try context.fetch(fetchRequest)
-//                print("Number of results: \(searchResults.count)")
-//                for result in searchResults as [Touch]{
-//                    print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
-//                }
-//            }
-//            catch{
-//                print("Error: \(error).self")
-//            }
-        default:
-            ()
-        }
-        
-        
+            if let stroke =  self.stroke {
+                self.stroke.t = startTime - timer.stop()
+                charTime.append(self.stroke.t)
+                points.append(CGPoint(x: -1, y: -1))
+                pointsInStroke.append(numPoints)
+                print("end of stroke")
+                character.addToStrokes(stroke)
+                DatabaseController.saveContext()
+                //            let fetchRequest:NSFetchRequest<Touch> = Touch.fetchRequest()
+                //            do{
+                //                let searchResults = try context.fetch(fetchRequest)
+                //                print("Number of results: \(searchResults.count)")
+                //                for result in searchResults as [Touch]{
+                //                    print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
+                //                }
+                //            }
+                //            catch{
+                //                print("Error: \(error).self")
+                //            }
+                default:
+                ()
+            }
     }
     
-    
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
