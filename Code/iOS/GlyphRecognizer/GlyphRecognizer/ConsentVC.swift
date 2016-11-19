@@ -21,9 +21,9 @@ class ConsentVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? SubjectStep1VC {
+        if let dvc = segue.destination as? SubjectStep1VC {
             // create new subject and set model to new VC
-            destinationVC.subject = Subject(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            dvc.subject = Subject(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
 
         }
     }

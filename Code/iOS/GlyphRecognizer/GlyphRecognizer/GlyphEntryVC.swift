@@ -7,29 +7,30 @@
 //
 
 import UIKit
-import GameKit
 import AVFoundation
+import GameKit
 
 class GlyphEntryVC: UIViewController {
     // datamodel
     public var subject: Subject?
-    public var segueId: String?
-
     private var glyphs = [Glyph]()
-    public var fingerType = "index"
-    
-    @IBOutlet weak var glyphView: GlyphView!
     
     private var characterToBeDrawn = [String]()
-    private let synthesizer = AVSpeechSynthesizer()
+    let synthesizer = AVSpeechSynthesizer()
+    private var utterance = AVSpeechUtterance(string: "Please draw the following numbers using your index finger")
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateUI()
+    }
+    
     func randomNumbers(range: Range<Int>) -> [Int] {
         let min = range.lowerBound
         let max = range.upperBound
         
         var unshuffledNumbers = [Int]()
         
-        for _ in 1..<4 {
+        for _ in 1...8 {
             unshuffledNumbers.append(contentsOf: Array(min..<max))
         }
         
@@ -39,70 +40,111 @@ class GlyphEntryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(subject?.description)
+        // Do any additional setup after loading the view, typically from a nib.
+        //        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        
+        synthesizer.speak(utterance)
         characterToBeDrawn = randomNumbers(range: 0..<10).map {"\($0)"}
-        print("\(characterToBeDrawn)")
-        var toSpeak = "String"
-        toSpeak = fingerType == "index" ? "\(fingerType) finger" : "\(fingerType)"
-        synthesizer.speak(AVSpeechUtterance(string: "Please draw the following numbers using your \(toSpeak)"))
         newInstruction()
     }
     
     func newInstruction() {
         if let character = characterToBeDrawn.last
         {
-            let newGlyph = Glyph(context: (self.subject?.managedObjectContext)!)
+            let newGlyph = Glyph(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
             newGlyph.character = character
-            newGlyph.finger = fingerType
-                self.subject?.sex = Subject.Sex.Female.rawValue
-            synthesizer.speak(AVSpeechUtterance(string: character))
+            utterance = AVSpeechUtterance(string: character)
+            synthesizer.speak(utterance)
             self.glyphs.append(newGlyph)
             characterToBeDrawn.removeLast()
-            self.glyphView.glyph = newGlyph
         } else {
-            self.glyphView.isUserInteractionEnabled = false
             for glyph in self.glyphs {
                 self.subject?.addToGlyphs(glyph)
             }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            self.performSegue(withIdentifier: self.segueId!, sender: self)
+            self.shouldPerformSegue(withIdentifier: "Show Next Step", sender: self)
+            
         }
+    }
+    
+    //  declared to be an implicitly unwrapped optional
+    //  because it doesn't make sense to give it a non-nil initial value.
+    private var glyphVC: GlyphVC!
+    
+    var complete = false
+    
+    
+    func  updateUI() {
+        // redraw custom view using last glyphs item
     }
     
     @IBAction func redo(_ sender: UIButton) {
         if let glyph = glyphs.last
         {
             characterToBeDrawn.append(glyph.character!)
-            self.subject?.managedObjectContext?.delete(glyph)
+            (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext.delete(glyph)
             glyphs.removeLast()
             newInstruction()
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
-        if let destinationVC = segue.destination as? SwapFingerVC {
-            destinationVC.subject = self.subject
-        } else if let destinationVC = segue.destination as? SummaryVC {
-            destinationVC.subject = self.subject
-        }
-    }
-    
     
     @IBAction func nextNumber(_ sender: ProgressButton) {
-        if (self.glyphView.glyph?.strokes?.count)! > 0 {
-            sender.progress = CGFloat(self.glyphs.count) / CGFloat(self.glyphs.count + self.characterToBeDrawn.count)
-            newInstruction()
+        newInstruction()
+        sender.progress = CGFloat(self.glyphs.count) / CGFloat(self.glyphs.count + self.characterToBeDrawn.count)
+
+    }
+    
+
+    
+    @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if let dvc = segue.destination as? SummaryViewController {
+            dvc.language = language
+            dvc.age = age
+            dvc.gender = gender
+            dvc.rightHanded = rightHanded
         }
         
-        print(subject?.description)
+        if let evc = segue.destination as? DrawViewController{
+            self.embeddedViewController = evc
+        }
     }
-}
-
-extension Glyph {
-    enum finger: String {
-        case Finger = "index"
-        case Thumb = "thumb"
+    
+    @IBAction func unwindfromChangeFingerView(segue: UIStoryboardSegue) {
+        if let svc = segue.source as? ChangeToThumbViewController {
+            //self.touchesCount = svc.points.count
+            count = svc.count
+            self.embeddedViewController.points = [CGPoint]()
+            self.embeddedViewController.updateUI()
+            utterance = AVSpeechUtterance(string: "Please draw the following numbers using your Thumb")
+            synthesizer.speak(utterance)
+            utterance = AVSpeechUtterance(string: "\(numbersToSpeak[40])")
+            synthesizer.speak(utterance)
+        }
     }
+    
+    //  Now in other methods you can reference `embeddedViewController`.
+    //  For example:
+    //    override func viewDidAppear(animated: Bool) {
+    //        self.embeddedViewController.points
+    //    }
+    
+    
+    
+    //    func prepare(for segue: "completionSegue", sender: AnyObject?) {
+    //        if segue.identifier == "completionSegue" {
+    //            if let viewController = segue.destination as? HappinessViewController {
+    //                //viewController.property = property
+    //            }
+    //        }
+    //    }
+    
+    
 }
-
 

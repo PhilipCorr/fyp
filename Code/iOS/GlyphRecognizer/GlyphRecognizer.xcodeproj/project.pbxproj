@@ -8,21 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3FA0345A1DDB3243000676BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA034591DDB3243000676BF /* AppDelegate.swift */; };
+		3FA0345C1DDB3243000676BF /* ConsentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0345B1DDB3243000676BF /* ConsentVC.swift */; };
 		3FA0345F1DDB3243000676BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0345D1DDB3243000676BF /* Main.storyboard */; };
 		3FA034641DDB3243000676BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA034631DDB3243000676BF /* Assets.xcassets */; };
 		3FA034671DDB3243000676BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA034651DDB3243000676BF /* LaunchScreen.storyboard */; };
 		3FB2FDE71DDB554A0056297E /* CountryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2FDE61DDB554A0056297E /* CountryCVC.swift */; };
+		3FB2FDE91DDB56540056297E /* GlyphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2FDE81DDB56540056297E /* GlyphVC.swift */; };
 		3FB2FDEB1DDB5C890056297E /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */; };
+		3FD10B651DDB3DD20069B8C7 /* SubjectStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */; };
+		3FD10B881DDB42120069B8C7 /* GlyphRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B611DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodeld */; };
+		3FD10B8A1DDB433E0069B8C7 /* SubjectStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */; };
 		3FD10B901DDB4FDD0069B8C7 /* GlyphEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */; };
-		3FE0039B1DDE35AD003633CC /* Touch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003931DDE35AD003633CC /* Touch+CoreDataClass.swift */; };
-		3FE0039C1DDE35AD003633CC /* Touch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003941DDE35AD003633CC /* Touch+CoreDataProperties.swift */; };
-		3FE0039D1DDE35AD003633CC /* Stroke+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003951DDE35AD003633CC /* Stroke+CoreDataClass.swift */; };
-		3FE0039E1DDE35AD003633CC /* Stroke+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003961DDE35AD003633CC /* Stroke+CoreDataProperties.swift */; };
-		3FE0039F1DDE35AD003633CC /* Glyph+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003971DDE35AD003633CC /* Glyph+CoreDataClass.swift */; };
-		3FE003A01DDE35AD003633CC /* Glyph+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003981DDE35AD003633CC /* Glyph+CoreDataProperties.swift */; };
-		3FE003A11DDE35AD003633CC /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE003991DDE35AD003633CC /* Subject+CoreDataClass.swift */; };
-		3FE003A21DDE35AD003633CC /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0039A1DDE35AD003633CC /* Subject+CoreDataProperties.swift */; };
-		3FE003A31DDE3603003633CC /* GlyphRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD10B611DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,22 +30,12 @@
 		3FA034661DDB3243000676BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FA034681DDB3243000676BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FB2FDE61DDB554A0056297E /* CountryCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCVC.swift; sourceTree = "<group>"; };
+		3FB2FDE81DDB56540056297E /* GlyphVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyphVC.swift; sourceTree = "<group>"; };
 		3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		3FD10B621DDB3CF90069B8C7 /* GlyphRecognizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GlyphRecognizer.xcdatamodel; sourceTree = "<group>"; };
 		3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectStep1VC.swift; sourceTree = "<group>"; };
 		3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectStep2VC.swift; sourceTree = "<group>"; };
 		3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyphEntryVC.swift; sourceTree = "<group>"; };
-		3FE003931DDE35AD003633CC /* Touch+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Touch+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FE003941DDE35AD003633CC /* Touch+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Touch+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3FE003951DDE35AD003633CC /* Stroke+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stroke+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FE003961DDE35AD003633CC /* Stroke+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stroke+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3FE003971DDE35AD003633CC /* Glyph+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Glyph+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FE003981DDE35AD003633CC /* Glyph+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Glyph+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3FE003991DDE35AD003633CC /* Subject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FE0039A1DDE35AD003633CC /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E53F2B391DDBD2CB0014378B /* SwapFingerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapFingerVC.swift; sourceTree = "<group>"; };
-		E53F2B3B1DDBD62F0014378B /* SummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
-		E5E39D0F1DDB854F00336A30 /* GlyphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +52,6 @@
 		3FA0344D1DDB3243000676BF = {
 			isa = PBXGroup;
 			children = (
-				3FE003931DDE35AD003633CC /* Touch+CoreDataClass.swift */,
-				3FE003941DDE35AD003633CC /* Touch+CoreDataProperties.swift */,
-				3FE003951DDE35AD003633CC /* Stroke+CoreDataClass.swift */,
-				3FE003961DDE35AD003633CC /* Stroke+CoreDataProperties.swift */,
-				3FE003971DDE35AD003633CC /* Glyph+CoreDataClass.swift */,
-				3FE003981DDE35AD003633CC /* Glyph+CoreDataProperties.swift */,
-				3FE003991DDE35AD003633CC /* Subject+CoreDataClass.swift */,
-				3FE0039A1DDE35AD003633CC /* Subject+CoreDataProperties.swift */,
 				3FA0347E1DDB34E9000676BF /* CoreData */,
 				3FA034581DDB3243000676BF /* GlyphRecognizer */,
 				3FA034571DDB3243000676BF /* Products */,
@@ -95,12 +73,10 @@
 				3FA0345B1DDB3243000676BF /* ConsentVC.swift */,
 				3FD10B641DDB3DD20069B8C7 /* SubjectStep1VC.swift */,
 				3FD10B891DDB433E0069B8C7 /* SubjectStep2VC.swift */,
-				3FB2FDE61DDB554A0056297E /* CountryCVC.swift */,
 				3FD10B8F1DDB4FDD0069B8C7 /* GlyphEntryVC.swift */,
+				3FB2FDE61DDB554A0056297E /* CountryCVC.swift */,
+				3FB2FDE81DDB56540056297E /* GlyphVC.swift */,
 				3FB2FDEA1DDB5C890056297E /* ProgressButton.swift */,
-				E5E39D0F1DDB854F00336A30 /* GlyphView.swift */,
-				E53F2B391DDBD2CB0014378B /* SwapFingerVC.swift */,
-				E53F2B3B1DDBD62F0014378B /* SummaryVC.swift */,
 				3FA0345D1DDB3243000676BF /* Main.storyboard */,
 				3FA034631DDB3243000676BF /* Assets.xcassets */,
 				3FA034651DDB3243000676BF /* LaunchScreen.storyboard */,
@@ -144,7 +120,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = UCD;
 				TargetAttributes = {
 					3FA034551DDB3243000676BF = {
@@ -190,19 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE003A21DDE35AD003633CC /* Subject+CoreDataProperties.swift in Sources */,
+				3FD10B881DDB42120069B8C7 /* GlyphRecognizer.xcdatamodeld in Sources */,
+				3FA0345C1DDB3243000676BF /* ConsentVC.swift in Sources */,
 				3FD10B901DDB4FDD0069B8C7 /* GlyphEntryVC.swift in Sources */,
-				3FE0039D1DDE35AD003633CC /* Stroke+CoreDataClass.swift in Sources */,
-				3FE003A31DDE3603003633CC /* GlyphRecognizer.xcdatamodeld in Sources */,
-				3FE0039B1DDE35AD003633CC /* Touch+CoreDataClass.swift in Sources */,
-				3FE003A11DDE35AD003633CC /* Subject+CoreDataClass.swift in Sources */,
+				3FD10B8A1DDB433E0069B8C7 /* SubjectStep2VC.swift in Sources */,
+				3FD10B651DDB3DD20069B8C7 /* SubjectStep1VC.swift in Sources */,
+				3FB2FDE91DDB56540056297E /* GlyphVC.swift in Sources */,
 				3FB2FDEB1DDB5C890056297E /* ProgressButton.swift in Sources */,
 				3FB2FDE71DDB554A0056297E /* CountryCVC.swift in Sources */,
-				3FE0039E1DDE35AD003633CC /* Stroke+CoreDataProperties.swift in Sources */,
-				3FE0039F1DDE35AD003633CC /* Glyph+CoreDataClass.swift in Sources */,
 				3FA0345A1DDB3243000676BF /* AppDelegate.swift in Sources */,
-				3FE003A01DDE35AD003633CC /* Glyph+CoreDataProperties.swift in Sources */,
-				3FE0039C1DDE35AD003633CC /* Touch+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +218,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,7 +268,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
