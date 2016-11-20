@@ -9,7 +9,7 @@
 import UIKit
 
 class SubjectStep1VC: UIViewController, UITextFieldDelegate {
-    // datamodel
+    // data model
     var subject: Subject?
     
     @IBOutlet var yearTextField: UITextField!
@@ -19,15 +19,15 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
     
     @IBAction func changeGender(_ sender: UIButton) {
         switch sender {
-        case maleButton:
+        case self.maleButton:
             self.femaleButton.alpha = 0.25
             self.maleButton.alpha = 1
-            subject?.sex = Subject.Sex.Male.rawValue
+            self.subject?.sex = Subject.Sex.Male.rawValue
             break
-        case femaleButton:
+        case self.femaleButton:
             self.maleButton.alpha = 0.25
             self.femaleButton.alpha = 1
-            subject?.sex = Subject.Sex.Female.rawValue
+            self.subject?.sex = Subject.Sex.Female.rawValue
 
             break
         default:
@@ -40,27 +40,32 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = nil
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.text = nil
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        subject?.age = Int32(textField.text!)!
+        self.subject?.age = Int32(textField.text!)!
     }
     
-    
     func didTapDone(sender: AnyObject?) {
-        yearTextField.endEditing(true)
+        self.yearTextField.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.hidesBackButton = true
+        
         // Do any additional setup after loading the view.
-        yearTextField.keyboardType = UIKeyboardType.numberPad
+//        yearTextField.keyboardType = UIKeyboardType.numberPad
         self.yearTextField.becomeFirstResponder()
+        
         self.changeGender(self.femaleButton)
+        self.femaleButton.layer.borderWidth = 1.0
+        self.maleButton.layer.borderWidth = 1.0
+        self.femaleButton.layer.borderColor = UIColor.gray.cgColor
+        self.maleButton.layer.borderColor = UIColor.gray.cgColor
     }
     
     @IBAction func enterYearChanged(_ sender: UITextField) {
@@ -70,16 +75,12 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
     }
     
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if let dvc = segue.destination as? SubjectStep2VC {
+        if let destinationVC = segue.destination as? SubjectStep2VC {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            subject?.nativeLanguage = String.flag(country:  "IE")
+            subject?.nativeLanguage = "IE"
             subject?.handedness = Subject.HandedNess.Left.rawValue
-            dvc.subject = subject
+            destinationVC.subject = subject
         }
     }
 }

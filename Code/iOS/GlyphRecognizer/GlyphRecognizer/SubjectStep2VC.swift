@@ -30,7 +30,7 @@ class SubjectStep2VC: UIViewController {
     }
     
     func updateUI() {
-        countryButton.setTitle(subject?.nativeLanguage, for: .normal)
+        countryButton.setTitle(String.flag(country: (subject?.nativeLanguage)!), for: .normal)
         if let handedness = subject?.handedness {
             switch handedness {
             case Subject.HandedNess.Left.rawValue:
@@ -48,12 +48,13 @@ class SubjectStep2VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(subject?.description)
-        if self.subject?.sex == Subject.Sex.Male.rawValue {
-            self.view.backgroundColor = UIColor(hue: 0.5, saturation: 1, brightness: 0.2, alpha: 1.0)
-        } else {
-            self.view.backgroundColor = UIColor(hue: 0.83, saturation: 1, brightness: 0.2, alpha: 1.0)
-        }
+        print(subject?.description ?? "invalid")
+        
+//        if self.subject?.sex == Subject.Sex.Male.rawValue {
+//            self.view.backgroundColor = UIColor(hue: 187/360, saturation: 33/100, brightness: 100/100, alpha: 1.0)
+//        } else {
+//            self.view.backgroundColor = UIColor(hue: 300/360, saturation: 27/100, brightness: 100/100, alpha: 1.0)
+//        }
         
         // Do any additional setup after loading the view.
         updateUI()
@@ -65,16 +66,18 @@ class SubjectStep2VC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let dvc = segue.destination as? GlyphEntryVC {
+        if let destinationVC = segue.destination as? GlyphEntryVC {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            dvc.subject = self.subject
+            destinationVC.subject = self.subject
+            destinationVC.segueId = "Show SwapFinger VC"
+            destinationVC.navigationItem.hidesBackButton = true
         }
         
     }
     
-    func unwindfromCollectionView(segue: UIStoryboardSegue) {
-        if let svc = segue.source as? CountryCVC {
-            subject?.nativeLanguage = svc.country
+    @IBAction func unwindfromCountryCVC(segue: UIStoryboardSegue) {
+        if let sourceVC = segue.source as? CountryCVC {
+            subject?.nativeLanguage = sourceVC.selectedCountry
             updateUI()
         }
     }
