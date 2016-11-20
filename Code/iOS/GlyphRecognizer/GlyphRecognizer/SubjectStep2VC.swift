@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SubjectStep2VC: UIViewController {
     // datamodel
     var subject: Subject?
-    
-    
+
     @IBOutlet var countryButton: UIButton!
     @IBOutlet var leftHandButton: UIButton!
     @IBOutlet var rightHandButton: UIButton!

@@ -33,6 +33,7 @@ class SwapFingerVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destinationVC = segue.destination as? GlyphEntryVC {
+            destinationVC.fingerType = "Thumb"
             destinationVC.subject = self.subject
             destinationVC.segueId = "Show Summary VC"
             destinationVC.navigationItem.hidesBackButton = true

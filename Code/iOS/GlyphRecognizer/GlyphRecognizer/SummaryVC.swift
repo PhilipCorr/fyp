@@ -25,14 +25,18 @@ class SummaryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var sexLabel: UILabel!
+    @IBOutlet weak var handLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.navigationItem.hidesBackButton = true
-        self.ageLabel.text = "\(self.subject?.age) YEARS OLD"
+        self.ageLabel.text = "\((self.subject?.age)!)"
         self.countryLabel.text = String.flag(country: (subject?.nativeLanguage)!)
+        self.sexLabel.text = "\((self.subject?.sex)!)"
+        self.handLabel.text = "\((self.subject?.handedness)!)"
     }
 
     // MARK: UICollectionViewDataSource

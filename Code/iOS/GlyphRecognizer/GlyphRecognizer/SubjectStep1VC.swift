@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SubjectStep1VC: UIViewController, UITextFieldDelegate {
     // data model
@@ -87,8 +88,8 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
 
 extension Subject {
     enum HandedNess: String {
-        case Left = "left-handed"
-        case Right = "right-handed"
+        case Left = "left"
+        case Right = "right"
     }
     enum Sex: String {
         case Male = "male"

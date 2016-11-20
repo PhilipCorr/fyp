@@ -121,7 +121,8 @@ class GlyphView: UIView {
         }
     }
     var stroke: Stroke?
-    
+    var glyphStartTime = 0.0
+    var glyphStart = true
     
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
         if let context = self.glyph?.managedObjectContext {
@@ -130,6 +131,10 @@ class GlyphView: UIView {
                 self.stroke = Stroke(context: context)
                 self.stroke?.duration = Double(CFAbsoluteTimeGetCurrent())
                 self.glyph?.addToStrokes(self.stroke!)
+                if(glyphStart){
+                    glyphStartTime = Double(CFAbsoluteTimeGetCurrent())
+                    glyphStart = false
+                }
                 fallthrough
             case .changed:
                 if let stroke =  self.stroke {
@@ -144,6 +149,7 @@ class GlyphView: UIView {
             case .ended:
                 if let stroke =  self.stroke {
                     stroke.duration = Double(CFAbsoluteTimeGetCurrent()) - stroke.duration
+                    self.glyph?.duration = Double(CFAbsoluteTimeGetCurrent()) - glyphStartTime
                 }
                 self.setNeedsDisplay()
             default: break

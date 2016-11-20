@@ -16,6 +16,7 @@ class GlyphEntryVC: UIViewController {
     public var segueId: String?
     
     private var glyphs = [Glyph]()
+    public var fingerType = "index"
     
     @IBOutlet weak var glyphView: GlyphView!
     
@@ -29,7 +30,7 @@ class GlyphEntryVC: UIViewController {
         
         var unshuffledNumbers = [Int]()
         
-        for _ in 1..<2 {
+        for _ in 1..<4 {
             unshuffledNumbers.append(contentsOf: Array(min..<max))
         }
         
@@ -41,23 +42,29 @@ class GlyphEntryVC: UIViewController {
         super.viewDidLoad()
         print(subject?.description ?? "invalid")
 
-//        synthesizer.speak(AVSpeechUtterance(string: "Please draw the following numbers using your index finger"))
-        characterToBeDrawn = randomNumbers(range: 0..<3).map {"\($0)"}
+        characterToBeDrawn = randomNumbers(range: 0..<10).map {"\($0)"}
         print("\(characterToBeDrawn)")
+        let toSpeak = fingerType == "index" ? "\(fingerType) finger" : "\(fingerType)"
+        synthesizer.speak(AVSpeechUtterance(string: "Please draw the following numbers using your \(toSpeak)"))
         newInstruction()
     }
     
     func newInstruction() {
+        self.glyphView.glyphStart = true
+        
         if let character = characterToBeDrawn.last
         {
             let newGlyph = Glyph(context: (self.subject?.managedObjectContext)!)
             newGlyph.character = character
-//            synthesizer.speak(AVSpeechUtterance(string: character))
+            newGlyph.finger = fingerType
+            newGlyph.clientWidth = Double(self.glyphView.bounds.size.width)
+            newGlyph.clientHeight = Double(self.glyphView.bounds.size.height)
+            synthesizer.speak(AVSpeechUtterance(string: character))
             self.glyphs.append(newGlyph)
             characterToBeDrawn.removeLast()
             self.glyphView.glyph = newGlyph
-            newGlyph.clientWidth = Double(self.glyphView.bounds.size.width)
-            newGlyph.clientHeight = Double(self.glyphView.bounds.size.height)
+            
+
             
         } else {
             self.glyphView.isUserInteractionEnabled = false
@@ -98,3 +105,9 @@ class GlyphEntryVC: UIViewController {
     }
 }
 
+extension Glyph {
+    enum finger: String {
+        case Finger = "index"
+        case Thumb = "thumb"
+    }
+}
