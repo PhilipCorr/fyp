@@ -165,7 +165,7 @@ class GlyphView: UIView {
             for stroke in strokes {
                 if let path = stroke.path(scale: Double(self.bounds.size.width) / self.glyph!.clientWidth, interpolation: .Cubic) {
                     path.lineCapStyle = .round
-                    path.lineWidth = 8 * CGFloat(self.bounds.size.width / 375.0)
+                    path.lineWidth = 8 * CGFloat(self.bounds.size.width) / CGFloat(self.glyph!.clientWidth)
                     path.stroke()
                 }
             }

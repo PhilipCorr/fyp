@@ -251,11 +251,15 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-ym-HOW">
                                 <rect key="frame" x="16" y="72" width="343" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <string key="text">The aim of this study is to train a neural network to recognise a user from the way they draw a number on an iPhone screen. In order to achieve this I will record between 250 and 500 participants entering the numbers 0 to 9 four times using their index finger and then another four times using their thumb. I will also be recording your age to the nearest year, sex, native language and whether you are right or left handed. These details are required to ensure that my data set is not biased towards a subsection of the population.  You will not be identifiable through the recorded data and hence, you will remain anonymous. 
 
 I will use this data set to train a neural network, which will learn how the general population enters numbers into an iPhone. The trained network will then be able to identify which number a user draws on the iPhone screen even though the way the user enters the number is unique every time. The dataset will be open source and stored on a database online. This is to facilitate further research in the area of machine learning and may include commercial use in the future. No extra information will be stored in the database and for the same reasons as those mentioned above, you will not be identifiable from the online dataset. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xfJ-zF-Prg" appends="YES" id="vIb-x0-hfG"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -272,6 +276,11 @@ I will use this data set to train a neural network, which will learn how the gen
                     <navigationItem key="navigationItem" title="Consent Form" id="bEa-r5-vde"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u09-wu-jxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="3" numberOfTouchesRequired="3" id="xfJ-zF-Prg">
+                    <connections>
+                        <segue destination="dJp-73-G0s" kind="show" id="Pnx-ox-LCC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2952.8000000000002" y="131.78410794602701"/>
         </scene>
@@ -397,12 +406,18 @@ I will use this data set to train a neural network, which will learn how the gen
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QU-gG-i0c">
-                                <rect key="frame" x="0.0" y="543" width="375" height="124"/>
+                                <rect key="frame" x="0.0" y="293" width="375" height="80"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="I've Changed To Thumb">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="o9D-3m-OkC" kind="show" id="CMs-ys-93q"/>
                                 </connections>
@@ -410,16 +425,48 @@ I will use this data set to train a neural network, which will learn how the gen
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="leading" secondItem="bng-kr-x7Y" secondAttribute="leading" id="8Zl-AT-GjA"/>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="top" secondItem="6qu-Kh-1Qa" secondAttribute="bottom" constant="523" id="ZaA-zt-dD5"/>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="bottom" secondItem="Kbx-u2-qfU" secondAttribute="top" id="oVO-hL-jOJ"/>
-                            <constraint firstAttribute="trailing" secondItem="1QU-gG-i0c" secondAttribute="trailing" id="pC2-bK-PU3"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="leading" secondItem="bng-kr-x7Y" secondAttribute="leading" id="OFu-NC-VZd"/>
+                            <constraint firstAttribute="trailing" secondItem="1QU-gG-i0c" secondAttribute="trailing" id="b8U-kI-1o3"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="top" secondItem="6qu-Kh-1Qa" secondAttribute="bottom" constant="229" id="mfi-82-kpa"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="centerY" secondItem="bng-kr-x7Y" secondAttribute="centerY" id="weT-dH-Sfs"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKW-LZ-3kI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6142" y="132"/>
+        </scene>
+        <!--TestVC-->
+        <scene sceneID="HOf-rP-aOf">
+            <objects>
+                <viewController id="dJp-73-G0s" customClass="TestVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UWL-Aw-XDM"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjO-Wv-PXr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cpO-dS-GLs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm2-3G-Cfh">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="zPu-VW-1jU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Data to String">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Z7-m8-d17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2953" y="876"/>
         </scene>
         <!--CountryCVC-->
         <scene sceneID="ggk-Yd-fbv">
@@ -581,7 +628,7 @@ I will use this data set to train a neural network, which will learn how the gen
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-uI-T3Z">
-                                <rect key="frame" x="0.0" y="86" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="449"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="Nfv-r3-17p">
                                     <size key="itemSize" width="80" height="80"/>
@@ -621,19 +668,19 @@ I will use this data set to train a neural network, which will learn how the gen
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4Q-i4-ST0">
-                                <rect key="frame" x="80" y="28" width="100" height="21"/>
+                                <rect key="frame" x="80" y="72" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-gR-uff">
-                                <rect key="frame" x="80" y="57" width="100" height="21"/>
+                                <rect key="frame" x="80" y="101" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jn-DY-BVK">
-                                <rect key="frame" x="37" y="28" width="35" height="21"/>
+                                <rect key="frame" x="37" y="72" width="35" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="J8H-cI-9f3"/>
                                 </constraints>
@@ -642,7 +689,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfQ-vj-WjA">
-                                <rect key="frame" x="219" y="28" width="33" height="21"/>
+                                <rect key="frame" x="219" y="72" width="33" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="ztE-fD-c3W"/>
                                 </constraints>
@@ -651,19 +698,19 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-o8-hI5">
-                                <rect key="frame" x="206" y="56" width="46" height="21"/>
+                                <rect key="frame" x="206" y="100" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yK6-an-LK7">
-                                <rect key="frame" x="6" y="56" width="66" height="21"/>
+                                <rect key="frame" x="6" y="100" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leo-NX-Aly">
-                                <rect key="frame" x="267" y="28" width="92" height="21"/>
+                                <rect key="frame" x="267" y="72" width="92" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="7MG-Vp-JJQ"/>
                                 </constraints>
@@ -672,7 +719,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-1l-vVH">
-                                <rect key="frame" x="267" y="55" width="92" height="21"/>
+                                <rect key="frame" x="267" y="99" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -742,6 +789,6 @@ I will use this data set to train a neural network, which will learn how the gen
         <image name="venus" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WRT-eR-Vtg"/>
+        <segue reference="zEx-wR-oom"/>
     </inferredMetricsTieBreakers>
 </document>

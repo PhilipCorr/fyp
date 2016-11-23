@@ -4,19 +4,24 @@
         <attribute name="character" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="clientHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="clientWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="device" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="finger" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="invalid" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="strokes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Stroke" inverseName="glyph" inverseEntity="Stroke" syncable="YES"/>
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="glyphs" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Stroke" representedClassName="Stroke" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="glyph" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Glyph" inverseName="strokes" inverseEntity="Glyph" syncable="YES"/>
         <relationship name="touches" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Touch" inverseName="stroke" inverseEntity="Touch" syncable="YES"/>
     </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="handedness" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nativeLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="glyphs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Glyph" inverseName="subject" inverseEntity="Glyph" syncable="YES"/>
@@ -30,9 +35,9 @@
         <relationship name="stroke" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stroke" inverseName="touches" inverseEntity="Stroke" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Glyph" positionX="2410" positionY="2286" width="128" height="148"/>
-        <element name="Stroke" positionX="2403" positionY="2547" width="128" height="88"/>
-        <element name="Subject" positionX="2205" positionY="2241" width="128" height="118"/>
+        <element name="Glyph" positionX="2410" positionY="2286" width="128" height="193"/>
+        <element name="Stroke" positionX="2403" positionY="2547" width="128" height="103"/>
+        <element name="Subject" positionX="2205" positionY="2241" width="128" height="133"/>
         <element name="Touch" positionX="2205" positionY="2522" width="128" height="133"/>
     </elements>
 </model>
