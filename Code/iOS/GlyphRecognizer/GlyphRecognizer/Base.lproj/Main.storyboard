@@ -177,7 +177,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right or Left Handed?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxi-JD-tHd">
-                                <rect key="frame" x="87" y="285" width="200" height="21"/>
+                                <rect key="frame" x="87" y="285" width="201" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2Ku-Tr-klT"/>
                                 </constraints>
@@ -249,7 +249,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-ym-HOW">
-                                <rect key="frame" x="16" y="72" width="343" height="507"/>
+                                <rect key="frame" x="16" y="28" width="343" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <string key="text">The aim of this study is to train a neural network to recognise a user from the way they draw a number on an iPhone screen. In order to achieve this I will record between 250 and 500 participants entering the numbers 0 to 9 four times using their index finger and then another four times using their thumb. I will also be recording your age to the nearest year, sex, native language and whether you are right or left handed. These details are required to ensure that my data set is not biased towards a subsection of the population.  You will not be identifiable through the recorded data and hence, you will remain anonymous. 
@@ -276,11 +276,7 @@ I will use this data set to train a neural network, which will learn how the gen
                     <navigationItem key="navigationItem" title="Consent Form" id="bEa-r5-vde"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u09-wu-jxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="3" numberOfTouchesRequired="3" id="xfJ-zF-Prg">
-                    <connections>
-                        <segue destination="dJp-73-G0s" kind="show" id="Pnx-ox-LCC"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="3" numberOfTouchesRequired="3" id="xfJ-zF-Prg"/>
             </objects>
             <point key="canvasLocation" x="2952.8000000000002" y="131.78410794602701"/>
         </scene>
@@ -321,7 +317,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhB-Nc-KpU">
-                                <rect key="frame" x="0.0" y="64" width="378" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="378" height="80"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Qif-Xg-9tA"/>
@@ -354,7 +350,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00w-BU-fy6" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="144" width="375" height="443"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="487"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -406,7 +402,7 @@ I will use this data set to train a neural network, which will learn how the gen
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QU-gG-i0c">
-                                <rect key="frame" x="0.0" y="293" width="375" height="80"/>
+                                <rect key="frame" x="16" y="249" width="343" height="169"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="I've Changed To Thumb">
@@ -425,48 +421,16 @@ I will use this data set to train a neural network, which will learn how the gen
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="leading" secondItem="bng-kr-x7Y" secondAttribute="leading" id="OFu-NC-VZd"/>
-                            <constraint firstAttribute="trailing" secondItem="1QU-gG-i0c" secondAttribute="trailing" id="b8U-kI-1o3"/>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="top" secondItem="6qu-Kh-1Qa" secondAttribute="bottom" constant="229" id="mfi-82-kpa"/>
-                            <constraint firstItem="1QU-gG-i0c" firstAttribute="centerY" secondItem="bng-kr-x7Y" secondAttribute="centerY" id="weT-dH-Sfs"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="top" secondItem="6qu-Kh-1Qa" secondAttribute="bottom" constant="229" id="Y7Z-vB-Yvm"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="leading" secondItem="bng-kr-x7Y" secondAttribute="leadingMargin" id="ZGh-ME-C2G"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="trailing" secondItem="bng-kr-x7Y" secondAttribute="trailingMargin" id="c3f-tT-XL2"/>
+                            <constraint firstItem="1QU-gG-i0c" firstAttribute="centerY" secondItem="bng-kr-x7Y" secondAttribute="centerY" id="zu7-KR-Jg8"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKW-LZ-3kI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6142" y="132"/>
-        </scene>
-        <!--TestVC-->
-        <scene sceneID="HOf-rP-aOf">
-            <objects>
-                <viewController id="dJp-73-G0s" customClass="TestVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UWL-Aw-XDM"/>
-                        <viewControllerLayoutGuide type="bottom" id="xjO-Wv-PXr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cpO-dS-GLs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm2-3G-Cfh">
-                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
-                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="zPu-VW-1jU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Data to String">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Z7-m8-d17" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2953" y="876"/>
+            <point key="canvasLocation" x="6141.5" y="131.5"/>
         </scene>
         <!--CountryCVC-->
         <scene sceneID="ggk-Yd-fbv">
@@ -543,7 +507,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-WB-BEp">
-                                <rect key="frame" x="0.0" y="64" width="378" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="378" height="80"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="sSM-Lg-qgV"/>
@@ -576,7 +540,7 @@ I will use this data set to train a neural network, which will learn how the gen
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W28-cI-CAO" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="144" width="375" height="443"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="487"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -628,7 +592,7 @@ I will use this data set to train a neural network, which will learn how the gen
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-uI-T3Z">
-                                <rect key="frame" x="0.0" y="130" width="375" height="449"/>
+                                <rect key="frame" x="16" y="83" width="343" height="496"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="Nfv-r3-17p">
                                     <size key="itemSize" width="80" height="80"/>
@@ -644,21 +608,20 @@ I will use this data set to train a neural network, which will learn how the gen
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83Y-jy-wre" customClass="GlyphView" customModule="GlyphRecognizer" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wL8-n9-6Rf">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="83Y-jy-wre" firstAttribute="width" secondItem="j7D-we-QQI" secondAttribute="width" id="Fyq-qS-Kfy"/>
-                                            <constraint firstItem="83Y-jy-wre" firstAttribute="centerY" secondItem="j7D-we-QQI" secondAttribute="centerY" id="T89-Da-8Go"/>
-                                            <constraint firstItem="83Y-jy-wre" firstAttribute="centerX" secondItem="j7D-we-QQI" secondAttribute="centerX" id="giM-mh-6yY"/>
-                                            <constraint firstItem="83Y-jy-wre" firstAttribute="height" secondItem="j7D-we-QQI" secondAttribute="height" id="twr-53-uQE"/>
+                                            <constraint firstItem="wL8-n9-6Rf" firstAttribute="centerY" secondItem="j7D-we-QQI" secondAttribute="centerY" id="J5X-Rm-U9q"/>
+                                            <constraint firstItem="wL8-n9-6Rf" firstAttribute="height" secondItem="j7D-we-QQI" secondAttribute="height" id="ShI-gi-CcG"/>
+                                            <constraint firstItem="wL8-n9-6Rf" firstAttribute="width" secondItem="j7D-we-QQI" secondAttribute="width" id="VJv-4j-lg9"/>
+                                            <constraint firstItem="wL8-n9-6Rf" firstAttribute="centerX" secondItem="j7D-we-QQI" secondAttribute="centerX" id="uYe-ug-YBy"/>
                                         </constraints>
                                         <size key="customSize" width="80" height="80"/>
                                         <connections>
-                                            <outlet property="glyphView" destination="83Y-jy-wre" id="qOu-0K-qP5"/>
+                                            <outlet property="glyphImageView" destination="wL8-n9-6Rf" id="SaG-ue-bom"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -668,58 +631,58 @@ I will use this data set to train a neural network, which will learn how the gen
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4Q-i4-ST0">
-                                <rect key="frame" x="80" y="72" width="100" height="21"/>
+                                <rect key="frame" x="80" y="28" width="100" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-gR-uff">
-                                <rect key="frame" x="80" y="101" width="100" height="21"/>
+                                <rect key="frame" x="80" y="56.5" width="100" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jn-DY-BVK">
-                                <rect key="frame" x="37" y="72" width="35" height="21"/>
+                                <rect key="frame" x="37" y="28" width="35" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="J8H-cI-9f3"/>
+                                    <constraint firstAttribute="width" constant="35" id="G94-PQ-aP3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfQ-vj-WjA">
-                                <rect key="frame" x="219" y="72" width="33" height="21"/>
+                                <rect key="frame" x="219" y="28" width="33" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="ztE-fD-c3W"/>
+                                    <constraint firstAttribute="width" constant="33" id="Zb4-p5-hJE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-o8-hI5">
-                                <rect key="frame" x="206" y="100" width="46" height="21"/>
+                                <rect key="frame" x="206.5" y="55.5" width="45.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yK6-an-LK7">
-                                <rect key="frame" x="6" y="100" width="66" height="21"/>
+                                <rect key="frame" x="6" y="55.5" width="66" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leo-NX-Aly">
-                                <rect key="frame" x="267" y="72" width="92" height="21"/>
+                                <rect key="frame" x="267" y="28" width="92" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="7MG-Vp-JJQ"/>
+                                    <constraint firstAttribute="width" constant="92" id="COM-Iz-pX8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-1l-vVH">
-                                <rect key="frame" x="267" y="99" width="92" height="21"/>
+                                <rect key="frame" x="267" y="54.5" width="92" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -728,46 +691,47 @@ I will use this data set to train a neural network, which will learn how the gen
                                 <rect key="frame" x="-3" y="587" width="378" height="80"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="EjH-hM-tRd"/>
+                                    <constraint firstAttribute="height" constant="80" id="1bL-2G-o2D"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Finish">
+                                <state key="normal" title="Export Images">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="redo:" destination="o9D-3m-OkC" eventType="touchUpInside" id="UKy-gj-ITP"/>
-                                    <segue destination="Zqa-hL-Njm" kind="show" id="WRT-eR-Vtg"/>
+                                    <segue destination="ocy-NB-b8q" kind="show" id="IPY-1D-e8O"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="top" secondItem="sMd-rq-w2a" secondAttribute="bottom" constant="8" symbolic="YES" id="3vz-Dp-3bJ"/>
-                            <constraint firstItem="leo-NX-Aly" firstAttribute="trailing" secondItem="JRb-E2-2PI" secondAttribute="trailingMargin" id="4GI-0Q-7mT"/>
-                            <constraint firstAttribute="trailing" secondItem="AxI-uI-T3Z" secondAttribute="trailing" id="5yi-8p-MZj"/>
-                            <constraint firstItem="OQt-1l-vVH" firstAttribute="top" secondItem="leo-NX-Aly" secondAttribute="bottom" constant="6" id="7jH-DL-te3"/>
-                            <constraint firstItem="yK6-an-LK7" firstAttribute="top" secondItem="6Jn-DY-BVK" secondAttribute="bottom" constant="7" id="FQO-5G-n5O"/>
-                            <constraint firstItem="leo-NX-Aly" firstAttribute="trailing" secondItem="OQt-1l-vVH" secondAttribute="trailing" id="HCw-os-qm8"/>
-                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="top" secondItem="AxI-uI-T3Z" secondAttribute="bottom" constant="8" symbolic="YES" id="IKD-17-IaF"/>
-                            <constraint firstItem="leo-NX-Aly" firstAttribute="leading" secondItem="OQt-1l-vVH" secondAttribute="leading" id="Jmr-bg-eH1"/>
-                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="leading" secondItem="V4Q-i4-ST0" secondAttribute="trailing" constant="39" id="NNK-HP-aLY"/>
-                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="leading" secondItem="zWb-gR-uff" secondAttribute="leading" id="Pr2-71-JBg"/>
-                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leading" id="T9o-2Q-tlc"/>
-                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="bottom" secondItem="UZn-AI-iaY" secondAttribute="top" id="U5s-IW-clp"/>
-                            <constraint firstItem="zWb-gR-uff" firstAttribute="top" secondItem="V4Q-i4-ST0" secondAttribute="bottom" constant="8" symbolic="YES" id="XDY-hC-9fK"/>
-                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leadingMargin" constant="-19" id="XTZ-fC-bkp"/>
-                            <constraint firstItem="zWb-gR-uff" firstAttribute="leading" secondItem="yK6-an-LK7" secondAttribute="trailing" constant="8" symbolic="YES" id="XrF-ME-tpj"/>
-                            <constraint firstItem="leo-NX-Aly" firstAttribute="leading" secondItem="MfQ-vj-WjA" secondAttribute="trailing" constant="15" id="Y65-dx-0C7"/>
-                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leadingMargin" constant="21" id="Zry-m4-8FC"/>
-                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="leading" secondItem="6Jn-DY-BVK" secondAttribute="trailing" constant="8" symbolic="YES" id="aEc-z4-9Tw"/>
-                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="trailing" secondItem="KrW-o8-hI5" secondAttribute="trailing" id="hRk-DW-6cS"/>
-                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="trailing" secondItem="zWb-gR-uff" secondAttribute="trailing" id="jK1-Kd-lC1"/>
-                            <constraint firstItem="yK6-an-LK7" firstAttribute="baseline" secondItem="KrW-o8-hI5" secondAttribute="baseline" id="mB6-S8-kpM"/>
-                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="baseline" secondItem="V4Q-i4-ST0" secondAttribute="baseline" id="sgE-a7-bMB"/>
-                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="baseline" secondItem="MfQ-vj-WjA" secondAttribute="baseline" id="sot-Ar-IkC"/>
-                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="baseline" secondItem="leo-NX-Aly" secondAttribute="baseline" id="sqf-lY-au3"/>
-                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="top" secondItem="zWb-gR-uff" secondAttribute="bottom" constant="8" symbolic="YES" id="v4w-Og-SaK"/>
-                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="trailing" secondItem="lN1-P9-pWZ" secondAttribute="trailing" id="zOF-90-HcD"/>
+                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="leading" secondItem="6Jn-DY-BVK" secondAttribute="trailing" constant="8" symbolic="YES" id="86v-S3-Ayq"/>
+                            <constraint firstAttribute="trailing" secondItem="lN1-P9-pWZ" secondAttribute="trailing" id="AJ5-LU-xzb"/>
+                            <constraint firstItem="leo-NX-Aly" firstAttribute="trailing" secondItem="JRb-E2-2PI" secondAttribute="trailingMargin" id="B0f-0a-7OU"/>
+                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="baseline" secondItem="V4Q-i4-ST0" secondAttribute="baseline" id="GcI-fJ-4Sf"/>
+                            <constraint firstItem="leo-NX-Aly" firstAttribute="leading" secondItem="MfQ-vj-WjA" secondAttribute="trailing" constant="15" id="Gjz-Vg-36g"/>
+                            <constraint firstItem="zWb-gR-uff" firstAttribute="top" secondItem="V4Q-i4-ST0" secondAttribute="bottom" constant="8" symbolic="YES" id="HvM-IH-Xyv"/>
+                            <constraint firstItem="OQt-1l-vVH" firstAttribute="trailing" secondItem="AxI-uI-T3Z" secondAttribute="trailing" id="IBA-xC-ZfA"/>
+                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leadingMargin" id="JBv-DT-wRu"/>
+                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="top" secondItem="OQt-1l-vVH" secondAttribute="bottom" constant="8" symbolic="YES" id="K5W-zA-5DB"/>
+                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leadingMargin" constant="21" id="MCn-jC-VmG"/>
+                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="trailing" secondItem="zWb-gR-uff" secondAttribute="trailing" id="MN0-FV-9Ih"/>
+                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="trailing" secondItem="KrW-o8-hI5" secondAttribute="trailing" id="Nw1-ir-Fyr"/>
+                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="leading" secondItem="zWb-gR-uff" secondAttribute="leading" id="Qvy-wx-Bg0"/>
+                            <constraint firstItem="leo-NX-Aly" firstAttribute="trailing" secondItem="OQt-1l-vVH" secondAttribute="trailing" id="Sf4-lN-Pwf"/>
+                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="bottom" secondItem="UZn-AI-iaY" secondAttribute="top" id="Sq8-xu-Q8O"/>
+                            <constraint firstItem="V4Q-i4-ST0" firstAttribute="baseline" secondItem="MfQ-vj-WjA" secondAttribute="baseline" id="VzT-bb-QsF"/>
+                            <constraint firstItem="yK6-an-LK7" firstAttribute="top" secondItem="6Jn-DY-BVK" secondAttribute="bottom" constant="7" id="cKt-aM-PYS"/>
+                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="top" secondItem="AxI-uI-T3Z" secondAttribute="bottom" constant="8" symbolic="YES" id="fpl-2K-0In"/>
+                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="baseline" secondItem="leo-NX-Aly" secondAttribute="baseline" id="j6Y-k2-xty"/>
+                            <constraint firstItem="leo-NX-Aly" firstAttribute="leading" secondItem="OQt-1l-vVH" secondAttribute="leading" id="lRc-ZV-D1a"/>
+                            <constraint firstItem="lN1-P9-pWZ" firstAttribute="leading" secondItem="JRb-E2-2PI" secondAttribute="leadingMargin" constant="-19" id="lvz-tG-801"/>
+                            <constraint firstItem="yK6-an-LK7" firstAttribute="baseline" secondItem="KrW-o8-hI5" secondAttribute="baseline" id="mYY-hb-red"/>
+                            <constraint firstItem="zWb-gR-uff" firstAttribute="leading" secondItem="yK6-an-LK7" secondAttribute="trailing" constant="8" symbolic="YES" id="myg-1V-o3w"/>
+                            <constraint firstItem="AxI-uI-T3Z" firstAttribute="top" secondItem="zWb-gR-uff" secondAttribute="bottom" constant="6" id="nA2-vz-H8a"/>
+                            <constraint firstItem="6Jn-DY-BVK" firstAttribute="top" secondItem="sMd-rq-w2a" secondAttribute="bottom" constant="8" symbolic="YES" id="scf-de-8dP"/>
+                            <constraint firstItem="MfQ-vj-WjA" firstAttribute="leading" secondItem="V4Q-i4-ST0" secondAttribute="trailing" constant="39" id="vVT-GE-nNV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -781,6 +745,85 @@ I will use this data set to train a neural network, which will learn how the gen
             </objects>
             <point key="canvasLocation" x="8120.8000000000002" y="131.78410794602701"/>
         </scene>
+        <!--View To Bit MapVC-->
+        <scene sceneID="tgb-8s-cBb">
+            <objects>
+                <viewController id="ocy-NB-b8q" customClass="ViewToBitMapVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JaV-ad-mgo"/>
+                        <viewControllerLayoutGuide type="bottom" id="OuK-y4-rBA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UgC-19-CxY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bre-T0-XyR">
+                                <rect key="frame" x="16" y="20" width="343" height="559"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="wON-k3-E7G">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GlyphCell" id="zR5-aL-lXf" customClass="GlyphCell" customModule="GlyphRecognizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNZ-Ie-BV8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="80" height="80"/>
+                                        <connections>
+                                            <outlet property="exportGlyphImageView" destination="GNZ-Ie-BV8" id="EVd-BK-t5c"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ocy-NB-b8q" id="TXi-KV-sAk"/>
+                                    <outlet property="delegate" destination="ocy-NB-b8q" id="hZB-eB-OVU"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRU-SG-j7L">
+                                <rect key="frame" x="-3" y="587" width="378" height="80"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.37254901959999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="tyJ-7h-6xY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exportImages:" destination="ocy-NB-b8q" eventType="touchUpInside" id="nOd-WQ-lE3"/>
+                                    <action selector="redo:" destination="o9D-3m-OkC" eventType="touchUpInside" id="4yt-PM-8NK"/>
+                                    <segue destination="Zqa-hL-Njm" kind="show" id="DoH-rv-C91"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yRU-SG-j7L" secondAttribute="trailing" id="5jL-4V-rxS"/>
+                            <constraint firstItem="bre-T0-XyR" firstAttribute="leading" secondItem="UgC-19-CxY" secondAttribute="leadingMargin" id="Zed-4N-znF"/>
+                            <constraint firstItem="bre-T0-XyR" firstAttribute="trailing" secondItem="UgC-19-CxY" secondAttribute="trailingMargin" id="anq-P6-Rtp"/>
+                            <constraint firstItem="bre-T0-XyR" firstAttribute="top" secondItem="JaV-ad-mgo" secondAttribute="bottom" id="dw3-fT-o3f"/>
+                            <constraint firstItem="yRU-SG-j7L" firstAttribute="leading" secondItem="UgC-19-CxY" secondAttribute="leadingMargin" constant="-19" id="emc-WP-zGY"/>
+                            <constraint firstItem="yRU-SG-j7L" firstAttribute="top" secondItem="bre-T0-XyR" secondAttribute="bottom" constant="8" symbolic="YES" id="f2f-3F-Tg0"/>
+                            <constraint firstItem="yRU-SG-j7L" firstAttribute="bottom" secondItem="OuK-y4-rBA" secondAttribute="top" id="xT7-HC-7Sf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TGn-QG-BuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8897" y="131"/>
+        </scene>
     </scenes>
     <resources>
         <image name="left-hand" width="300" height="364"/>
@@ -789,6 +832,6 @@ I will use this data set to train a neural network, which will learn how the gen
         <image name="venus" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zEx-wR-oom"/>
+        <segue reference="DoH-rv-C91"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class SubjectStep1VC: UIViewController, UITextFieldDelegate {
     // data model
@@ -62,7 +61,7 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
 //        yearTextField.keyboardType = UIKeyboardType.numberPad
         self.yearTextField.becomeFirstResponder()
         
-        self.changeGender(self.femaleButton)
+        self.changeGender(self.maleButton)
         self.femaleButton.layer.borderWidth = 1.0
         self.maleButton.layer.borderWidth = 1.0
         self.femaleButton.layer.borderColor = UIColor.gray.cgColor
@@ -80,7 +79,7 @@ class SubjectStep1VC: UIViewController, UITextFieldDelegate {
         if let destinationVC = segue.destination as? SubjectStep2VC {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             subject?.nativeLanguage = "IE"
-            subject?.handedness = Subject.HandedNess.Left.rawValue
+            subject?.handedness = Subject.HandedNess.Right.rawValue
             destinationVC.subject = subject
         }
     }

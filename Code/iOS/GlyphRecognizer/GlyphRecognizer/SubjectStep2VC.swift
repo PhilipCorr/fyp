@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class SubjectStep2VC: UIViewController {
     // datamodel

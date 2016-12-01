@@ -15,8 +15,9 @@ class GlyphEntryVC: UIViewController {
     public var subject: Subject?
     public var segueId: String?
     
+    public var index = 0
     private var glyphs = [Glyph]()
-    public var fingerType = "index"
+    public var fingerType = Glyph.Finger.Index
     
     @IBOutlet weak var glyphView: GlyphView!
     
@@ -30,7 +31,7 @@ class GlyphEntryVC: UIViewController {
         
         var unshuffledNumbers = [Int]()
         
-        for _ in 1..<4 {
+        for _ in 1..<5 {
             unshuffledNumbers.append(contentsOf: Array(min..<max))
         }
         
@@ -44,29 +45,32 @@ class GlyphEntryVC: UIViewController {
 
         characterToBeDrawn = randomNumbers(range: 0..<10).map {"\($0)"}
         print("\(characterToBeDrawn)")
-        let toSpeak = fingerType == "index" ? "\(fingerType) finger" : "\(fingerType)"
+        let toSpeak = fingerType == .Index ? "\(fingerType) finger" : "\(fingerType)"
         synthesizer.speak(AVSpeechUtterance(string: "Please draw the following numbers using your \(toSpeak)"))
         newInstruction()
     }
     
+    override func viewDidLayoutSubviews() {
+        self.glyphView.glyph?.clientWidth = Double(self.glyphView.bounds.size.width)
+        self.glyphView.glyph?.clientHeight = Double(self.glyphView.bounds.size.height)
+    }
+    
     func newInstruction() {
         self.glyphView.glyphStart = true
-        
         if let character = characterToBeDrawn.last
         {
+            index = index + 1
             let newGlyph = Glyph(context: (self.subject?.managedObjectContext)!)
             newGlyph.character = character
-            newGlyph.finger = fingerType
-            newGlyph.clientWidth = Double(self.glyphView.bounds.size.width)
-            newGlyph.clientHeight = Double(self.glyphView.bounds.size.height)
+            newGlyph.index = Int32(index)
+            newGlyph.finger = fingerType.rawValue
             synthesizer.speak(AVSpeechUtterance(string: character))
             self.glyphs.append(newGlyph)
             characterToBeDrawn.removeLast()
             self.glyphView.glyph = newGlyph
-            
-
-            
-        } else {
+        }
+        else
+        {
             self.glyphView.isUserInteractionEnabled = false
             for glyph in self.glyphs {
                 self.subject?.addToGlyphs(glyph)
@@ -74,6 +78,7 @@ class GlyphEntryVC: UIViewController {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             self.performSegue(withIdentifier: self.segueId!, sender: self)
         }
+        print("width = \(self.glyphView.glyph?.clientWidth)")
     }
     
     @IBAction func redo(_ sender: UIButton) {
@@ -89,6 +94,7 @@ class GlyphEntryVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if let destinationVC = segue.destination as? SwapFingerVC {
             destinationVC.subject = self.subject
+            destinationVC.index = index
         } else if let destinationVC = segue.destination as? SummaryVC {
             destinationVC.subject = self.subject
         }
@@ -105,9 +111,3 @@ class GlyphEntryVC: UIViewController {
     }
 }
 
-extension Glyph {
-    enum finger: String {
-        case Finger = "index"
-        case Thumb = "thumb"
-    }
-}

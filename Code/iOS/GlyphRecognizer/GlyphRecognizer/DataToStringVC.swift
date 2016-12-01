@@ -15,10 +15,11 @@ extension Glyph {
 }
 
 class TestVC: UIViewController {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -27,6 +28,22 @@ class TestVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //@IBAction func exportData(_ sender: UIButton) {
+      //  let context = appDelegate.persistentContainer.viewContext
+
+//        let fetchRequest:NSFetchRequest<Glyph> = Glyph.fetchRequest()
+  //          do{
+    //            let searchResults = try context.fetch(fetchRequest)
+      //          print("Number of results: \(searchResults.count)")
+        //        for result in searchResults as [Touch]{
+          //          print("x is \(result.x), y is \(result.y) at time t=\(result.t)")
+            //    }
+            //}
+            //catch{
+            //    print("Error: \(error).self")
+           // }
+     
+   // }
 
     /*
     // MARK: - Navigation
@@ -39,3 +56,7 @@ class TestVC: UIViewController {
     */
 
 }
+
+
+
+

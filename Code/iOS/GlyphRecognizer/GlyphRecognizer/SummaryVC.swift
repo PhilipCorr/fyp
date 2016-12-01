@@ -10,14 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "GlyphCell"
 
-class GlyphCell: UICollectionViewCell {
-    
-    @IBOutlet var glyphView: GlyphView! {
-        didSet {
-            glyphView.isUserInteractionEnabled = false
-        }
-    }
-}
+//class GlyphCell: UICollectionViewCell {
+//    @IBOutlet weak var glyphImageView: UIImageView!
+//}
 
 
 class SummaryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -55,21 +50,25 @@ class SummaryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GlyphCell
         
         // Configure the cell
-        cell.glyphView.glyph = self.subject!.glyphs!.array[indexPath.item] as? Glyph
+        let glyph = self.subject!.glyphs!.array[indexPath.item] as? Glyph
+        cell.glyphImageView.image = glyph?.image()
         cell.layer.borderWidth = 1.0
         cell.layer.borderColor = UIColor.black.cgColor
         
         return cell
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if let destinationVC = segue.destination as? ViewToBitMapVC {
+            // create new subject and set model to new VC
+            destinationVC.subject = self.subject
+        }
     }
-    */
-
 }
