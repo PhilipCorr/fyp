@@ -13,7 +13,7 @@ private let reuseIdentifier = "GlyphCell"
 
 class ViewToBitMapVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     public var subject: Subject?
-    var imagesDirectoryPath:String!
+    var directoryUrl:NSURL!
     var images:[UIImage]!
     var titles:[String]!
     
@@ -23,7 +23,8 @@ class ViewToBitMapVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Get the Document directory path
         let documentDirectoryPath:String = paths[0]
         // Create a new path for the new images folder
-        imagesDirectoryPath = documentDirectoryPath + "/Images"
+        let imagesDirectoryPath = documentDirectoryPath + "/Images"
+        directoryUrl = NSURL(fileURLWithPath: imagesDirectoryPath)
         
         var objcBool:ObjCBool = true
         let isExist = FileManager.default.fileExists(atPath: imagesDirectoryPath, isDirectory: &objcBool)
@@ -59,12 +60,19 @@ class ViewToBitMapVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.layer.borderWidth = 1.0
         cell.layer.borderColor = UIColor.black.cgColor
         
-        // Save image to Document directory
-        var imagePath = "index\((glyph?.index)!)-num\((glyph?.character!)!)-\(NSDate().description))" //NSDate().description is current date and time
-        imagePath = imagesDirectoryPath + "/\(imagePath).png"
-        let data = UIImagePNGRepresentation((glyph?.image())!)
-        let success = FileManager.default.createFile(atPath: imagePath, contents: data, attributes: nil)
         
+        
+        
+        // Save image to Document directory
+        let indexString = "\((glyph?.index)!)".characters.count == 1 ? "0\((glyph?.index)!)" : "\((glyph?.index)!)"
+        let imagePath = "index\(indexString)-num\((glyph?.character!)!)-\(NSDate().description)"
+        //imagePath = imagesDirectoryPath + "/\(imagePath).png"
+        let filePath = directoryUrl.appendingPathComponent(imagePath)?.path
+        if !(FileManager.default.fileExists(atPath: filePath!)){
+            let data = UIImagePNGRepresentation((glyph?.image())!)
+            let success = FileManager.default.createFile(atPath: filePath!, contents: data, attributes: nil)
+            print("checkpoint")
+        }
         return cell
     }
     

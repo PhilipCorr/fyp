@@ -436,7 +436,7 @@ I will use this data set to train a neural network, which will learn how the gen
         <scene sceneID="ggk-Yd-fbv">
             <objects>
                 <collectionViewController id="mfG-92-krL" customClass="CountryCVC" customModule="GlyphRecognizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="tb7-ZL-xhM">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tb7-ZL-xhM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
