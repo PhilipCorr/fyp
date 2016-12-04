@@ -18,9 +18,9 @@ extension Glyph {
     public func image(lineWidth: CGFloat = 1.0, size: CGSize = CGSize(width: 28, height: 28), padding: UIEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: size)
         let image = renderer.image { ctx in
-            UIColor.black.setFill()
+            UIColor.white.setFill()
             UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: size)).fill()
-            UIColor.white.setStroke()
+            UIColor.black.setStroke()
             if let strokes = self.strokes?.array as? [Stroke], let boundingBox = self.boundingBox {
                 let drawingRect = UIEdgeInsetsInsetRect(CGRect(origin: CGPoint.zero, size: size), padding)
                 let scale = Double(max(drawingRect.width, drawingRect.height )) / Double(max(boundingBox.size.width, boundingBox.size.height))
