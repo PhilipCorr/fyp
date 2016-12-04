@@ -15,7 +15,7 @@ extension Glyph {
         case Thumb = "thumb"
     }
 
-    public func image(lineWidth: CGFloat = 1.0, size: CGSize = CGSize(width: 28, height: 28), padding: UIEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)) -> UIImage? {
+    public func image(lineWidth: CGFloat = 1.0, size: CGSize = CGSize(width: 14, height: 14), padding: UIEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: size)
         let image = renderer.image { ctx in
             UIColor.white.setFill()

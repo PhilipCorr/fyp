@@ -65,7 +65,7 @@ class ViewToBitMapVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Save image to Document directory
         let indexString = "\((glyph?.index)!)".characters.count == 1 ? "0\((glyph?.index)!)" : "\((glyph?.index)!)"
-        let imagePath = "index\(indexString)-num\((glyph?.character!)!)-\(NSDate().description)"
+        let imagePath = "index\(indexString)-num\((glyph?.character!)!).png"
         //imagePath = imagesDirectoryPath + "/\(imagePath).png"
         let filePath = directoryUrl.appendingPathComponent(imagePath)?.path
         if !(FileManager.default.fileExists(atPath: filePath!)){
