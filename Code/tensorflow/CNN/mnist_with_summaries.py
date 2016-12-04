@@ -19,35 +19,83 @@ naming summary tags so that they are grouped meaningfully in TensorBoard.
 It demonstrates the functionality of every TensorBoard dashboard.
 """
 from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-import argparse
-
-import tensorflow as tf
-
-from tensorflow.examples.tutorials.mnist import input_data
-
-FLAGS = None
-
-def train():
-  # Import data
-  mnist = input_data.read_data_sets(FLAGS.data_dir,
-                                    one_hot=True,
-                                    fake_data=FLAGS.fake_data)
-
-  sess = tf.InteractiveSession()
-
-  # Create a multilayer model.
-
-  # Input placeholders
-  with tf.name_scope('input'):
-    x = tf.placeholder(tf.float32, [None, 784], name='x-input')
-    y_ = tf.placeholder(tf.float32, [None, 10], name='y-input')
-
-  with tf.name_scope('input_reshape'):
-    image_shaped_input = tf.reshape(x, [-1, 28, 28, 1])
-    tf.image_summary('input', image_shaped_input, 10)
+from __future__ import division 
+from __future__ import print_function 
+ 
+import gzip 
+import numpy 
+import argparse 
+ 
+import tensorflow as tf 
+ 
+from tensorflow.python.framework import dtypes 
+from tensorflow.python.platform import gfile 
+from tensorflow.contrib.learn.python.learn.datasets import base 
+from tensorflow.python.framework import dtypes 
+from tensorflow.examples.tutorials.mnist import input_data 
+from tensorflow.contrib.learn.python.learn.datasets import mnist 
+ 
+ 
+FLAGS = None 
+ 
+def extract_gestures(filename): 
+  """Extract the images into a 4D uint8 numpy array [index, y, x, depth].""" 
+  print('Extracting', filename) 
+  with gfile.Open(filename, 'rb') as f, gzip.GzipFile(fileobj=f) as bytestream: 
+    buf = bytestream.read() 
+    data = numpy.frombuffer(buf, dtype=numpy.uint8) 
+    print('size of gesture data: %s' % len(data)) 
+    data = data.reshape(1, 28, 28, 1) # 1 image, 28x28 pixels and 1 channel 
+    return data 
+ 
+def extract_labels(filename, one_hot=False, num_classes=10): 
+  """Extract the labels into a 1D uint8 numpy array [index].""" 
+  print('Extracting', filename) 
+  with gfile.Open(filename, 'rb') as f, gzip.GzipFile(fileobj=f) as bytestream: 
+    num_items = mnist._read32(bytestream) 
+    buf = bytestream.read(num_items) 
+    labels = numpy.frombuffer(buf, dtype=numpy.uint8) 
+    if one_hot: 
+      return dense_to_one_hot(labels, num_classes) 
+    return labels 
+ 
+def import_gestures(): 
+  extracted_gesture = mnist.extract_images(FLAGS.data_test_gesture_file) 
+  gesture_label =  mnist.extract_labels(FLAGS.data_test_label_file, one_hot=True) 
+  gesture_dataset = mnist.DataSet(extracted_gesture, gesture_label, dtype=dtypes.float32, reshape=True) 
+  return gesture_dataset 
+   
+def train(): 
+  # Import data 
+  mnist = input_data.read_data_sets(FLAGS.data_dir, 
+                                    one_hot=True, 
+                                    fake_data=FLAGS.fake_data) 
+  gesture_set = import_gestures() 
+ 
+  print('gesture image shape: %s gesture label shape: %s' % (gesture_set.images.shape, gesture_set.labels.shape)) 
+  print('mnist train image shape: %s mnist train label shape: %s' % (mnist.train.images.shape, mnist.train.labels.shape)) 
+ 
+  #gesture_images = gesture_set.next_batch(100, fake_data=False) 
+  xs, ys = mnist.train.next_batch(100, fake_data=FLAGS.fake_data) 
+ 
+  sess = tf.InteractiveSession() 
+ 
+  # Create a multilayer model. 
+ 
+  # Input placeholders 
+  # Takes in Binary file input and reads in 784 bits 
+  with tf.name_scope('input'): 
+    x = tf.placeholder(tf.float32, [None, 784], name='x-input') 
+    y_ = tf.placeholder(tf.float32, [None, 10], name='y-input') 
+  with tf.name_scope('gesture-input'): 
+    g = tf.placeholder(tf.float32, [None, 784], name='g-input') 
+ 
+  with tf.name_scope('input_reshape'): 
+    image_shaped_input = tf.reshape(x, [-1, 28, 28, 1]) 
+    tf.image_summary('input', image_shaped_input, 10) 
+  with tf.name_scope('gesture_input_reshape'): 
+    gesture_shaped_input = tf.reshape(g, [-1, 28, 28, 1]) 
+    tf.image_summary('gesture-input', gesture_shaped_input, 10) 
 
   # We can't initialize these variables to 0 - the network will get stuck.
   def weight_variable(shape):
@@ -146,11 +194,13 @@ def train():
     """Make a TensorFlow feed_dict: maps data onto Tensor placeholders."""
     if train or FLAGS.fake_data:
       xs, ys = mnist.train.next_batch(100, fake_data=FLAGS.fake_data)
+      gs = gesture_set.images
       k = FLAGS.dropout
     else:
       xs, ys = mnist.test.images, mnist.test.labels
+      gs = gesture_set.images
       k = 1.0
-    return {x: xs, y_: ys, keep_prob: k}
+    return {x: xs, y_: ys, g: gs, keep_prob: k}
 
   for i in range(FLAGS.max_steps):
     if i % 10 == 0:  # Record summaries and test-set accuracy
@@ -197,5 +247,14 @@ if __name__ == '__main__':
                       help='Directory for storing data')
   parser.add_argument('--summaries_dir', type=str, default='/tmp/mnist_logs',
                       help='Summaries directory')
+  parser.add_argument('--fake_test_data', nargs='?', const=True, type=bool, 
+                      default=True, 
+                      help='If true, adds gestures')
+  parser.add_argument('--data_dir', type=str, default='/tmp/tensorflow/mnist/input_data', 
+                      help='Directory for storing input data') 
+  parser.add_argument('--data_test_gesture_file', type=str, default='/tmp/data_test/data.idx3-ubyte.gz', 
+                      help='Directory for storing test data') 
+  parser.add_argument('--data_test_label_file', type=str, default='/tmp/data_test/label.idx1-ubyte.gz', 
+                      help='Directory for storing test data')
   FLAGS = parser.parse_args()
   tf.app.run()
