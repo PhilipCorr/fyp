@@ -32,6 +32,25 @@ class SummaryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         self.countryLabel.text = String.flag(country: (subject?.nativeLanguage)!)
         self.sexLabel.text = "\((self.subject?.sex)!)"
         self.handLabel.text = "\((self.subject?.handedness)!)"
+        
+        // Create new paths for output
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        // Get the Document directory path
+        let dirPath:String = paths[0]
+        var pathArray: [String] = [dirPath + "/images", dirPath + "/Pixels"]
+        
+        var objcBool:ObjCBool = true
+        for directory in pathArray{
+            let isExist = FileManager.default.fileExists(atPath: directory, isDirectory: &objcBool)
+            // If the folder with the given path doesn't exist already, create it
+            if isExist == false{
+                do{
+                    try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true, attributes: nil)
+                }catch{
+                    print("Something went wrong while creating a new folder")
+                }
+            }
+        }
     }
 
     // MARK: UICollectionViewDataSource
