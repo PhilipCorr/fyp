@@ -31,7 +31,7 @@ class GlyphEntryVC: UIViewController {
         
         var unshuffledNumbers = [Int]()
         
-        for _ in 1..<5 {
+        for _ in 1..<2 {
             unshuffledNumbers.append(contentsOf: Array(min..<max))
         }
         
@@ -43,7 +43,7 @@ class GlyphEntryVC: UIViewController {
         super.viewDidLoad()
         print(subject?.description ?? "invalid")
 
-        characterToBeDrawn = randomNumbers(range: 0..<10).map {"\($0)"}
+        characterToBeDrawn = randomNumbers(range: 0..<4).map {"\($0)"}
         print("\(characterToBeDrawn)")
         let toSpeak = fingerType == .Index ? "\(fingerType) finger" : "\(fingerType)"
         synthesizer.speak(AVSpeechUtterance(string: "Please draw the following numbers using your \(toSpeak)"))
