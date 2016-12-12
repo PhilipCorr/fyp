@@ -250,8 +250,6 @@ if __name__ == '__main__':
   parser.add_argument('--fake_test_data', nargs='?', const=True, type=bool, 
                       default=True, 
                       help='If true, adds gestures')
-  parser.add_argument('--data_dir', type=str, default='/tmp/tensorflow/mnist/input_data', 
-                      help='Directory for storing input data') 
   parser.add_argument('--data_test_gesture_file', type=str, default='/tmp/data_test/data.idx3-ubyte.gz', 
                       help='Directory for storing test data') 
   parser.add_argument('--data_test_label_file', type=str, default='/tmp/data_test/label.idx1-ubyte.gz', 
