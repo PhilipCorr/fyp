@@ -1,0 +1,26 @@
+import os
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Convert png files to binary files
+# Images are in greyscale format
+dir = "/home/phil/Repos/cnn-gesture-recognition/db/pixels/"
+
+label_bytes = []
+stream = []
+listOfFiles = os.listdir(dir)
+print(listOfFiles)
+
+for i in range(len(listOfFiles)):
+    pixel_file = open(dir + 'pixel' + str(i).zfill(4) + '.txt','r')
+    pixel_txt = pixel_file.read()
+    pixel_array =
+    stream.extend(npImage)
+
+# afterfig = plt.figure(2)
+plt.imshow(npImage)
+plt.show()
+
+out = np.array(stream, dtype=np.uint8)
+out.tofile('/home/phil/Repos/cnn-gesture-recognition/db/bin/generated/data.bin')
