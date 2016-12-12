@@ -10,4 +10,4 @@ def rename(dir):
           ) 
  
 if __name__ == '__main__': 
-  rename('/home/phil/Repos/cnn-gesture-recognition/db/images/') 
+  rename('/home/phil/Repos/cnn-gesture-recognition/db/mozaic/')
